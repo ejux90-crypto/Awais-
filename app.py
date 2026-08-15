@@ -354,6 +354,84 @@ def seed_db():
                     "explanation": "Despite successful completion of therapy, guidelines recommend monitoring patients for relapse or complications for 3 months after treatment initiation."
                 }
             ]
+        },
+        {
+            "id": "stills-disease",
+            "title": "Adult-Onset Still's Disease (AOSD) & MAS",
+            "description": "Quotidian fevers, salmon-pink rash, hyperferritinemia, Yamaguchi criteria, negative ANA/RF, and Macrophage Activation Syndrome (MAS).",
+            "category": "Rheumatology",
+            "questions": [
+                {
+                    "question_text": "A 28-year-old female presents with a 3-week history of daily high-grade fevers spiking up to 39.5°C (103.1°F), typically occurring late in the evening. During the fever spikes, a faint, salmon-pink maculopapular rash appears on her trunk and thighs and fades when her temperature normalizes. She also complains of bilateral wrist and knee pain. What is the most likely diagnosis?",
+                    "image_url": None,
+                    "options": ["Systemic Lupus Erythematosus (SLE)", "Adult-Onset Still's Disease (AOSD)", "Acute Rheumatic Fever", "Disseminated Gonococcal Infection"],
+                    "correct_option": 1,
+                    "explanation": "Adult-Onset Still's Disease (AOSD) is characterized by the classic clinical triad of quotidian (daily) spiking fevers (≥39°C), an evanescent salmon-colored maculopapular rash that recurs during fever spikes, and polyarthritis/arthralgias."
+                },
+                {
+                    "question_text": "Which of the following prodromal symptoms is reported in up to 70% of patients with Adult-Onset Still's Disease, frequently preceding the onset of fever, rash, and arthritis?",
+                    "image_url": None,
+                    "options": ["Severe painless hematuria", "Severe non-exudative pharyngitis / sore throat", "Bilateral parotid swelling", "Alopecia areata"],
+                    "correct_option": 1,
+                    "explanation": "Non-exudative aseptic pharyngitis (sore throat) is a prominent feature reported in up to 70% of patients with AOSD, often presenting early in the disease course prior to the full manifestation of fever and rash."
+                },
+                {
+                    "question_text": "In a patient suspected of having Adult-Onset Still's Disease, which set of serological laboratory test results is characteristically required to support the diagnosis?",
+                    "image_url": None,
+                    "options": ["Positive ANA (1:640) and Positive Anti-dsDNA", "Negative ANA and Negative Rheumatoid Factor (RF)", "Positive Anti-CCP antibodies and Positive c-ANCA", "Positive Anti-Ro/SSA and Anti-La/SSB"],
+                    "correct_option": 1,
+                    "explanation": "A hallmark of Still's disease is that standard autoantibodies including Antinuclear Antibodies (ANA) and Rheumatoid Factor (RF) are persistently NEGATIVE (present in <10% of cases). Positivity for ANA/RF suggests alternative diagnoses such as SLE or Rheumatoid Arthritis."
+                },
+                {
+                    "question_text": "A 32-year-old male evaluated for fever of unknown origin is found to have a serum ferritin level of 4,800 ng/mL (normal: 20-300 ng/mL). Further testing shows a low percentage of glycosylated ferritin (<20%). How does this finding assist in the diagnosis?",
+                    "image_url": None,
+                    "options": ["It rules out Still's disease and confirms Iron Overload Hemochromatosis", "Marked hyperferritinemia combined with low glycosylated ferritin (<20%) is highly characteristic of Still's disease", "It confirms acute Viral Hepatitis B", "It indicates severe Vitamin B12 deficiency"],
+                    "correct_option": 1,
+                    "explanation": "Extreme hyperferritinemia (often >1000 to >5000 ng/mL) combined with a low fraction of glycosylated ferritin (<20%) is a key biomarker for Still's disease (Fautrel criteria), reflecting intense macrophage and reticuloendothelial activation."
+                },
+                {
+                    "question_text": "What characteristic complete blood count (CBC) abnormality is typically observed in active Adult-Onset Still's Disease?",
+                    "image_url": None,
+                    "options": ["Profound leukopenia with lymphopenia (WBC <2,000/µL)", "Marked leukocytosis (WBC ≥15,000/µL) with >80% granulocytes/neutrophils", "Isolated severe thrombocytopenia (platelets <20,000/µL)", "Pure red cell aplasia with reticulocyte count <0.1%"],
+                    "correct_option": 1,
+                    "explanation": "Leukocytosis (often WBC ≥15,000 to >30,000/µL) with striking granulocytosis (>80% PMNs) is a major Yamaguchi criterion for Still's disease, reflecting intense bone marrow granulopoiesis."
+                },
+                {
+                    "question_text": "According to the widely used Yamaguchi Classification Criteria for Adult-Onset Still's Disease, diagnosis requires at least 5 total criteria, including AT LEAST how many Major Criteria?",
+                    "image_url": None,
+                    "options": ["At least 1 Major Criterion", "At least 2 Major Criteria", "At least 4 Major Criteria", "All 5 must be Major Criteria"],
+                    "correct_option": 1,
+                    "explanation": "Yamaguchi criteria require a total of at least 5 criteria, with AT LEAST 2 being Major Criteria (Major: Fever ≥39°C ≥1wk, Arthralgias ≥2wk, Typical salmon rash, Leukocytosis ≥10,000 with ≥80% PMNs), plus exclusion of infection, malignancy, and other rheumatic diseases."
+                },
+                {
+                    "question_text": "Plain radiographs of the wrists in a patient with long-standing chronic articular Adult-Onset Still's Disease characteristically demonstrate which of the following pattern of joint involvement?",
+                    "image_url": None,
+                    "options": ["Complete destruction of the distal interphalangeal (DIP) joints only", "Intercarpal and carpometacarpal joint space narrowing progressing to pericarpal ankylosis", "Bilateral sacroiliitis with bamboo spine", "Punched-out periarticular erosions with overhanging sclerotic margins (Gouty tophi)"],
+                    "correct_option": 1,
+                    "explanation": "Characteristic radiographic changes in chronic articular AOSD include non-erosive intercarpal and carpometacarpal joint narrowing that rapidly leads to pericarpal ankylosis (fusion of wrist bones), which is relatively unique to Still's disease."
+                },
+                {
+                    "question_text": "A 30-year-old female with AOSD on oral prednisone is admitted with high fever, delirium, jaundice, and purpura. Labs reveal: Hb 6.5 g/dL, Platelets 22,000/µL, WBC 2,100/µL, Ferritin 18,500 ng/mL, Fibrinogen 85 mg/dL (low), ESR 6 mm/hr (markedly decreased from 95 mm/hr). Bone marrow aspirate reveals macrophages engulfing erythrocytes and platelets. What is the diagnosis?",
+                    "image_url": None,
+                    "options": ["Acute Myeloid Leukemia", "Macrophage Activation Syndrome (MAS / Secondary HLH)", "Thrombotic Thrombocytopenic Purpura (TTP)", "Aplastic Anemia"],
+                    "correct_option": 1,
+                    "explanation": "Macrophage Activation Syndrome (MAS) is a life-threatening complication of Still's disease characterized by uncontrolled activation of macrophages and T-cells, leading to hyperferritinemia (>10,000), pancytopenia, hypofibrinogenemia (causing a sudden drop in ESR), liver dysfunction, and hemophagocytosis."
+                },
+                {
+                    "question_text": "Which hyperinflammatory cytokine signaling pathway plays a dominant role in driving the excessive inflammasome activation and severe systemic manifestations in Still's Disease and MAS?",
+                    "image_url": None,
+                    "options": ["Interleukin-1 (IL-1β) and Interleukin-18 (IL-18) pathway", "Interleukin-4 (IL-4) pathway", "IgE-mediated histamine release", "Complement C5a activation pathway"],
+                    "correct_option": 0,
+                    "explanation": "Still's disease and MAS are autoinflammatory disorders driven by NLRP3 inflammasome activation resulting in massive overproduction of pro-inflammatory cytokines Interleukin-1 (IL-1β) and Interleukin-18 (IL-18), alongside IFN-gamma."
+                },
+                {
+                    "question_text": "What is the recommended first-line biologic disease-modifying therapy (bDMARD) for severe active Adult-Onset Still's Disease or incipient Macrophage Activation Syndrome due to its rapid onset and short half-life?",
+                    "image_url": None,
+                    "options": ["Infliximab (TNF inhibitor)", "Anakinra (Short-acting IL-1 receptor antagonist)", "Rituximab (Anti-CD20 monoclonal antibody)", "Methotrexate monotherapy"],
+                    "correct_option": 1,
+                    "explanation": "Anakinra (a short-acting IL-1 receptor antagonist) is the first-line biologic of choice for severe AOSD and incipient/active MAS due to its rapid onset of action and short half-life, allowing safe titration in acute hyperinflammatory crises."
+                }
+            ]
         }
     ]
 
