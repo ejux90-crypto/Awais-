@@ -689,8 +689,19 @@
         }
 
         // ==================== VIEW 4: ADMIN PORTAL ====================
+        function getAdminPassword() {
+            return sessionStorage.getItem('adminPassword') || '';
+        }
+
         async function renderAdminView() {
             const container = document.getElementById('app-container');
+            const savedPassword = getAdminPassword();
+
+            if (!savedPassword) {
+                renderAdminLoginPrompt();
+                return;
+            }
+
             container.innerHTML = `
                 <div class="space-y-8 py-4">
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-6">
@@ -701,6 +712,9 @@
                             <h2 class="text-3xl font-extrabold text-white">Admin Dashboard</h2>
                         </div>
                         <div class="flex items-center gap-3">
+                            <button onclick="sessionStorage.removeItem('adminPassword'); renderAdminView();" class="px-3.5 py-2 rounded-xl text-xs font-semibold text-rose-300 bg-rose-950/60 border border-rose-800 hover:bg-rose-900 transition flex items-center gap-1.5">
+                                <i class="fa-solid fa-lock"></i> Lock Admin
+                            </button>
                             <button onclick="showCreateQuizModal()" class="px-4 py-2.5 rounded-xl font-bold text-sm bg-gradient-to-r from-cyan-500 to-teal-500 text-slate-950 hover:from-cyan-400 hover:to-teal-400 transition flex items-center gap-2 shadow-lg shadow-cyan-500/20">
                                 <i class="fa-solid fa-plus"></i> Create New Quiz
                             </button>
@@ -829,9 +843,71 @@
             loadAdminSubmissions();
         }
 
+        function renderAdminLoginPrompt() {
+            const container = document.getElementById('app-container');
+            container.innerHTML = `
+                <div class="max-w-md mx-auto py-16">
+                    <div class="glass-card rounded-3xl p-8 border border-slate-800 shadow-2xl text-center relative overflow-hidden">
+                        <div class="w-16 h-16 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 flex items-center justify-center text-3xl font-bold mb-6 mx-auto">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                        <h2 class="text-2xl font-extrabold text-white mb-2">Admin Portal Restricted</h2>
+                        <p class="text-slate-400 text-xs mb-6">Enter password to view participant submission logs and access the quiz editor.</p>
+
+                        <form onsubmit="handleAdminAuth(event)" class="space-y-4 text-left">
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Admin Password</label>
+                                <input type="password" id="admin-pass-input" required placeholder="Enter password..."
+                                    class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-cyan-400">
+                            </div>
+                            <button type="submit" class="w-full py-3.5 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-cyan-500 to-teal-500 text-slate-950 hover:from-cyan-400 hover:to-teal-400 transition-all flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20">
+                                Unlock Admin Portal <i class="fa-solid fa-key"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            `;
+
+            setTimeout(() => {
+                document.getElementById('admin-pass-input')?.focus();
+            }, 100);
+        }
+
+        async function handleAdminAuth(e) {
+            e.preventDefault();
+            const pass = document.getElementById('admin-pass-input').value.trim();
+            if (!pass) return;
+
+            try {
+                const res = await fetch('/api/admin/submissions', {
+                    headers: { 'X-Admin-Password': pass }
+                });
+
+                if (res.status === 401) {
+                    showToast('Incorrect Admin Password', 'error');
+                    return;
+                }
+
+                sessionStorage.setItem('adminPassword', pass);
+                showToast('Admin Portal Unlocked!', 'success');
+                renderAdminView();
+            } catch (err) {
+                showToast('Authentication error', 'error');
+            }
+        }
+
         async function loadAdminSubmissions() {
             try {
-                const res = await fetch('/api/admin/submissions');
+                const res = await fetch('/api/admin/submissions', {
+                    headers: { 'X-Admin-Password': getAdminPassword() }
+                });
+
+                if (res.status === 401) {
+                    sessionStorage.removeItem('adminPassword');
+                    renderAdminView();
+                    return;
+                }
+
                 const data = await res.json();
                 const subs = data.submissions || [];
                 
@@ -869,18 +945,6 @@
             }
         }
 
-        function showCreateQuizModal() {
-            const modal = document.getElementById('create-quiz-modal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-        }
-
-        function closeCreateQuizModal() {
-            const modal = document.getElementById('create-quiz-modal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-        }
-
         async function handleCreateQuizSubmit(e) {
             e.preventDefault();
             const title = document.getElementById('new-quiz-title').value.trim();
@@ -903,7 +967,10 @@
             try {
                 const res = await fetch('/api/admin/quizzes', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Admin-Password': getAdminPassword()
+                    },
                     body: JSON.stringify({ title, category, description, questions: [question] })
                 });
 

@@ -9,6 +9,7 @@ from socketserver import ThreadingMixIn
 
 DB_FILE = os.path.join(os.path.dirname(__file__), 'quiz.db')
 STATIC_DIR = os.path.join(os.path.dirname(__file__), 'static')
+ADMIN_PASSWORD = os.environ.get('ADMIN_PASSWORD', 'admin123')
 
 class ThreadedWSGIServer(ThreadingMixIn, WSGIServer):
     daemon_threads = True
@@ -552,6 +553,11 @@ def application(environ, start_response):
         return json_response({'submission': submission})
 
     # Admin Endpoints
+    if path.startswith('/api/admin'):
+        auth_pass = environ.get('HTTP_X_ADMIN_PASSWORD', '')
+        if auth_pass != ADMIN_PASSWORD:
+            return json_response({'error': 'Unauthorized Admin Access'}, '401 Unauthorized')
+
     if path == '/api/admin/submissions' and method == 'GET':
         conn = get_db()
         cursor = conn.cursor()
