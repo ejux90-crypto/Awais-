@@ -389,24 +389,6 @@
                                     class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 text-sm">
                             </div>
 
-                            <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Assessment Mode</label>
-                                <div class="grid grid-cols-2 gap-3">
-                                    <label class="cursor-pointer border border-slate-700 bg-slate-900/80 p-3 rounded-xl flex flex-col items-center text-center hover:border-cyan-400 transition" id="mode-label-timed">
-                                        <input type="radio" name="quiz_mode" value="timed" class="sr-only" onchange="updateModeSelection('timed')">
-                                        <i class="fa-solid fa-stopwatch text-amber-400 text-xl mb-1"></i>
-                                        <span class="text-xs font-bold text-white">Timed Mode</span>
-                                        <span class="text-[10px] text-slate-400 mt-0.5">60s / question</span>
-                                    </label>
-                                    <label class="cursor-pointer border border-cyan-500 bg-cyan-950/40 p-3 rounded-xl flex flex-col items-center text-center transition" id="mode-label-untimed">
-                                        <input type="radio" name="quiz_mode" value="untimed" checked class="sr-only" onchange="updateModeSelection('untimed')">
-                                        <i class="fa-solid fa-couch text-teal-400 text-xl mb-1"></i>
-                                        <span class="text-xs font-bold text-white">Untimed Practice</span>
-                                        <span class="text-[10px] text-slate-400 mt-0.5">Self-paced</span>
-                                    </label>
-                                </div>
-                            </div>
-
                             <button type="submit" class="w-full py-3.5 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-cyan-500 to-teal-500 text-slate-950 shadow-lg shadow-cyan-500/20 hover:from-cyan-400 hover:to-teal-400 transition-all flex items-center justify-center gap-2">
                                 Begin Assessment <i class="fa-solid fa-play"></i>
                             </button>
@@ -420,44 +402,16 @@
             }, 100);
         }
 
-        function updateModeSelection(selectedMode) {
-            const timedLabel = document.getElementById('mode-label-timed');
-            const untimedLabel = document.getElementById('mode-label-untimed');
-
-            if (selectedMode === 'timed') {
-                timedLabel.className = 'cursor-pointer border border-amber-500 bg-amber-950/40 p-3 rounded-xl flex flex-col items-center text-center transition';
-                untimedLabel.className = 'cursor-pointer border border-slate-700 bg-slate-900/80 p-3 rounded-xl flex flex-col items-center text-center hover:border-cyan-400 transition';
-            } else {
-                untimedLabel.className = 'cursor-pointer border border-cyan-500 bg-cyan-950/40 p-3 rounded-xl flex flex-col items-center text-center transition';
-                timedLabel.className = 'cursor-pointer border border-slate-700 bg-slate-900/80 p-3 rounded-xl flex flex-col items-center text-center hover:border-cyan-400 transition';
-            }
-        }
-
         function submitParticipantName(e) {
             e.preventDefault();
             const input = document.getElementById('participant-name-input');
             const name = input.value.trim();
             if (!name) return;
             state.participantName = name;
-            
-            const modeRadios = document.getElementsByName('quiz_mode');
-            for (const r of modeRadios) {
-                if (r.checked) {
-                    state.quizMode = r.value;
-                }
-            }
-
-            state.startTime = Date.now();
-            state.questionTimes = {};
             renderQuizQuestionView();
         }
 
         function renderQuizQuestionView() {
-            if (state.questionTimer) {
-                clearInterval(state.questionTimer);
-                state.questionTimer = null;
-            }
-
             const container = document.getElementById('app-container');
             const quiz = state.activeQuiz;
             const qIndex = state.currentQuestionIndex;
@@ -465,11 +419,6 @@
             const totalQ = quiz.questions.length;
             const progressPct = Math.round(((qIndex + 1) / totalQ) * 100);
             const selectedOpt = state.userAnswers[question.id];
-
-            if (state.questionTimes[qIndex] === undefined) {
-                state.questionTimes[qIndex] = 60;
-            }
-            let secondsLeft = state.questionTimes[qIndex];
 
             container.innerHTML = `
                 <div class="max-w-3xl mx-auto space-y-6">
@@ -480,11 +429,6 @@
                             <span class="text-sm font-semibold text-cyan-300 bg-cyan-950/80 px-2.5 py-0.5 rounded-md border border-cyan-800/50">${state.participantName}</span>
                         </div>
                         <div class="flex items-center gap-4">
-                            ${state.quizMode === 'timed' ? `
-                                <div class="flex items-center gap-1.5 text-xs font-extrabold text-amber-400 bg-amber-950/80 px-3 py-1 rounded-full border border-amber-800/80">
-                                    <i class="fa-solid fa-clock"></i> <span id="q-timer-sec">${secondsLeft}</span>s Left
-                                </div>
-                            ` : ''}
                             <span class="text-xs font-bold text-slate-300">Question ${qIndex + 1} of ${totalQ}</span>
                             <div class="w-28 h-2 bg-slate-800 rounded-full overflow-hidden">
                                 <div class="h-full bg-gradient-to-r from-cyan-500 to-teal-400 transition-all duration-300" style="width: ${progressPct}%"></div>
@@ -554,27 +498,6 @@
                     </div>
                 </div>
             `;
-
-            // Start timer if timed mode
-            if (state.quizMode === 'timed') {
-                state.questionTimer = setInterval(() => {
-                    secondsLeft--;
-                    state.questionTimes[qIndex] = secondsLeft;
-                    const timerElem = document.getElementById('q-timer-sec');
-                    if (timerElem) timerElem.innerText = secondsLeft;
-                    
-                    if (secondsLeft <= 0) {
-                        clearInterval(state.questionTimer);
-                        state.questionTimer = null;
-                        showToast(`Time limit reached for Question ${qIndex + 1}!`, 'info');
-                        if (state.currentQuestionIndex < state.activeQuiz.questions.length - 1) {
-                            nextQuestion();
-                        } else {
-                            submitCompleteQuiz();
-                        }
-                    }
-                }, 1000);
-            }
         }
 
         function selectOption(questionId, optionIdx) {
