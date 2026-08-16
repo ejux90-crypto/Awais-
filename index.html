@@ -870,79 +870,76 @@
             modal.innerHTML = `
                 <div class="relative max-w-4xl w-full py-6" onclick="event.stopPropagation()">
                     <div class="flex items-center justify-between mb-4 px-2">
-                        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Official Shifa International Hospital Certificate</span>
+                        <span class="text-xs font-bold text-slate-300 uppercase tracking-wider">Official Shifa International Hospital Certificate</span>
                         <div class="flex items-center gap-3">
                             <button onclick="window.print()" class="px-4 py-2 rounded-xl font-bold text-xs bg-amber-400 text-slate-950 hover:bg-amber-300 transition flex items-center gap-1.5 shadow-lg">
                                 <i class="fa-solid fa-print"></i> Print / Save as PDF
                             </button>
-                            <button onclick="document.getElementById('cert-modal').remove()" class="text-slate-400 hover:text-white p-2">
+                            <button onclick="document.getElementById('cert-modal').remove()" class="text-slate-300 hover:text-white p-2">
                                 <i class="fa-solid fa-xmark text-xl"></i>
                             </button>
                         </div>
                     </div>
 
-                    <!-- Certificate Printable Area -->
-                    <div id="printable-certificate" class="bg-slate-950 text-white border-8 border-double border-amber-500/90 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden font-serif">
-                        <div class="absolute -top-16 -right-16 w-48 h-48 bg-amber-500/10 rounded-full blur-3xl"></div>
-                        <div class="absolute -bottom-16 -left-16 w-48 h-48 bg-cyan-500/10 rounded-full blur-3xl"></div>
-
-                        <!-- Top Hospital Header -->
+                    <!-- Certificate Printable Area (Bright Professional Ivory Parchment Theme) -->
+                    <div id="printable-certificate" class="bg-amber-50/95 text-slate-900 border-8 border-double border-amber-600/80 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden font-serif">
+                        
+                        <!-- Top Hospital Logo Header -->
                         <div class="text-center mb-8">
-                            <div class="w-16 h-16 rounded-2xl bg-amber-500/10 border border-amber-500/40 text-amber-400 flex items-center justify-center text-3xl font-bold mx-auto mb-3 shadow-inner">
-                                <i class="fa-solid fa-hospital font-bold"></i>
+                            <div class="inline-block mb-2 max-w-[260px]">
+                                <img src="/static/images/shifa_logo.png" alt="Shifa International Hospitals Ltd." class="h-14 md:h-16 object-contain mx-auto">
                             </div>
-                            <span class="text-base md:text-lg font-extrabold tracking-[0.2em] uppercase text-amber-300 block mb-1 font-sans">Shifa International Hospital</span>
-                            <span class="text-xs font-bold text-slate-300 tracking-wider uppercase block">Islamabad, Pakistan &bull; Department of Internal Medicine</span>
+                            <span class="text-xs font-bold text-amber-900 tracking-widest uppercase block font-sans">Islamabad, Pakistan &bull; Department of Internal Medicine</span>
                         </div>
 
                         <!-- Main Certificate Text -->
-                        <div class="text-center space-y-4 mb-10">
-                            <h1 class="text-3xl md:text-4xl font-extrabold text-white tracking-wide uppercase font-sans border-b border-slate-800/80 pb-4 max-w-xl mx-auto">
+                        <div class="text-center space-y-4 mb-8">
+                            <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-wider uppercase font-sans border-b-2 border-amber-500/40 pb-3 max-w-xl mx-auto">
                                 Certificate of Clinical Excellence
                             </h1>
-                            <p class="text-slate-400 text-xs italic tracking-wider">This official certificate is proudly awarded to</p>
+                            <p class="text-slate-600 text-xs italic tracking-wider">This official certificate is proudly awarded to</p>
 
-                            <div class="py-2 border-b-2 border-amber-400/80 max-w-md mx-auto">
-                                <span class="text-3xl md:text-4xl font-extrabold text-cyan-300 font-sans tracking-tight">${sub.participant_name}</span>
+                            <div class="py-1.5 border-b-2 border-amber-600/80 max-w-md mx-auto">
+                                <span class="text-3xl md:text-4xl font-extrabold text-slate-900 font-sans tracking-tight">${sub.participant_name}</span>
                             </div>
 
-                            <p class="text-slate-300 text-sm max-w-xl mx-auto leading-relaxed font-sans pt-2">
-                                For demonstrating high-yield clinical competency and successfully completing the medical board assessment:
-                                <strong class="text-amber-300 block text-base mt-1.5 font-serif">${sub.quiz_title}</strong>
+                            <p class="text-slate-700 text-sm max-w-xl mx-auto leading-relaxed font-sans pt-2">
+                                In recognition of outstanding performance and high-yield clinical competency demonstrated in the:
+                                <strong class="text-amber-950 block text-base mt-1.5 font-serif font-bold">${sub.quiz_title}</strong>
                             </p>
 
                             <!-- Highlighted Percentage Badge -->
-                            <div class="inline-flex items-center gap-4 bg-slate-900/90 border border-amber-500/50 px-6 py-3 rounded-2xl shadow-xl mt-4 font-sans">
+                            <div class="inline-flex items-center gap-6 bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-950 border border-amber-600 px-8 py-3 rounded-2xl shadow-md mt-4 font-sans">
                                 <div>
-                                    <span class="text-[10px] uppercase font-bold text-slate-400 block">Overall Score</span>
-                                    <span class="text-2xl font-extrabold text-amber-400">${sub.percentage}%</span>
+                                    <span class="text-[10px] uppercase font-extrabold text-slate-900 block tracking-wider">Overall Score</span>
+                                    <span class="text-3xl font-extrabold text-slate-950">${sub.percentage}%</span>
                                 </div>
-                                <div class="h-8 w-px bg-slate-800"></div>
+                                <div class="h-8 w-px bg-slate-950/30"></div>
                                 <div>
-                                    <span class="text-[10px] uppercase font-bold text-slate-400 block">Correct Answers</span>
-                                    <span class="text-base font-bold text-white">${sub.score} / ${sub.total_questions}</span>
+                                    <span class="text-[10px] uppercase font-extrabold text-slate-900 block tracking-wider">Correct Answers</span>
+                                    <span class="text-lg font-extrabold text-slate-950">${sub.score} / ${sub.total_questions}</span>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Bottom Verification Footer -->
-                        <div class="flex items-center justify-between text-xs text-slate-400 border-t border-slate-800/80 pt-6 font-sans">
+                        <div class="flex items-center justify-between text-xs text-slate-700 border-t-2 border-amber-500/40 pt-6 font-sans">
                             <div>
-                                <span class="text-slate-500 text-[10px] uppercase block">Date Issued</span>
-                                <span class="font-semibold text-slate-200">${dateStr}</span>
+                                <span class="text-slate-500 text-[10px] uppercase font-bold block">Date Issued</span>
+                                <span class="font-bold text-slate-900">${dateStr}</span>
                             </div>
 
                             <div class="text-center">
-                                <div class="w-14 h-14 rounded-full border-2 border-amber-400/80 text-amber-400 flex flex-col items-center justify-center mx-auto mb-1 bg-amber-950/40">
+                                <div class="w-14 h-14 rounded-full border-2 border-amber-600/90 text-amber-700 flex flex-col items-center justify-center mx-auto mb-1 bg-amber-100/80 shadow-sm">
                                     <i class="fa-solid fa-award text-base"></i>
                                     <span class="text-[7px] font-extrabold uppercase">Shifa Med</span>
                                 </div>
-                                <span class="text-[9px] text-slate-500 uppercase tracking-widest">Official Assessment Seal</span>
+                                <span class="text-[9px] text-slate-600 font-bold uppercase tracking-widest">Official Assessment Seal</span>
                             </div>
 
                             <div class="text-right">
-                                <span class="text-slate-500 text-[10px] uppercase block">Verification ID</span>
-                                <span class="font-mono text-cyan-400 font-bold">${sub.id.substring(0, 8).toUpperCase()}</span>
+                                <span class="text-slate-500 text-[10px] uppercase font-bold block">Verification ID</span>
+                                <span class="font-mono text-amber-900 font-extrabold">${sub.id.substring(0, 8).toUpperCase()}</span>
                             </div>
                         </div>
                     </div>
