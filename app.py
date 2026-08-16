@@ -743,6 +743,23 @@ def application(environ, start_response):
 
         return json_response({'submissions': local_subs})
 
+    if path.startswith('/api/admin/submissions/') and method == 'DELETE':
+        sub_id = path.replace('/api/admin/submissions/', '')
+        conn = get_db()
+        cursor = conn.cursor()
+        cursor.execute('DELETE FROM submissions WHERE id = ?', (sub_id,))
+        cursor.execute('DELETE FROM answers WHERE submission_id = ?', (sub_id,))
+        conn.commit()
+        conn.close()
+
+        if SUPABASE_URL and SUPABASE_KEY:
+            try:
+                supabase_request(f'submissions?id=eq.{sub_id}', 'DELETE')
+            except Exception as e:
+                print('Supabase delete error:', e)
+
+        return json_response({'message': 'Submission deleted successfully'})
+
     if path == '/api/admin/quizzes' and method == 'POST':
         try:
             length = int(environ.get('CONTENT_LENGTH', 0))
