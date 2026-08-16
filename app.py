@@ -84,6 +84,16 @@ def init_db():
             FOREIGN KEY (quiz_id) REFERENCES quizzes (id) ON DELETE CASCADE
         )
     ''')
+
+    # Migration for existing database files
+    try:
+        cursor.execute("ALTER TABLE submissions ADD COLUMN time_taken_seconds INTEGER DEFAULT 0")
+    except Exception:
+        pass
+    try:
+        cursor.execute("ALTER TABLE submissions ADD COLUMN mode TEXT DEFAULT 'untimed'")
+    except Exception:
+        pass
     
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS answers (
@@ -599,10 +609,16 @@ def application(environ, start_response):
 
         percentage = round((score / total_questions) * 100, 1)
 
-        cursor.execute('''
-            INSERT INTO submissions (id, quiz_id, participant_name, score, total_questions, percentage, time_taken_seconds, mode)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-        ''', (submission_id, quiz_id, participant_name, score, total_questions, percentage, time_taken, quiz_mode))
+        try:
+            cursor.execute('''
+                INSERT INTO submissions (id, quiz_id, participant_name, score, total_questions, percentage, time_taken_seconds, mode)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            ''', (submission_id, quiz_id, participant_name, score, total_questions, percentage, time_taken, quiz_mode))
+        except Exception:
+            cursor.execute('''
+                INSERT INTO submissions (id, quiz_id, participant_name, score, total_questions, percentage)
+                VALUES (?, ?, ?, ?, ?, ?)
+            ''', (submission_id, quiz_id, participant_name, score, total_questions, percentage))
 
         for rec in answer_records:
             cursor.execute('''
@@ -613,18 +629,21 @@ def application(environ, start_response):
         conn.commit()
         conn.close()
         
-        # Save to Supabase Cloud DB if configured
+        # Save to Supabase Cloud DB if configured (fail-safe)
         if SUPABASE_URL and SUPABASE_KEY:
-            supabase_request('submissions', 'POST', {
-                'id': submission_id,
-                'quiz_id': quiz_id,
-                'participant_name': participant_name,
-                'score': score,
-                'total_questions': total_questions,
-                'percentage': percentage,
-                'time_taken_seconds': time_taken,
-                'mode': quiz_mode
-            })
+            try:
+                supabase_request('submissions', 'POST', {
+                    'id': submission_id,
+                    'quiz_id': quiz_id,
+                    'participant_name': participant_name,
+                    'score': score,
+                    'total_questions': total_questions,
+                    'percentage': percentage,
+                    'time_taken_seconds': time_taken,
+                    'mode': quiz_mode
+                })
+            except Exception as e:
+                print("Supabase non-blocking save error:", e)
 
         return json_response({
             'submission_id': submission_id,
