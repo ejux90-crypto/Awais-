@@ -10,6 +10,29 @@ from socketserver import ThreadingMixIn
 DB_FILE = os.path.join(os.path.dirname(__file__), 'quiz.db')
 STATIC_DIR = os.path.join(os.path.dirname(__file__), 'static')
 ADMIN_PASSWORD = os.environ.get('ADMIN_PASSWORD', 'admin123')
+SUPABASE_URL = os.environ.get('SUPABASE_URL', '').rstrip('/')
+SUPABASE_KEY = os.environ.get('SUPABASE_KEY', '')
+
+def supabase_request(endpoint, method='GET', payload=None):
+    if not SUPABASE_URL or not SUPABASE_KEY:
+        return None
+    url = f"{SUPABASE_URL}/rest/v1/{endpoint}"
+    headers = {
+        'apikey': SUPABASE_KEY,
+        'Authorization': f'Bearer {SUPABASE_KEY}',
+        'Content-Type': 'application/json',
+        'Prefer': 'return=representation'
+    }
+    data = json.dumps(payload).encode('utf-8') if payload else None
+    try:
+        import urllib.request
+        req = urllib.request.Request(url, data=data, headers=headers, method=method)
+        with urllib.request.urlopen(req) as response:
+            res_data = response.read().decode('utf-8')
+            return json.loads(res_data) if res_data else []
+    except Exception as e:
+        print(f"Supabase Error ({endpoint}):", e)
+        return None
 
 class ThreadedWSGIServer(ThreadingMixIn, WSGIServer):
     daemon_threads = True
@@ -55,6 +78,8 @@ def init_db():
             score INTEGER NOT NULL,
             total_questions INTEGER NOT NULL,
             percentage REAL NOT NULL,
+            time_taken_seconds INTEGER DEFAULT 0,
+            mode TEXT DEFAULT 'untimed',
             submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             FOREIGN KEY (quiz_id) REFERENCES quizzes (id) ON DELETE CASCADE
         )
@@ -543,6 +568,8 @@ def application(environ, start_response):
         quiz_id = data.get('quiz_id')
         participant_name = data.get('participant_name', '').strip()
         answers_dict = data.get('answers', {})  # { question_id_str: selected_option_int }
+        time_taken = int(data.get('time_taken_seconds', 0))
+        quiz_mode = str(data.get('mode', 'untimed')).strip()
         
         if not quiz_id or not participant_name:
             return json_response({'error': 'Quiz ID and Participant Name are required'}, '400 Bad Request')
@@ -573,9 +600,9 @@ def application(environ, start_response):
         percentage = round((score / total_questions) * 100, 1)
 
         cursor.execute('''
-            INSERT INTO submissions (id, quiz_id, participant_name, score, total_questions, percentage)
-            VALUES (?, ?, ?, ?, ?, ?)
-        ''', (submission_id, quiz_id, participant_name, score, total_questions, percentage))
+            INSERT INTO submissions (id, quiz_id, participant_name, score, total_questions, percentage, time_taken_seconds, mode)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        ''', (submission_id, quiz_id, participant_name, score, total_questions, percentage, time_taken, quiz_mode))
 
         for rec in answer_records:
             cursor.execute('''
@@ -586,12 +613,40 @@ def application(environ, start_response):
         conn.commit()
         conn.close()
         
+        # Save to Supabase Cloud DB if configured
+        if SUPABASE_URL and SUPABASE_KEY:
+            supabase_request('submissions', 'POST', {
+                'id': submission_id,
+                'quiz_id': quiz_id,
+                'participant_name': participant_name,
+                'score': score,
+                'total_questions': total_questions,
+                'percentage': percentage,
+                'time_taken_seconds': time_taken,
+                'mode': quiz_mode
+            })
+
         return json_response({
             'submission_id': submission_id,
             'score': score,
             'total_questions': total_questions,
             'percentage': percentage
         })
+
+    if path.startswith('/api/leaderboard/') and method == 'GET':
+        quiz_id = path.replace('/api/leaderboard/', '')
+        conn = get_db()
+        cursor = conn.cursor()
+        cursor.execute('''
+            SELECT participant_name, score, total_questions, percentage, time_taken_seconds, mode, submitted_at
+            FROM submissions
+            WHERE quiz_id = ?
+            ORDER BY percentage DESC, time_taken_seconds ASC, submitted_at ASC
+            LIMIT 10
+        ''', (quiz_id,))
+        top_list = [dict(row) for row in cursor.fetchall()]
+        conn.close()
+        return json_response({'leaderboard': top_list})
 
     if path.startswith('/api/submissions/') and method == 'GET':
         sub_id = path.replace('/api/submissions/', '')
@@ -646,9 +701,28 @@ def application(environ, start_response):
             JOIN quizzes q ON s.quiz_id = q.id
             ORDER BY s.submitted_at DESC
         ''')
-        submissions = [dict(row) for row in cursor.fetchall()]
+        local_subs = [dict(row) for row in cursor.fetchall()]
         conn.close()
-        return json_response({'submissions': submissions})
+
+        # If Supabase Cloud DB configured, fetch cloud records and merge
+        cloud_subs = supabase_request('submissions?select=*,quizzes(title)&order=submitted_at.desc')
+        if cloud_subs and isinstance(cloud_subs, list):
+            formatted_cloud = []
+            for item in cloud_subs:
+                quiz_title = item.get('quizzes', {}).get('title', 'Medical Quiz') if isinstance(item.get('quizzes'), dict) else 'Medical Quiz'
+                formatted_cloud.append({
+                    'id': item.get('id'),
+                    'participant_name': item.get('participant_name'),
+                    'score': item.get('score'),
+                    'total_questions': item.get('total_questions'),
+                    'percentage': item.get('percentage'),
+                    'submitted_at': item.get('submitted_at'),
+                    'quiz_title': quiz_title,
+                    'quiz_id': item.get('quiz_id')
+                })
+            return json_response({'submissions': formatted_cloud})
+
+        return json_response({'submissions': local_subs})
 
     if path == '/api/admin/quizzes' and method == 'POST':
         try:
