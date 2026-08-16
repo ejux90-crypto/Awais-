@@ -139,8 +139,12 @@
             quizzes: [],
             activeQuiz: null,
             participantName: '',
+            quizMode: 'untimed',
             currentQuestionIndex: 0,
             userAnswers: {}, // { question_id: selected_option_int }
+            questionTimes: {}, // { questionIndex: remainingSeconds }
+            questionTimer: null,
+            startTime: null,
             activeSubmission: null,
             adminSubmissions: []
         };
@@ -348,6 +352,7 @@
                 state.activeQuiz = data.quiz;
                 state.currentQuestionIndex = 0;
                 state.userAnswers = {};
+                state.questionTimes = {};
 
                 if (!state.participantName) {
                     renderParticipantNamePrompt();
@@ -443,6 +448,7 @@
             }
 
             state.startTime = Date.now();
+            state.questionTimes = {};
             renderQuizQuestionView();
         }
 
@@ -460,6 +466,11 @@
             const progressPct = Math.round(((qIndex + 1) / totalQ) * 100);
             const selectedOpt = state.userAnswers[question.id];
 
+            if (state.questionTimes[qIndex] === undefined) {
+                state.questionTimes[qIndex] = 60;
+            }
+            let secondsLeft = state.questionTimes[qIndex];
+
             container.innerHTML = `
                 <div class="max-w-3xl mx-auto space-y-6">
                     <!-- Progress Bar Header -->
@@ -471,7 +482,7 @@
                         <div class="flex items-center gap-4">
                             ${state.quizMode === 'timed' ? `
                                 <div class="flex items-center gap-1.5 text-xs font-extrabold text-amber-400 bg-amber-950/80 px-3 py-1 rounded-full border border-amber-800/80">
-                                    <i class="fa-solid fa-clock"></i> <span id="q-timer-sec">60</span>s Left
+                                    <i class="fa-solid fa-clock"></i> <span id="q-timer-sec">${secondsLeft}</span>s Left
                                 </div>
                             ` : ''}
                             <span class="text-xs font-bold text-slate-300">Question ${qIndex + 1} of ${totalQ}</span>
@@ -544,18 +555,18 @@
                 </div>
             `;
 
-            // Start 60-second timer if timed mode
+            // Start timer if timed mode
             if (state.quizMode === 'timed') {
-                let secondsLeft = 60;
                 state.questionTimer = setInterval(() => {
                     secondsLeft--;
+                    state.questionTimes[qIndex] = secondsLeft;
                     const timerElem = document.getElementById('q-timer-sec');
                     if (timerElem) timerElem.innerText = secondsLeft;
                     
                     if (secondsLeft <= 0) {
                         clearInterval(state.questionTimer);
                         state.questionTimer = null;
-                        showToast('Time limit reached for this question!', 'info');
+                        showToast(`Time limit reached for Question ${qIndex + 1}!`, 'info');
                         if (state.currentQuestionIndex < state.activeQuiz.questions.length - 1) {
                             nextQuestion();
                         } else {
