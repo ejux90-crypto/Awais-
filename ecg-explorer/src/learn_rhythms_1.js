@@ -159,16 +159,17 @@ Object.assign(LEARN, {
     lvl: 2,
     bl: 'Any regular narrow tachycardia at ~150 bpm is 2:1 flutter until you have hunted for the second flutter wave.',
     lp: [
-      'Typical (counter-clockwise) flutter: negative sawtooth in II, III, aVF and positive flutter waves in V1, at an atrial rate around 300/min.',
-      'Ventricular rate = atrial rate ÷ conduction ratio (2:1 → ~150, 3:1 → ~100, 4:1 → ~75). Odd ratios and variable block make the rhythm irregular.',
-      '1:1 conduction (e.g., after class IC drugs without an AV-nodal blocker, or with an accessory pathway) gives rates near 300 bpm and often a wide QRS.',
-      'Stroke risk and anticoagulation decisions follow the same rules as AF.'
+      'Features: regular atrial activity at ~300 bpm (range 200–400), loss of the isoelectric baseline, inverted sawtooth flutter waves in II, III, aVF and upright flutter waves in V1 that can look like P waves.',
+      'That pattern is anticlockwise (typical) re-entry around the right atrium, which is 90% of flutter. The atrial rate is predictable because the circuit length matches RA size.',
+      'Ventricular rate = atrial rate ÷ ratio: 2:1 ≈ 150, 3:1 ≈ 100, 4:1 ≈ 75. Variable conduction (alternating 2:1, 3:1, 4:1) makes it irregular and can mimic AF.',
+      '"Block" in flutter is a misnomer: it is the normal AV node protecting the ventricles. 1:1 conduction (sympathetic surge, accessory pathway, AV-nodal blockers in WPW) causes severe instability and can degenerate to VF.',
+      'Stroke risk and anticoagulation follow the same rules as AF.'
     ],
     src: ['atrial-flutter-ecg-library'],
-    litflNotRead: true,
     rc: [
       ['Ventricular rate 150, regular, narrow — top three diagnoses?', 'Atrial flutter 2:1, AVNRT/AVRT, sinus tachycardia (and focal AT).'],
-      ['Why give an AV-nodal blocker before flecainide in flutter?', 'IC drugs slow the flutter rate and can allow 1:1 AV conduction with very fast ventricular rates.']
+      ['Why give an AV-nodal blocker before flecainide in flutter?', 'IC drugs slow the flutter rate and can allow 1:1 AV conduction with very fast ventricular rates.'],
+      ['Which flutter-wave polarity in II/III/aVF and V1 marks typical (anticlockwise) flutter?', 'Negative sawtooth inferiorly and positive flutter waves in V1.']
     ]
   },
   afib: {

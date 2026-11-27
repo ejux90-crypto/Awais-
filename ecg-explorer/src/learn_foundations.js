@@ -49,7 +49,8 @@ const FOUNDATIONS = [
       'LAD < −30°, RAD > +90°, extreme ("north-west") −90° to 180°.',
       'Quadrant method: I+ aVF+ is normal; I+ aVF− is left axis (check II: positive means within normal to −30°, negative means true LAD); I− aVF+ is RAD; I− aVF− is extreme.',
       'Isoelectric-lead method: the axis is perpendicular to the most equiphasic limb lead. This refines the angle.',
-      'In neonates the axis is +30 to +190° and moves leftward with age.'
+      'In neonates the axis is +30 to +190° and moves leftward with age.',
+      'LAD causes: LAFB, LBBB, LVH, inferior MI, ventricular ectopy, paced rhythm, WPW. RAD causes: LPFB, lateral MI, RVH, PE, COPD, ventricular ectopy, hyperkalaemia, Na-channel blockers, WPW, and normal in children or thin adults.'
     ],
     src: ['ecg-axis-interpretation', 'left-axis-deviation-lad-ecg-library', 'right-axis-deviation-rad-ecg-library'],
     tryIt: { label: 'Open the Axis Explorer and set I+/aVF− then I−/aVF−: name the causes of each.', tool: 'axis' },

@@ -13,7 +13,8 @@ import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent
 SRC = ROOT / "src"
-OUT = ROOT / "ECG_Master_Explorer_v6.html"
+OUT = ROOT / "index.html"  # open directly; needs the ecgs/ folder beside it for real ECG images
+DATA = SRC / "data"
 
 
 def patch(html, old, new, label, count=1):
@@ -107,6 +108,7 @@ LESSON_PANEL = """        <!-- v6 Lesson panel: bottom line + tabbed learning pa
               <button class="lesson-tab" data-ltab="traps" type="button">Mimics &amp; traps</button>
               <button class="lesson-tab" data-ltab="act" type="button">Manage</button>
               <button class="lesson-tab" data-ltab="pearls" type="button">LITFL pearls</button>
+              <button class="lesson-tab" data-ltab="real" type="button">Real ECGs</button>
               <button class="lesson-tab" data-ltab="recall" type="button">Recall</button>
               <button class="lesson-tab lesson-tab-all" data-ltab="all" type="button">Show all</button>
             </div>
@@ -135,6 +137,10 @@ LESSON_PANEL = """        <!-- v6 Lesson panel: bottom line + tabbed learning pa
                 <ul id="cardPearls"></ul>
                 <div id="cardPearlSrc"></div>
               </div>
+              <div class="info-card card-real lesson-pane" data-lpane="real">
+                <h3>Real ECGs — LITFL cases &amp; examples</h3>
+                <div id="cardRealEcg"></div>
+              </div>
               <div class="info-card card-recall lesson-pane" data-lpane="recall">
                 <h3>Active recall</h3>
                 <div id="cardRecall"></div>
@@ -148,6 +154,11 @@ LEARN_SECTION = """    <!-- v6 LEARN (PATHWAY) VIEW -->
       <div id="learnRoot"></div>
     </section>
 
+    <!-- v7 REAL ECG REVIEW VIEW -->
+    <section id="view-cases" class="view-section">
+      <div id="casesRoot"></div>
+    </section>
+
     <!-- STUDIO VIEW -->"""
 
 LESSON_MODAL = """    <!-- v6 Reading-lesson modal -->
@@ -155,7 +166,51 @@ LESSON_MODAL = """    <!-- v6 Reading-lesson modal -->
       <div class="modal-card" id="lessonModalBody"></div>
     </div>
 
+    <!-- v7 ECG zoom viewer -->
+    <div id="ecgZoomModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Zoomed ECG">
+      <div class="zoom-shell">
+        <div class="zoom-bar"><span id="ecgZoomCap"></span><span class="spacer"></span>
+          <button id="ecgZoomOut" class="btn" type="button" aria-label="Zoom out">−</button>
+          <button id="ecgZoomIn" class="btn" type="button" aria-label="Zoom in">+</button>
+          <button id="ecgZoomClose" class="btn" type="button">Close (Esc)</button></div>
+        <div id="ecgZoomStage"><img id="ecgZoomImg" alt="ECG" draggable="false" referrerpolicy="no-referrer"></div>
+      </div>
+    </div>
+
     <footer class="shortcut-bar">"""
+
+
+def real_ecg_data():
+    """LITFL Top-100 cases (+ hand-curated labels/tags) and topic example ECGs."""
+    cases = json.loads((DATA / "rcases.json").read_text(encoding="utf-8"))
+    cur = {}  # hand-curated labels/tags (override the automatic keyword tagger)
+    for f in sorted(DATA.glob("case_curation*.json")):
+        cur.update(json.loads(f.read_text(encoding="utf-8")))
+    for c in cases:
+        if c["id"] in cur:
+            c.update(cur[c["id"]])
+        c.pop("dx", None); c.pop("thirdParty", None)
+    img_map = json.loads((DATA / "img_map.json").read_text(encoding="utf-8"))
+    examples = json.loads((DATA / "examples.json").read_text(encoding="utf-8"))
+    # Images bundled in ecgs/ work offline; any image not bundled loads from litfl.com in the
+    # viewer's browser (no referrer) and falls back to a link to the LITFL page when offline.
+    img_map = {k: v for k, v in img_map.items() if (ROOT / "ecgs" / v).exists()}
+    all_srcs = set(i["src"] for c in cases for i in c["images"]) | set(e["src"] for v in examples.values() for e in v)
+    used = set(img_map[s] for s in all_srcs if s in img_map)
+    missing = []
+    if missing:
+        sys.exit(f"[build] {len(missing)} referenced images missing from ecgs/")
+    img_map = {k: v for k, v in img_map.items() if v in used}
+    global DATA_STATS
+    DATA_STATS = (f"{len(cases)} LITFL cases, {sum(len(v) for v in examples.values())} topic examples, "
+                  f"{len(used)}/{len(all_srcs)} images bundled (rest load from LITFL when online)")
+    dump = lambda o: json.dumps(o, ensure_ascii=False, separators=(",", ":"))
+    return ["    const RCASES = " + dump(cases) + ";",
+            "    const RX_EXAMPLES = " + dump(examples) + ";",
+            "    const RX_IMG = " + dump(img_map) + ";"]
+
+
+DATA_STATS = ""
 
 
 def build():
@@ -166,11 +221,16 @@ def build():
 
     # Header / branding
     html = patch(html, "60 Resident-Grade ECGs • Dual &amp; 12-Lead 25 mm/s Studio • 2D Calipers, Bedside Tools &amp; Mobile-Ready • v5",
-                 "Foundations → Expert pathway • 60 live ECGs + 37 reading lessons • LITFL learning points • Recall &amp; spaced quiz • v6",
+                 "Foundations → Expert pathway • 60 live ECGs + reading lessons • real LITFL ECG cases &amp; examples • recall &amp; spaced review • v7",
                  "brand sub")
     html = patch(html, '<button class="seg-btn active" data-mode="studio" type="button">',
                  '<button class="seg-btn" data-mode="learn" type="button"><span class="tab-full">Learn Path</span><span class="tab-short">Learn</span></button>\n'
                  '          <button class="seg-btn active" data-mode="studio" type="button">', "learn tab")
+    html = patch(html, '<button class="seg-btn" data-mode="compare" type="button">',
+                 '<button class="seg-btn" data-mode="cases" type="button"><span class="tab-full">Real ECGs</span><span class="tab-short">Cases</span></button>\n'
+                 '          <button class="seg-btn" data-mode="compare" type="button">', "cases tab")
+    html = patch(html, '<span class="tab-full">Algorithms &amp; Tables</span>', '<span class="tab-full">Algorithms</span>', "short tab label")
+    html = patch(html, '<span class="tab-full">Bedside Tools</span>', '<span class="tab-full">Tools</span>', "short tab label 2")
     html = patch(html, "    <!-- STUDIO VIEW -->", LEARN_SECTION, "learn section")
 
     # Replace the 4 static cards with the lesson panel (same element IDs kept)
@@ -180,7 +240,7 @@ def build():
 
     html = patch(html, "    <footer class=\"shortcut-bar\">", LESSON_MODAL, "lesson modal")
     html = patch(html, "<div>Self-contained offline ECG trainer v5 (Mobile + Desktop) • 25 mm/s • Auto / 10 / 5 mm/mV</div>",
-                 "<div>Self-contained offline ECG trainer v6 • Learning points adapted from the "
+                 "<div>Offline ECG trainer v7 • Learning points, real ECG cases and examples adapted from the "
                  "<a href=\"https://litfl.com/ecg-library/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--primary)\">LITFL ECG Library</a> "
                  "(<a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color:var(--primary)\">CC BY-NC-SA 4.0</a>) • Educational use only</div>",
                  "footer")
@@ -203,7 +263,7 @@ def build():
                  'placeholder="Search rhythms & learning points (e.g. aVL, Kosuge, verapamil)"', "search placeholder")
 
     # CSS
-    html = patch(html, "  </style>", (SRC / "v6.css").read_text(encoding="utf-8") + "  </style>", "css")
+    html = patch(html, "  </style>", (SRC / "v6.css").read_text(encoding="utf-8") + (SRC / "cases.css").read_text(encoding="utf-8") + "  </style>", "css")
 
     # Content + learning app, injected before init
     titles = json.loads((SRC / "litfl_titles.json").read_text(encoding="utf-8"))
@@ -211,16 +271,19 @@ def build():
           "    const LITFL_TITLES = " + json.dumps(titles, ensure_ascii=False) + ";",
           "    const LEARN = {};"]
     for name in ["learn_rhythms_1.js", "learn_rhythms_2.js", "learn_rhythms_3.js", "learn_rhythms_4.js",
-                 "learn_rhythms_5.js", "learn_foundations.js", "learn_extend.js", "learn_app.js"]:
+                 "learn_rhythms_5.js", "learn_foundations.js", "learn_extend.js"]:
+        js.append((SRC / name).read_text(encoding="utf-8"))
+    js.extend(real_ecg_data())
+    for name in ["learn_app.js", "cases_app.js"]:
         js.append((SRC / name).read_text(encoding="utf-8"))
     html = patch(html, "    // Init + Restore saved preferences", "\n".join(js) + "\n    // Init + Restore saved preferences", "inject js")
     html = patch(html, "    selectRhythm('avnrt');\n    requestAnimationFrame(mainLoop);",
                  "    selectRhythm('nsr');\n    v6Init();\n    requestAnimationFrame(mainLoop);", "init")
 
-    if "</script>" in "\n".join(js):
+    if "</script" in "\n".join(js).lower():
         sys.exit("[build] content contains a closing script tag")
     OUT.write_text(html, encoding="utf-8")
-    print(f"[build] wrote {OUT.name} ({OUT.stat().st_size / 1024:.0f} KB), {len(CONTENT_FIXES)} content fixes applied")
+    print(f"[build] wrote {OUT.name} ({OUT.stat().st_size / 1024:.0f} KB), {len(CONTENT_FIXES)} content fixes applied; {DATA_STATS}")
 
 
 if __name__ == "__main__":

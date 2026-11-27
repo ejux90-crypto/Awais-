@@ -128,7 +128,7 @@ Object.assign(LEARN, {
       'Pathways conduct in both directions (most), retrograde-only (~15%, "concealed") or anterograde-only (rare). Pre-excitation may be intermittent, and becomes more obvious with vagal manoeuvres or AV-nodal blockade.',
       'The QRS is widened, but less than in BBB, because AV-nodal conduction still fuses in.'
     ],
-    src: ['pre-excitation-syndromes-ecg-library'],
+    src: ['pre-excitation-syndromes-ecg-library', 'delta-wave-ecg-library'],
     rc: [
       ['Tall R in V1 with short PR — which WPW type and pathway side?', 'Type A, left-sided accessory pathway.'],
       ['Intermittent pre-excitation on a Holter — reassuring or worrying?', 'Reassuring: it suggests a pathway with a long refractory period (lower risk of rapid AF conduction).']

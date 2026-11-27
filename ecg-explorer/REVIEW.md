@@ -1,6 +1,6 @@
-# ECG Master Studio — Deep Review & v6 Overhaul
+# ECG Master Studio — Deep Review, v6 Overhaul & v7 Real ECGs
 
-**Files:** `ECG_Master_Explorer_v6.html` is the app: one offline file that opens in any browser and works on a phone. `build.py` regenerates it from `src/`.
+**Files:** open `index.html`. Keep the `ecgs/` folder beside it: it holds the real ECG images, and everything else is inside the one HTML file. The app works offline on desktop and phone. `build.py` regenerates it from `src/`, and `tools/` rebuilds the LITFL data.
 
 ---
 
@@ -62,18 +62,62 @@
 - The phone overflow bug is fixed, and the bottom bar now has 5 tabs.
 - First visit opens the Learn Path; after that the app reopens the last tab used.
 
-## 4. Recommended next steps (in priority order)
+## 4. v7: real ECGs from Life in the Fast Lane
+
+### Real ECG review (new "Real ECGs" tab)
+- **115 real 12-lead cases** from the LITFL *Top 100 ECG* series. Each case runs in this order:
+  1. a **clinical vignette**;
+  2. the **real tracing**, with pinch, scroll or button zoom and drag-to-pan;
+  3. a **systematic-read checklist** and a notes box where you commit to your read before revealing;
+  4. **LITFL's full interpretation**, reproduced unchanged apart from formatting, including post-treatment ECGs where LITFL gives them;
+  5. **self-grading** (nailed it, partly, missed) on a spaced-repetition schedule.
+- Every case has a **hand-curated key-diagnosis line** and links to the app topics it exercises. I wrote these from LITFL's own diagnosis statements, so a case links straight to its live simulation or lesson. Grading a case "nailed it" marks those topics as reviewed.
+- Filters: unseen, due, missed, and by system. A **10-case blind exam** ends with a report linking to the cases you missed. Unseen cards never show the diagnosis.
+- 26 of the 141 cases could not be retrieved, because LITFL consistently refused automated access to those pages. Nothing was done to work around that.
+
+### Real ECGs inside every lesson
+- A new **"Real ECGs" tab** in the Studio lesson panel, and the same section in every reading lesson. Each shows that topic's annotated **example ECGs from the LITFL library pages**, with LITFL's notes, plus the real cases that test the topic.
+
+### More LITFL content
+- **9 new reading lessons**: ventricular flutter, premature junctional complexes, LGL / short PR, PR-segment changes (pericarditis vs atrial infarction, Liu criteria), biventricular hypertrophy (Katz–Wachtel), ECG in COPD, hypothyroidism / myxoedema, restrictive / infiltrative cardiomyopathy, and carbamazepine cardiotoxicity.
+- **Atrial flutter** and **motion artefact** are now LITFL-adapted; in v6 those pages had been unavailable.
+- Enriched existing lessons:
+  - axis: causes of left and right axis deviation;
+  - atrial enlargement: biatrial criteria;
+  - long QT: Jervell–Lange-Nielsen;
+  - ARVC: epsilon waves and Fontaine leads;
+  - WPW: delta waves;
+  - flutter: a third recall card.
+
+### Images and licence
+- **Hybrid image loading:**
+  - Bundled images in `ecgs/` work offline. They're WebP, ≤ 1400 px, quality 72, roughly 40 KB each with grid and waveform detail intact.
+  - Every other image **loads directly from litfl.com** in your browser when you're online (no referrer is sent).
+  - If you're offline, the viewer shows a link to the image on LITFL instead of a broken box.
+  - LITFL started refusing this build's downloads after about 400 requests, so only **33 of 628 images are bundled for now**. `tools/fetch_images.py` resumes where it stopped, waits 6 s between requests, and stops after 3 refusals. Run it again later (or from your own computer) to bundle the rest for full offline use.
+- Images whose LITFL caption credits another source (journal figures, "reproduced from…") are **excluded automatically**: 38 were dropped.
+- **Licence:** everything from LITFL is © Life in the Fast Lane, **CC BY-NC-SA 4.0**. It is attributed on every case, example and lesson, with links back. **Non-commercial use only**; adaptations must stay CC BY-NC-SA.
+
+### Refreshing the LITFL data
+```
+python3 tools/prepare_data.py <cache-dir>     # parse saved pages -> src/data/*.json + image list
+python3 tools/fetch_images.py <cache>/image_urls.txt <cache>/img_raw ecgs src/data/img_map.json
+python3 build.py
+```
+Case labels and topic links live in `src/data/case_curation_*.json`. Edit them there; they override the automatic keyword tagger.
+
+## 5. Recommended next steps (in priority order)
 
 1. **Clinical sign-off.** Have a consultant or cardiologist read the `Manage` tabs and the 20 corrections. This is a teaching tool, but doses get copied.
 2. **Simulate the top expert lessons.** The most valuable next additions to the engine are RV infarction (V4R), high lateral OMI, LV aneurysm vs acute STEMI, fascicular VT, LQTS T-wave morphologies and Takotsubo.
-3. **Real ECGs.** Synthetic traces teach patterns; real tracings teach noise. Link each topic to the LITFL Top-100 cases.
+3. **Real ECGs: done in v7** (115 LITFL cases plus about 400 library examples). Next: add your own department's anonymised ECGs as a second case bank.
 4. **Expand recall to 4–6 cards per topic**, including "what is the next step" cards, and feed recall misses into the spaced-repetition queue alongside quiz misses.
 5. **Integrate with MedPulse** (this repo's quiz app): serve the file from `static/` and add a link. That would also let progress sync to a server instead of one browser.
 
-## 5. Rebuilding
+## 6. Rebuilding
 
 ```
 cd ecg-explorer
-python3 build.py      # -> ECG_Master_Explorer_v6.html
+python3 build.py      # -> index.html (needs ecgs/ alongside)
 ```
 Edit content in `src/learn_*.js` and add clinical corrections to `CONTENT_FIXES` in `build.py`. The build stops if any patch target is missing or ambiguous, so a correction cannot silently fail to apply.

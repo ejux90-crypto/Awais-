@@ -254,6 +254,7 @@
             <div class="info-card card-pearl"><h3>Learning points</h3><ul>${L.lp.map(x => `<li>${esc(x)}</li>`).join('')}</ul>${litflLinks(L.src, L.litflNotRead)}</div>
             <div class="info-card card-recall"><h3>Active recall</h3><div class="reader-recall">${recallHtml(id)}</div></div>
           </div>
+          <div class="info-card card-real reader-real"><h3>Real ECGs</h3>${realEcgHtml(id)}</div>
           <div class="reader-actions">
             ${f && f.tryIt ? `<button class="btn btn-primary" type="button" data-try>Try it: ${esc(f.tryIt.label)}</button>` : ''}
             ${e && e.sim ? `<button class="btn btn-primary" type="button" data-sim>Open nearest live ECG: ${esc(DATA_BY_ID[e.sim].name)} →</button>` : ''}
@@ -269,6 +270,7 @@
         body.querySelector('[data-rev]').onclick = () => { if (learnState.reviewed[id]) delete learnState.reviewed[id]; else learnState.reviewed[id] = Date.now(); saveLearn(); draw(); };
         body.querySelectorAll('[data-go]').forEach(b => b.onclick = () => { closeReader(); openTopic(b.dataset.go); });
         bindRecall(body.querySelector('.reader-recall'), draw);
+        bindRealEcg(body.querySelector('.reader-real'));
       };
       draw();
       modal.classList.add('open');
@@ -305,6 +307,7 @@
           <div class="learn-hero-actions">
             <button class="btn btn-primary" type="button" id="learnContinue">Continue: ${esc(cont.name)} →</button>
             <button class="btn btn-warn" type="button" id="learnDue">${due ? 'Review ' + due + ' due case' + (due > 1 ? 's' : '') : 'Quiz drill (spaced)'}</button>
+            <button class="btn" type="button" id="learnCases">Real ECG review (${RCASES.length} LITFL cases)</button>
             <button class="btn" type="button" id="learnBlind">Blind reading drill</button>
           </div>
         </div>
@@ -339,6 +342,7 @@
       host.querySelectorAll('[data-jump]').forEach(b => b.onclick = () => document.getElementById('level-' + b.dataset.jump).scrollIntoView({ behavior: 'smooth', block: 'start' }));
       document.getElementById('learnContinue').onclick = () => openTopic(cont.id);
       document.getElementById('learnDue').onclick = () => { document.getElementById('quizOrder').value = 'smart'; switchMode('quiz'); };
+      document.getElementById('learnCases').onclick = () => { rxCurrent = null; switchMode('cases'); };
       document.getElementById('learnBlind').onclick = () => runTryIt({ blind: true });
     }
 
@@ -361,6 +365,7 @@
       _v5SwitchMode(mode);
       learnState.lastMode = mode; saveLearn();
       if (mode === 'learn') renderLearn();
+      if (mode === 'cases') renderCases();
     };
 
     document.querySelectorAll('#lessonPanel .lesson-tab').forEach(b => b.onclick = () => setLessonTab(b.dataset.ltab));
@@ -371,6 +376,6 @@
     function v6Init() {
       const first = !learnState.visited;
       learnState.visited = true; saveLearn();
-      const start = first ? 'learn' : (['learn', 'studio', 'compare', 'quiz', 'tools'].includes(learnState.lastMode) ? learnState.lastMode : 'learn');
+      const start = first ? 'learn' : (['learn', 'studio', 'cases', 'compare', 'quiz', 'tools'].includes(learnState.lastMode) ? learnState.lastMode : 'learn');
       switchMode(start === 'quiz' ? 'learn' : start);
     }

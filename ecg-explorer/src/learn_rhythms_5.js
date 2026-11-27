@@ -52,10 +52,11 @@ Object.assign(LEARN, {
     lp: [
       'Non-LITFL summary (LITFL page not retrievable): the epsilon wave is a small terminal notch after the QRS in V1–3 (specific, insensitive), with localised QRS prolongation in V1–3 and a prolonged terminal activation duration (≥ 55 ms from S nadir to QRS end).',
       'TWI in V1–3 (or beyond) in patients > 14 yrs without complete RBBB is a major task-force criterion.',
+      'LITFL epsilon-wave page: the epsilon wave is a small "blip" at the end of the QRS, best in V1–V2, from delayed (post-excitation) activation of RV myocytes islanded in fat. It is the most specific ARVC sign, but is also described in posterior/RV infarction and sarcoid. Fontaine bipolar leads (RA manubrium, LA xiphoid, LL at V4) increase sensitivity.',
       'VT is typically LBBB morphology (RV origin). A superior axis favours ARVC over idiopathic RVOT VT, which has an inferior axis.',
       'ARVC accounts for up to ~10% of sudden deaths under 65 (LITFL RVOT page). Idiopathic RVOT VT terminates with adenosine; ARVC-related VT does not.'
     ],
-    src: ['arrhythmogenic-right-ventricular-cardiomyopathy-arvc', 'right-ventricular-outflow-tract-rvot-tachycardia', 'epsilon-wave-ecg-library'],
+    src: ['epsilon-wave-ecg-library', 'right-ventricular-outflow-tract-rvot-tachycardia', 'arrhythmogenic-right-ventricular-cardiomyopathy-arvc'],
     litflNotRead: true,
     rc: [
       ['LBBB-morphology VT with SUPERIOR axis in a young athlete — idiopathic RVOT VT or ARVC?', 'Favours ARVC (idiopathic RVOT VT has an inferior axis).'],

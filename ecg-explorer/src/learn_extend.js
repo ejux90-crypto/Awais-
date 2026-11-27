@@ -174,12 +174,12 @@ const EXTEND = [
   { id: 'x_lqts', group: 'channel', lvl: 4, title: 'Long QT: Congenital & Drug-Induced', sim: 'torsades',
     bl: 'Measure QT in the lead where it is longest, include large fused U waves, correct with Fridericia at extreme rates, and know the drug list.',
     lp: [
-      'Romano–Ward is autosomal dominant LQTS without deafness (Jervell–Lange-Nielsen has congenital deafness). Mainstay is β-blockade; ICD/ablation after syncope or sustained VA.',
+      'Romano–Ward is autosomal dominant LQTS without deafness; mainstay is β-blockade, with ICD/ablation after syncope or sustained VA. Jervell–Lange-Nielsen is autosomal recessive with severe bilateral sensorineural deafness (two K-channel genes); SCD risk is high and an ICD is usually needed.',
       'QT drug classes: antipsychotics (haloperidol, droperidol, quetiapine, olanzapine, amisulpride, chlorpromazine), class IA/IC/III antiarrhythmics, TCAs, citalopram/escitalopram, venlafaxine, bupropion, antihistamines (diphenhydramine, loratadine), chloroquine/HCQ, quinine, macrolides.',
       'Measurement: lead II or V5–6 (use the longest), several beats, tangent (maximum-slope intercept) for T end, and include U waves > 1 mm that are fused to T.',
       'Bazett over-corrects above 100 and under-corrects below 60 bpm. One study found automated Bazett had 54% sensitivity vs 100% for Fridericia.'
     ],
-    src: ['romano-ward-syndrome', 'drugs-causing-qt-prolongation', 'qt-interval-ecg-library'],
+    src: ['romano-ward-syndrome', 'jervell-and-lange-nielsen-syndrome', 'drugs-causing-qt-prolongation', 'qt-interval-ecg-library'],
     rc: [['Congenital LQTS with deafness — eponym?', 'Jervell and Lange-Nielsen syndrome (autosomal recessive).']] },
 
   { id: 'x_sqts', group: 'channel', lvl: 4, title: 'Short QT Syndrome', sim: 'hyperca',
@@ -239,9 +239,10 @@ const EXTEND = [
       'The first third of the P wave is RA, the last third LA. In V1 they separate: the positive part is RA and the negative part is LA.',
       'LAE: bifid P in II with > 40 ms between peaks, P > 110 ms; V1 terminal negativity > 40 ms or > 1 mm deep. Seen in mitral stenosis, HTN, AS, MR, HCM; often precedes AF.',
       'RAE: P > 2.5 mm in II/III/aVF or > 1.5 mm in V1–2. Causes: pulmonary hypertension (cor pulmonale, primary), tricuspid stenosis, congenital disease.',
-      'Normal P: < 120 ms, < 2.5 mm limb leads, < 1.5 mm precordial, axis 0 to +75°.'
+      'Normal P: < 120 ms, < 2.5 mm limb leads, < 1.5 mm precordial, axis 0 to +75°.',
+      'Biatrial enlargement: criteria for both, e.g. a bifid P in II that is ≥ 2.5 mm AND ≥ 120 ms, or in V1 an initial positive part ≥ 1.5 mm with a terminal negative part ≥ 1 mm deep and ≥ 40 ms.'
     ],
-    src: ['left-atrial-enlargement-ecg-library', 'right-atrial-enlargement-ecg-library', 'p-wave-ecg-library'],
+    src: ['left-atrial-enlargement-ecg-library', 'right-atrial-enlargement-ecg-library', 'biatrial-enlargement-ecg-library', 'p-wave-ecg-library'],
     rc: [['V1 P wave terminal negative portion 50 ms and 1.5 mm deep — meaning?', 'Left atrial enlargement.']] },
 
   { id: 'x_hypomg', group: 'lytes', lvl: 3, title: 'Hypomagnesaemia', sim: 'torsades',
@@ -275,13 +276,107 @@ const EXTEND = [
     src: ['myocardial-ischaemia-ecg-library', 'u-wave-ecg-library', 't-wave-ecg-library'],
     rc: [['STD only in II, III, aVF — what should you hunt for?', 'Reciprocal change: a high lateral OMI (STE in I/aVL).']] },
 
-  { id: 'x_artefact', group: 'tech', lvl: 2, title: 'Motion & Tremor Artefact', sim: 'vf', litflNotRead: true,
+  { id: 'x_artefact', group: 'tech', lvl: 2, title: 'Motion & Tremor Artefact', sim: 'vf',
     bl: 'If the "VT" or "VF" has normal QRS complexes marching through it at the underlying rate, it is artefact. Look at the patient before the monitor.',
     lp: [
-      'Non-LITFL summary: tooth-brushing, tremor (Parkinsonian ~4–6 Hz), shivering and electrode movement can mimic VT/VF or flutter.',
-      'Clue: native QRS complexes visible "through" the artefact at the expected R–R ("notches"), artefact confined to some leads, and a well, talking patient.',
+      'Commonest cause: a mobile, talkative, non-compliant patient. Others: benign essential tremor, Parkinsonian resting tremor, cerebellar intention tremor, alcohol/benzodiazepine withdrawal, anxiety, thyrotoxicosis, MS, rigors, shivering, CPR, and drugs (amphetamines, cocaine, β-agonists, theophylline, caffeine, lithium).',
+      'Clue (from LITFL case 137): onset without R-on-T, an implausibly fast apparent rate (approaching 600/min), and native QRS complexes marching through at the baseline rate.',
+      'Shivering artefact can be a diagnostic clue in hypothermia rather than just noise.',
       'Shivering artefact (hypothermia) and Parkinsonian tremor both give baseline "fuzziness" (LITFL hypothermia page).'
     ],
     src: ['ecg-motion-artefacts-ecg-library', 'hypothermia-ecg-library'],
-    rc: [['"VT" on telemetry in a patient brushing their teeth — the tell?', 'Native QRS complexes marching through at the baseline rate; the patient is well.']] }
+    rc: [['"VT" on telemetry in a patient brushing their teeth — the tell?', 'Native QRS complexes marching through at the baseline rate; the patient is well.']] },
+  { id: 'x_vflutter', group: 'vent', lvl: 3, title: 'Ventricular Flutter', sim: 'vf',
+    bl: 'A continuous sine wave above 200/min with no separable P, QRS or T is ventricular flutter: VT on the way to VF. Treat it as an arrest rhythm.',
+    lp: [
+      'It is an extreme form of VT with loss of organised activity. It causes rapid, profound haemodynamic compromise and usually degenerates to VF.',
+      'Recognition: continuous sine wave, rate usually > 200/min, and no identifiable P, QRS or T.',
+      'Pearl: the trace looks identical upside down. Compare it with the sine wave of critical hyperkalaemia, which is slow.'
+    ],
+    src: ['ventricular-flutter-ecg-library'],
+    rc: [['Sine-wave rhythm at 250/min vs sine wave at 50/min — which is which?', 'Fast = ventricular flutter; slow = pre-terminal hyperkalaemia.']] },
+
+  { id: 'x_pjc', group: 'brady', lvl: 2, title: 'Premature Junctional Complexes', sim: 'junctional',
+    bl: 'Early narrow beat with no P wave, or with an inverted retrograde P (PR < 120 ms), is a junctional ectopic. It is less common than PACs or PVCs.',
+    lp: [
+      'Because the beat arises in the AV junction, the ventricles activate normally and the QRS is narrow.',
+      'A retrograde P (inverted in II, III, aVF) can fall before the QRS (PR < 120 ms), within it, or after it. It is followed by a compensatory pause.',
+      'Very early PJCs can conduct aberrantly, usually with RBBB morphology.',
+      'A low-atrial PAC also has an inverted P, but its PR is ≥ 120 ms; < 120 ms classifies it as junctional.'
+    ],
+    src: ['premature-junctional-complex-pjc', 'premature-atrial-complex-pac'],
+    rc: [['Early narrow beat with an inverted P in II and PR 90 ms — PAC or PJC?', 'PJC (PR < 120 ms with a retrograde P).']] },
+
+  { id: 'x_lgl', group: 'svt', lvl: 4, title: 'Short PR without Delta Wave (LGL)', sim: 'wpw_sinus',
+    bl: 'Short PR, normal P axis and a narrow normal QRS is enhanced AV-nodal conduction or a disputed "LGL" pathway. Only call it a syndrome when there are paroxysmal tachycardias.',
+    lp: [
+      'Proposed mechanism: James fibres (atrium to distal AV node) or atrio-Hisian pathways (Brechenmacher). Unlike WPW, there is no ventricular pre-excitation, so no delta wave.',
+      'The existence of LGL as a distinct entity is disputed. LITFL advises not using the term without paroxysmal tachycardia.',
+      'Short PR differential: WPW (delta + wide QRS), LGL pattern (normal QRS), junctional or low-atrial rhythm (abnormal or retrograde P).'
+    ],
+    src: ['lown-ganong-levine-syndrome', 'pr-interval-ecg-library'],
+    rc: [['Three causes of a short PR interval?', 'WPW pre-excitation, LGL-type enhanced AV conduction, junctional/low-atrial rhythm.']] },
+
+  { id: 'x_prseg', group: 'isch', lvl: 4, title: 'PR Segment: Pericarditis vs Atrial Infarction', sim: 'pericarditis',
+    bl: 'PR depression with PR elevation in aVR suggests pericarditis. PR deviation during an MI means the atria are infarcting too, which predicts AV block, SVT and rupture.',
+    lp: [
+      'PR changes are measured against the TP baseline, as for ST changes.',
+      'Pericarditis: PR depression, widespread concave STE, reciprocal ST depression with PR elevation in aVR and V1, and no other reciprocity.',
+      'Liu criteria for atrial ischaemia or infarction: PR elevation > 0.5 mm in V5–6 with PR depression in V1–2; PR elevation > 0.5 mm in I with PR depression in II and III; precordial PR depression > 1.5 mm; limb-lead PR depression > 1.2 mm; abnormal M- or W-shaped P (minor criterion).',
+      'Atrial infarction is associated with AV block, supraventricular arrhythmias, free-wall rupture and worse outcomes.'
+    ],
+    src: ['pr-segment-ecg-library'],
+    rc: [['Inferior STEMI with marked PR depression in II, III, aVF — what extra complication risk?', 'Atrial infarction: AV block, atrial arrhythmias, rupture.']] },
+
+  { id: 'x_bvh', group: 'struct', lvl: 4, title: 'Biventricular Hypertrophy (Katz–Wachtel)', sim: 'lvh',
+    bl: 'Large biphasic QRS complexes (tall R + deep S) across V2–5 is the Katz–Wachtel sign of biventricular hypertrophy, classic in children with a VSD.',
+    lp: [
+      'Sensitivity is low because opposing LV and RV forces cancel each other.',
+      'With LVH criteria present, RVH is suggested by RA enlargement, RAD, tall biphasic QRS in many leads and deep S in V5–6.',
+      'With RVH present, LVH is suggested by tall R plus deep S in V2–5 and total QRS amplitude > 50 mm.'
+    ],
+    src: ['biventricular-hypertrophy-ecg-library'],
+    rc: [['Katz–Wachtel phenomenon?', 'Large biphasic QRS complexes in V2–5, a sign of biventricular hypertrophy (e.g. VSD).']] },
+
+  { id: 'x_copd', group: 'struct', lvl: 3, title: 'The ECG in COPD / Emphysema', sim: 'rvh',
+    bl: 'Rightward P and QRS axis, low voltage (especially V4–6), clockwise rotation, and P pulmonale or RVH once cor pulmonale develops. MAT is the signature arrhythmia.',
+    lp: [
+      'Hyperexpanded lungs push the diaphragm down, so the heart hangs vertically and rotates clockwise: the RV moves anterior and the LV posterior, with late R/S transition.',
+      'Air between heart and electrodes damps voltage, giving low QRS amplitude, especially in V4–6.',
+      'A rightward P axis gives tall inferior P waves and flat or inverted P in I and aVL. Exaggerated atrial repolarisation makes the PR and ST segments sag.',
+      'Chronic hypoxic pulmonary vasoconstriction and capillary loss lead to pulmonary hypertension, then RAE and RVH (cor pulmonale).'
+    ],
+    src: ['ecg-in-chronic-obstructive-pulmonary-disease'],
+    rc: [['Why is QRS voltage low in emphysema?', 'Hyperinflated air between heart and electrodes damps the signal; vertical, rotated heart.']] },
+
+  { id: 'x_hypothyroid', group: 'lytes', lvl: 3, title: 'Hypothyroidism / Myxoedema', sim: 'sinus_brady',
+    bl: 'Bradycardia, low voltage and widespread T inversion without ST deviation is the myxoedema triad. Check the TSH, not just the troponin.',
+    lp: [
+      'Other changes: QT prolongation, 1st-degree AV block, interventricular conduction delay.',
+      'Mechanisms: myxoedematous deposits in the myocardium, reduced sympathetic activity, reduced inotropy and chronotropy from low thyroxine.',
+      'Low voltage plus a pericardial effusion is common in myxoedema; LITFL case 063 shows extreme low voltage.'
+    ],
+    src: ['hypothyroidism-ecg-library'],
+    rc: [['Triad of severe hypothyroidism on the ECG?', 'Bradycardia, low QRS voltage, widespread T-wave inversion.']] },
+
+  { id: 'x_rcm', group: 'struct', lvl: 4, title: 'Restrictive & Infiltrative Cardiomyopathy', sim: 'tamponade',
+    bl: 'Low voltage, pseudo-infarct Q waves, conduction disease and AF in an infiltrated heart (amyloid, sarcoid, haemochromatosis). Sarcoid causes complete heart block in the young.',
+    lp: [
+      'It is the least common cardiomyopathy and typically marks advanced infiltration.',
+      'Diffuse infiltration lowers voltage. Atrial enlargement leads to AF, and ventricular arrhythmias are common.',
+      'Conduction-system infiltration (e.g. septal granulomas in sarcoid) causes BBB and AV block up to CHB; healing granulomas produce pseudo-infarction Q waves.',
+      'Expert clue: low voltage despite a thick wall on echo means think amyloid.'
+    ],
+    src: ['restrictive-cardiomyopathy-ecg-library', 'low-qrs-voltage-ecg-library'],
+    rc: [['Young patient with unexplained complete heart block — infiltrative cause to consider?', 'Cardiac sarcoidosis (also Lyme carditis in the right context).']] },
+
+  { id: 'x_cbz', group: 'tox', lvl: 4, title: 'Carbamazepine Cardiotoxicity', sim: 'tca_tox',
+    bl: 'Massive carbamazepine overdose (> 50 mg/kg) gives a milder sodium-channel picture than TCAs: subtle QRS widening and 1st-degree AV block.',
+    lp: [
+      'The mechanism is fast sodium-channel blockade, as in TCAs, but the ECG change is usually less dramatic.',
+      'Features: subtle QRS widening and 1st-degree AV block. A dominant terminal R in aVR is less common than with TCAs.',
+      'Carbamazepine is also antimuscarinic, so expect sinus tachycardia.'
+    ],
+    src: ['carbamazepine-cardiotoxicity-ecg-library', 'tricyclic-overdose-sodium-channel-blocker-toxicity'],
+    rc: [['Which anticonvulsant overdose mimics a mild TCA ECG?', 'Carbamazepine (Na-channel blockade: QRS widening, 1st-degree AV block).']] }
 ];
