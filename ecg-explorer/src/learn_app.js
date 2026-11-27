@@ -248,7 +248,7 @@
           <div class="modal-head">
             <div><span class="lvl-badge lvl-${lvl}">L${lvl} · ${LVL_NAME[lvl]}</span> <span class="muted" style="font-size:12px;">${esc(SYS_LABEL[t.sys] || '')} • Reading lesson</span>
               <h2 class="reader-title">${esc(L.title)}</h2></div>
-            <button class="btn" type="button" data-close>Close (Esc)</button>
+            <button class="btn" type="button" data-close>✕ Close</button>
           </div>
           <div class="lesson-bl-text">${esc(L.bl)}</div>
           <div class="reader-grid">
@@ -316,7 +316,7 @@
         <div class="learn-legend">
           <span><i class="tc-dot st-new"></i>Not started</span><span><i class="tc-dot st-reviewed"></i>Reviewed</span>
           <span><i class="tc-dot st-practising"></i>In quiz rotation</span><span><i class="tc-dot st-shaky"></i>Missed recently</span><span><i class="tc-dot st-mastered"></i>Mastered</span>
-          <span class="muted">▶ live ECG · ☰ reading lesson</span>
+          <span class="muted"><b class="tc-kind">Live ECG</b> lesson with a live strip · <b class="tc-kind">Reading</b> lesson</span>
         </div>
         <div class="level-jump">${[1, 2, 3, 4].map(l => `<button class="cat-chip" type="button" data-jump="${l}">L${l} ${LVL_NAME[l]}</button>`).join('')}</div>`;
 
@@ -333,7 +333,7 @@
             items.map(t => {
               const st = topicStatus(t.id);
               return `<button class="topic-card" type="button" data-open="${t.id}" title="${esc(STATUS_LABEL[st])}">
-                <i class="tc-dot st-${st}"></i><span class="tc-name">${esc(t.name)}</span><span class="tc-kind">${t.kind === 'sim' ? '▶' : '☰'}</span></button>`;
+                <i class="tc-dot st-${st}"></i><span class="tc-name">${esc(t.name)}</span><span class="tc-kind">${t.kind === 'sim' ? 'Live ECG' : 'Reading'}</span></button>`;
             }).join('') + '</div></div>';
         });
         html += '</section>';

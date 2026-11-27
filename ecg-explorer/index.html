@@ -1377,6 +1377,105 @@
     @supports (padding: env(safe-area-inset-bottom)) {
       body { padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); }
     }
+
+    /* ===== v9 app shell: navigation, sub-tabs, Today, Settings, search ===== */
+    .topbar .seg-group, #themeToggle { display: none !important; }   /* replaced by #appNav + Settings */
+    .app-nav { display: flex; gap: 4px; align-items: center; }
+    .app-nav-btn { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 9px; border: 1px solid transparent; background: transparent; color: var(--text-muted); font: inherit; font-size: 13.5px; font-weight: 600; cursor: pointer; }
+    .app-nav-btn:hover { color: var(--text); background: var(--bg-hover); }
+    .app-nav-btn.active { color: var(--primary); background: color-mix(in srgb, var(--primary) 14%, transparent); border-color: color-mix(in srgb, var(--primary) 35%, transparent); }
+    .nav-ico { width: 18px; height: 18px; flex: none; }
+    .icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; padding: 0; border-radius: 10px; }
+    .icon-btn .nav-ico { width: 20px; height: 20px; }
+    .icon-btn.active { color: var(--primary); border-color: var(--primary); }
+    .subnav { display: flex; gap: 6px; overflow-x: auto; padding: 2px 2px 10px; scrollbar-width: none; }
+    .subnav::-webkit-scrollbar { display: none; }
+    .sub-btn { flex: none; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-muted); font: inherit; font-size: 13.5px; font-weight: 600; cursor: pointer; }
+    .sub-btn.active { background: var(--primary); border-color: var(--primary); color: var(--bg, #0b111a); }
+    .brand-title { white-space: nowrap; }
+
+    .today-head h2, .set-card h2 { margin: 0 0 4px; font-size: 22px; }
+    .today-head { padding: 4px 2px 10px; }
+    .today-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; margin-bottom: 10px; }
+    .today-card { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+    .today-card h3 { margin: 0; font-size: 16px; }
+    .today-card .muted { font-size: 14px; line-height: 1.5; }
+    .today-card.prim { border-color: var(--primary); }
+    .today-card .btn { margin-top: auto; }
+    .set-card { margin-bottom: 10px; }
+    .set-card h3 { margin: 6px 0 8px; font-size: 16px; }
+    .set-card p { font-size: 14px; line-height: 1.55; }
+    .seg-choice, .set-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0; }
+    .gs-sec { margin-top: 10px; }
+    .gs-item { display: flex; justify-content: space-between; gap: 10px; width: 100%; text-align: left; padding: 9px 10px; margin-top: 5px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text); font: inherit; font-size: 14px; cursor: pointer; }
+    .gs-item .muted { font-size: 12.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 45%; }
+    .gs-item:hover { border-color: var(--primary); }
+
+    /* lesson / notes modal: close button always reachable */
+    .modal-card .modal-head { position: sticky; top: 0; z-index: 5; background: var(--bg-elev, var(--bg-card)); padding-top: 4px; padding-bottom: 6px; }
+
+    @media (min-width: 721px) {
+      .topbar { flex-wrap: wrap; }
+      .app-nav { order: 2; flex: 1 1 auto; }
+      .topbar .topbar-controls { order: 3; margin-left: auto; }
+    }
+    @media (max-width: 720px) {
+      /* one-row bottom tab bar with icons */
+      .app-nav { position: fixed; left: 0; right: 0; bottom: 0; z-index: 800; display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px;
+        background: var(--bg-elev); border-top: 1px solid var(--border); padding: 5px 4px calc(5px + env(safe-area-inset-bottom)); box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.28); }
+      .app-nav-btn { flex-direction: column; gap: 2px; padding: 6px 2px; font-size: 11.5px; min-height: 50px; justify-content: center; }
+      .app-nav-btn.active { background: color-mix(in srgb, var(--primary) 16%, transparent); }
+      .nav-ico { width: 22px; height: 22px; }
+      .app-shell { padding-bottom: calc(70px + env(safe-area-inset-bottom)) !important; }
+      .topbar { position: sticky; top: 0; z-index: 700; padding: calc(6px + env(safe-area-inset-top)) 10px 6px !important; }
+      .topbar .topbar-controls { margin-left: auto; }
+      .subnav { position: sticky; top: calc(54px + env(safe-area-inset-top)); z-index: 600; background: var(--bg); padding: 6px 2px 8px; }
+      /* readable text on phones */
+      .muted, .cat-chip, .rx-card-vig, .learn-stats, .tc-name, .rx-label, .lesson-sub, .pearl-src, .learn-foot { font-size: max(13px, 1em) !important; }
+      .rx-label { font-size: 12px !important; }
+      .learn-hero h2, .panel h2 { font-size: 19px; }
+    }
+    .icon-btn.active, .icon-btn.active:hover { background: color-mix(in srgb, var(--primary) 14%, transparent) !important; color: var(--primary) !important; }
+    /* quiz: the strip toolbar used to force the column wider than a phone */
+    #view-quiz .quiz-grid > *, #view-quiz .quiz-grid > * > * { min-width: 0; }
+    .quiz-ctrl-strip, .ecg-status-bar { flex-wrap: wrap; row-gap: 6px; }
+    /* Phase 2: lessons */
+    .lesson-titlebar { display: none; align-items: center; gap: 10px; justify-content: space-between; }
+    .lesson-title { margin: 0; font-size: 20px; line-height: 1.25; }
+    .lesson-panes .lesson-pane.active + .lesson-pane.active { margin-top: 2px; }
+    .tc-kind { font-size: 11px !important; font-weight: 600; color: var(--text-muted); border: 1px solid var(--border); border-radius: 999px; padding: 1px 7px; white-space: nowrap; margin-left: 6px; }
+    details.nt-sec { border-bottom: 1px solid var(--border); }
+    details.nt-sec > summary { cursor: pointer; list-style: none; font-size: 16px; font-weight: 700; padding: 12px 26px 12px 0; position: relative; }
+    details.nt-sec > summary::-webkit-details-marker { display: none; }
+    details.nt-sec > summary::after { content: '+'; position: absolute; right: 4px; top: 9px; font-size: 20px; color: var(--primary); }
+    details.nt-sec[open] > summary::after { content: '−'; }
+    details.nt-sec[open] { padding-bottom: 8px; }
+    .nt-tools { display: flex; justify-content: flex-end; margin: -4px 0 4px; }
+    @media (max-width: 720px) {
+      #view-studio.lesson-first .main-col { display: flex; flex-direction: column; }
+      #view-studio.lesson-first #lessonPanel { order: -1; }
+      #view-studio.lesson-first .lesson-titlebar { display: flex; }
+      .lesson-tabs { position: sticky; top: calc(54px + env(safe-area-inset-top)); z-index: 50; background: var(--bg); padding: 6px 0; }
+    }
+    /* Phase 3: practice hub */
+    .rx-counts { margin: 2px 0 6px; }
+    details.howto > summary { cursor: pointer; color: var(--primary); font-size: 13.5px; font-weight: 600; margin: 2px 0 6px; }
+    .rx-searchrow { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin: 10px 0 6px; }
+    .rx-searchrow .nt-search { flex: 1 1 220px; margin: 0; max-width: none; }
+    .rx-viewtog { display: flex; gap: 4px; }
+    .rx-sel { padding: 7px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text); font: inherit; font-size: 13.5px; max-width: 100%; }
+    .rx-grid.rx-list { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 6px; }
+    .rx-grid.rx-list .rx-card { flex-direction: row; min-height: 0; }
+    .rx-grid.rx-list .rx-card-body { padding: 10px 12px; }
+    .rx-grid.rx-list .rx-card-vig { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .search-modal input { width: 100%; max-width: none; }
+    @media (max-width: 720px) { .rx-grid.rx-list { grid-template-columns: 1fr; } }
+    /* Phase 4: studio display buttons as a grid on phones (were a 760 px sideways row) */
+    @media (max-width: 720px) {
+      #view-studio .toolbar-left { display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; overflow: visible !important; -webkit-mask-image: none !important; mask-image: none !important; }
+      #view-studio .toolbar-left .btn { white-space: normal; padding: 7px 4px; font-size: 12px; line-height: 1.2; min-height: 40px; text-align: center; }
+      #view-studio .toolbar-right, #actionBtns { flex-wrap: wrap; overflow: visible !important; }
+    }
   </style>
 </head>
 <body>
@@ -1390,12 +1489,15 @@
           </svg>
         </div>
         <div>
-          <div class="brand-title">ECG &amp; Arrhythmia Master Studio</div>
-          <div class="brand-sub">Foundations → Expert pathway • 60 live ECGs + reading lessons • real LITFL ECG cases &amp; examples • recall &amp; spaced review • v7</div>
+          <div class="brand-title">ECG Master Studio</div>
+          <div class="brand-sub">Learning pathway • live 12-lead studio • 599 real ECGs (LITFL + PTB-XL) • LITFL notes • spaced review</div>
         </div>
       </div>
 
+      <nav id="appNav" class="app-nav" aria-label="Main"></nav>
       <div class="topbar-controls">
+        <button id="searchBtn" class="btn icon-btn" type="button" aria-label="Search" title="Search"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button>
+        <button id="settingsBtn" class="btn icon-btn" type="button" aria-label="Settings" title="Settings"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
         <div class="seg-group" role="tablist" aria-label="Workspace mode">
           <button class="seg-btn" data-mode="learn" type="button"><span class="tab-full">Learn Path</span><span class="tab-short">Learn</span></button>
           <button class="seg-btn active" data-mode="studio" type="button"><span class="tab-full">Studio</span><span class="tab-short">Studio</span></button>
@@ -1410,6 +1512,17 @@
         </button>
       </div>
     </header>
+
+    <!-- v9 sub-tabs (Practice / Library) -->
+    <div id="subNav" class="subnav" hidden></div>
+
+    <!-- v9 TODAY + SETTINGS -->
+    <section id="view-today" class="view-section">
+      <div id="todayRoot"></div>
+    </section>
+    <section id="view-settings" class="view-section">
+      <div id="settingsRoot"></div>
+    </section>
 
     <!-- v6 LEARN (PATHWAY) VIEW -->
     <section id="view-learn" class="view-section">
@@ -1670,15 +1783,10 @@
               <div id="lessonBottomLine" class="lesson-bl-text"></div>
             </div>
             <div class="lesson-tabs" role="tablist" aria-label="Lesson sections">
-              <button class="lesson-tab active" data-ltab="see" type="button">Recognise</button>
-              <button class="lesson-tab" data-ltab="why" type="button">Mechanism</button>
-              <button class="lesson-tab" data-ltab="traps" type="button">Mimics &amp; traps</button>
-              <button class="lesson-tab" data-ltab="act" type="button">Manage</button>
-              <button class="lesson-tab" data-ltab="pearls" type="button">LITFL pearls</button>
-              <button class="lesson-tab" data-ltab="notes" type="button">LITFL notes</button>
+              <button class="lesson-tab active" data-ltab="learn" type="button">Learn</button>
               <button class="lesson-tab" data-ltab="real" type="button">Real ECGs</button>
+              <button class="lesson-tab" data-ltab="notes" type="button">LITFL notes</button>
               <button class="lesson-tab" data-ltab="recall" type="button">Recall</button>
-              <button class="lesson-tab lesson-tab-all" data-ltab="all" type="button">Show all</button>
             </div>
             <div class="cards-4 lesson-panes">
               <div class="info-card card-crit lesson-pane active" data-lpane="see">
@@ -10380,7 +10488,7 @@ const EXTEND = [
           <div class="modal-head">
             <div><span class="lvl-badge lvl-${lvl}">L${lvl} · ${LVL_NAME[lvl]}</span> <span class="muted" style="font-size:12px;">${esc(SYS_LABEL[t.sys] || '')} • Reading lesson</span>
               <h2 class="reader-title">${esc(L.title)}</h2></div>
-            <button class="btn" type="button" data-close>Close (Esc)</button>
+            <button class="btn" type="button" data-close>✕ Close</button>
           </div>
           <div class="lesson-bl-text">${esc(L.bl)}</div>
           <div class="reader-grid">
@@ -10448,7 +10556,7 @@ const EXTEND = [
         <div class="learn-legend">
           <span><i class="tc-dot st-new"></i>Not started</span><span><i class="tc-dot st-reviewed"></i>Reviewed</span>
           <span><i class="tc-dot st-practising"></i>In quiz rotation</span><span><i class="tc-dot st-shaky"></i>Missed recently</span><span><i class="tc-dot st-mastered"></i>Mastered</span>
-          <span class="muted">▶ live ECG · ☰ reading lesson</span>
+          <span class="muted"><b class="tc-kind">Live ECG</b> lesson with a live strip · <b class="tc-kind">Reading</b> lesson</span>
         </div>
         <div class="level-jump">${[1, 2, 3, 4].map(l => `<button class="cat-chip" type="button" data-jump="${l}">L${l} ${LVL_NAME[l]}</button>`).join('')}</div>`;
 
@@ -10465,7 +10573,7 @@ const EXTEND = [
             items.map(t => {
               const st = topicStatus(t.id);
               return `<button class="topic-card" type="button" data-open="${t.id}" title="${esc(STATUS_LABEL[st])}">
-                <i class="tc-dot st-${st}"></i><span class="tc-name">${esc(t.name)}</span><span class="tc-kind">${t.kind === 'sim' ? '▶' : '☰'}</span></button>`;
+                <i class="tc-dot st-${st}"></i><span class="tc-name">${esc(t.name)}</span><span class="tc-kind">${t.kind === 'sim' ? 'Live ECG' : 'Reading'}</span></button>`;
             }).join('') + '</div></div>';
         });
         html += '</section>';
@@ -10636,7 +10744,7 @@ const EXTEND = [
     }
 
     // ---- Case library & viewer ----
-    let rxSrc = 'all', rxFilter = 'all', rxSys = 'all', rxCurrent = null, rxExam = null;
+    let rxQuery = '', rxSrc = 'all', rxFilter = 'all', rxSys = 'all', rxCurrent = null, rxExam = null;
     const READ_STEPS = ['Rate', 'Rhythm', 'Axis', 'PR', 'QRS', 'ST', 'T / U', 'QT', 'Final dx'];
 
     function renderCases() {
@@ -10654,14 +10762,20 @@ const EXTEND = [
         if (rxFilter === 'due' && !(caseState(c.id) && caseState(c.id).due <= now)) return false;
         if (rxFilter === 'missed' && st(c.id) !== 'shaky') return false;
         if (rxSys !== 'all' && sysOfCase(c) !== rxSys) return false;
+        if (rxQuery.trim()) {  // vignette/title only; the diagnosis is searchable once attempted (no spoilers)
+          const q = rxQuery.trim().toLowerCase();
+          if (!((c.title + ' ' + c.vignette).toLowerCase().includes(q) || (caseState(c.id) && (c.label || '').toLowerCase().includes(q)))) return false;
+        }
         return true;
       });
+      const rxView = learnState.rxView || 'list';
       const sysChips = SYS.filter(s => s.id !== 'found' && POOL.some(c => sysOfCase(c) === s.id));
       host.innerHTML = `
         <div class="panel learn-hero">
           <div class="learn-hero-text">
-            <h2>Real ECG review <span class="muted" style="font-size:13px;font-weight:500;">— ${nL - nX} LITFL Top 100 cases${nX ? ' + ' + nX + ' step-by-step ECG Exigency puzzles' : ''}${nP ? ' + ' + nP + ' PTB-XL practice ECGs' : ''}</span></h2>
-            <p class="muted">Real 12-leads. <strong>Commit to your read first</strong> (the checklist keeps you systematic), then reveal the interpretation and grade yourself honestly. Misses come back sooner (spaced repetition).${nP ? ' LITFL cases come with a clinical vignette and a full teaching answer; PTB-XL ECGs are real recordings with cardiologist-validated labels, good for volume practice.' : ''}</p>
+            <h2>Real ECGs</h2>
+            <p class="muted rx-counts">${nL - nX} LITFL Top 100 cases${nX ? ' · ' + nX + ' step-by-step puzzles' : ''}${nP ? ' · ' + nP + ' PTB-XL practice ECGs' : ''}</p>
+            <details class="howto"><summary>How it works</summary><p class="muted">Real 12-leads. <strong>Commit to your read first</strong> (the checklist keeps you systematic), then reveal the interpretation and grade yourself honestly. Misses come back sooner (spaced repetition).${nP ? ' LITFL cases come with a clinical vignette and a full teaching answer; PTB-XL ECGs are real recordings with cardiologist-validated labels, good for volume practice.' : ''}</p></details>
             <div class="learn-progress"><span style="width:${Math.round(100 * counts.done / Math.max(1, POOL.length))}%"></span></div>
             <div class="learn-stats"><span><strong>${counts.done}</strong> / ${POOL.length} attempted</span><span><strong>${counts.due}</strong> due for review</span><span><strong>${counts.missed}</strong> missed last time</span></div>
           </div>
@@ -10671,18 +10785,21 @@ const EXTEND = [
             <button class="btn" type="button" id="rxExam">10-case blind exam (spoilers hidden)</button>
           </div>
         </div>
+        <div class="rx-searchrow">
+          <input id="rxSearch" class="nt-search" type="search" placeholder="Search cases (vignette, e.g. syncope, chest pain)" value="${esc(rxQuery)}">
+          <div class="rx-viewtog" role="group" aria-label="View"><button class="btn ${rxView === 'list' ? 'btn-primary' : ''}" type="button" data-rxview="list" aria-label="Compact list">☰ List</button><button class="btn ${rxView === 'cards' ? 'btn-primary' : ''}" type="button" data-rxview="cards" aria-label="Cards with ECG thumbnails">▦ Cards</button></div>
+        </div>
         <div class="rx-filters">
           ${nP ? [['all', 'All sources'], ['litfl', 'LITFL cases'], ['ptbxl', 'PTB-XL practice']].map(([k, l]) => `<button class="cat-chip ${rxSrc === k ? 'active' : ''}" type="button" data-rxsrc="${k}">${l}</button>`).join('') + '<span class="rx-sep"></span>' : ''}
           ${[['all', 'All'], ['new', 'Unseen'], ['due', 'Due'], ['missed', 'Missed']].map(([k, l]) => `<button class="cat-chip ${rxFilter === k ? 'active' : ''}" type="button" data-rxf="${k}">${l}</button>`).join('')}
           <span class="rx-sep"></span>
-          <button class="cat-chip ${rxSys === 'all' ? 'active' : ''}" type="button" data-rxs="all">Any system</button>
-          ${sysChips.map(s => `<button class="cat-chip ${rxSys === s.id ? 'active' : ''}" type="button" data-rxs="${s.id}">${esc(s.short || s.label)}</button>`).join('')}
+          <select id="rxSysSel" class="rx-sel" aria-label="Topic area (reveals the answer category)"><option value="all">Any topic area (honest practice)</option>${sysChips.map(s => `<option value="${s.id}" ${rxSys === s.id ? 'selected' : ''}>${esc(s.label || s.short)}</option>`).join('')}</select>
         </div>
-        <p class="muted rx-spoiler-note">System filters reveal the answer category — use "Any system" for honest practice.</p>
-        <div class="rx-grid">${list.map(c => {
+        <p class="muted rx-spoiler-note">${list.length} case${list.length === 1 ? '' : 's'}${rxSys !== 'all' ? ' · topic filter reveals the answer category' : ''}</p>
+        <div class="rx-grid ${rxView === 'list' ? 'rx-list' : ''}">${list.map(c => {
           const s = caseState(c.id);
           return `<button class="rx-card" type="button" data-case="${c.id}">
-            ${(() => { const q = c.images.find(i => i.where === 'q') || c.images[0]; return q ? `<img loading="lazy" referrerpolicy="no-referrer" src="${esc(imgUrl(q.src))}" alt="ECG thumbnail" onerror="this.style.visibility='hidden'">` : '<div class="rx-card-noimg">ECG case</div>'; })()}
+            ${rxView === 'list' ? '' : (() => { const q = c.images.find(i => i.where === 'q') || c.images[0]; return q ? `<img loading="lazy" referrerpolicy="no-referrer" src="${esc(imgUrl(q.src))}" alt="ECG thumbnail" onerror="this.style.visibility='hidden'">` : '<div class="rx-card-noimg">ECG case</div>'; })()}
             <div class="rx-card-body"><div class="rx-card-title"><i class="tc-dot st-${caseStatus(c.id)}"></i>${esc(c.title)}</div>
             <div class="rx-card-vig">${esc(c.vignette.slice(0, 110))}${c.vignette.length > 110 ? '…' : ''}</div>
             ${s ? `<div class="rx-card-dx">${esc(c.label)}</div>` : ''}</div></button>`;
@@ -10691,7 +10808,10 @@ const EXTEND = [
       host.querySelectorAll('[data-case]').forEach(b => b.onclick = () => openCase(b.dataset.case));
       host.querySelectorAll('[data-rxsrc]').forEach(b => b.onclick = () => { rxSrc = b.dataset.rxsrc; renderCases(); });
       host.querySelectorAll('[data-rxf]').forEach(b => b.onclick = () => { rxFilter = b.dataset.rxf; renderCases(); });
-      host.querySelectorAll('[data-rxs]').forEach(b => b.onclick = () => { rxSys = b.dataset.rxs; renderCases(); });
+      document.getElementById('rxSysSel').onchange = (e) => { rxSys = e.target.value; renderCases(); };
+      host.querySelectorAll('[data-rxview]').forEach(b => b.onclick = () => { learnState.rxView = b.dataset.rxview; saveLearn(); renderCases(); });
+      const rs = document.getElementById('rxSearch');
+      rs.oninput = () => { rxQuery = rs.value; const pos = rs.selectionStart; renderCases(); const r2 = document.getElementById('rxSearch'); if (r2) { r2.focus(); r2.setSelectionRange(pos, pos); } };
       document.getElementById('rxNextNew').onclick = () => { const c = POOL.find(x => !caseState(x.id)) || POOL[0]; openCase(c.id); };
       document.getElementById('rxDue').onclick = () => {
         const due = POOL.filter(c => { const s = caseState(c.id); return s && s.due <= Date.now(); });
@@ -10823,9 +10943,20 @@ const EXTEND = [
     const NOTES_CC = 'Text and ECGs © <a href="https://litfl.com/ecg-library/" target="_blank" rel="noopener noreferrer">Life in the Fast Lane ECG Library</a> (Ed Burns, Robert Buttner et al.), <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a>. Reproduced for non-commercial study; formatting adapted, references and comments omitted — see the original page.';
     let notesQuery = '', notesTrail = [];
 
-    function notesHtml(slug) {
+    // sections become collapsible: intro always shown; mode 'first' opens only the first section
+    function notesHtml(slug, mode) {
       const n = LITFL_NOTES[slug];
       if (!n) return '';
+      const parts = notesFill(n).split(/(?=<h4>)/);
+      const intro = parts[0].startsWith('<h4>') ? '' : parts.shift();
+      return intro + parts.map((sec, i) => {
+        const m = sec.match(/^<h4>(.*?)<\/h4>/);
+        if (!m) return sec;
+        const open = mode === 'open' || (mode === 'first' && i === 0) ? ' open' : '';
+        return `<details class="nt-sec"${open}><summary>${m[1]}</summary>${sec.slice(m[0].length)}</details>`;
+      }).join('');
+    }
+    function notesFill(n) {
       return n.html.replace(/<figure data-img="(\d+)"><\/figure>/g, (m, k) => n.images[+k] ? figHtml(n.images[+k].src, n.images[+k].cap, 'nt-fig') : '');
     }
     function bindNotes(host) {
@@ -10855,15 +10986,18 @@ const EXTEND = [
         <div class="modal-head">
           <div><span class="muted" style="font-size:12px;">LITFL ECG Library • full notes</span>
             <h2 class="reader-title">${esc(n.title)}</h2></div>
-          <div class="nt-headbtns">${back ? `<button class="btn" type="button" data-back>← ${esc(LITFL_NOTES[back].title)}</button>` : ''}<button class="btn" type="button" data-close>Close (Esc)</button></div>
+          <div class="nt-headbtns">${back ? `<button class="btn" type="button" data-back>← ${esc(LITFL_NOTES[back].title)}</button>` : ''}<button class="btn" type="button" data-close>✕ Close</button></div>
         </div>
-        <div class="nt-body">${notesHtml(slug)}</div>
+        <div class="nt-tools"><button class="btn" type="button" data-ntall>Expand all</button></div>
+        <div class="nt-body">${notesHtml(slug, 'first')}</div>
         <div class="pearl-src"><div><strong>Original page:</strong> <a href="${esc(n.url)}" target="_blank" rel="noopener noreferrer">${esc(n.title)} — LITFL ↗</a> (references, further reading and discussion)</div><div class="muted">${NOTES_CC}</div></div>`;
       body.querySelector('[data-close]').onclick = closeReader;
       const bk = body.querySelector('[data-back]');
       if (bk) bk.onclick = () => openNotes(notesTrail.pop(), true);
       body.querySelectorAll('a[data-litfl]').forEach(a => a.addEventListener('click', () => { notesTrail.push(slug); }, true));
       bindNotes(body);
+      const all = body.querySelector('[data-ntall]');
+      if (all) all.onclick = () => { const ds = body.querySelectorAll('details.nt-sec'); const open = [...ds].some(d => !d.open); ds.forEach(d => { d.open = open; }); all.textContent = open ? 'Collapse all' : 'Expand all'; };
       modal.classList.add('open');
       modal.scrollTop = 0;
     }
@@ -10904,7 +11038,7 @@ const EXTEND = [
       const L = LEARN[id];
       const sl = notesSlugsFor(L && L.src);
       host.innerHTML = sl.length
-        ? sl.map(s => `<div class="nt-inline"><div class="nt-inline-head"><strong>${esc(LITFL_NOTES[s].title)}</strong> <button class="btn" type="button" data-notes="${s}">Open full page ⤢</button></div><div class="nt-body">${notesHtml(s)}</div></div>`).join('') + `<div class="pearl-src"><div class="muted">${NOTES_CC}</div></div>`
+        ? sl.map(s => `<div class="nt-inline"><div class="nt-inline-head"><strong>${esc(LITFL_NOTES[s].title)}</strong> <button class="btn" type="button" data-notes="${s}">Open full page ⤢</button></div><div class="nt-body">${notesHtml(s, 'first')}</div></div>`).join('') + `<div class="pearl-src"><div class="muted">${NOTES_CC}</div></div>`
         : '<p class="muted">No LITFL page is linked to this topic yet. Browse the LITFL Notes tab.</p>';
       bindNotes(host);
       const tab = document.querySelector('.lesson-tab[data-ltab="notes"]');
@@ -11017,6 +11151,332 @@ const EXTEND = [
     const _v8RenderNotes = renderNotes;
     renderNotes = function () { _v8RenderNotes(); placeOfflineBar('notesRoot'); };
     if (canOffline()) offlineManifest().then(countStored).then(refreshOfflineBars).catch(() => {});
+
+    // =========================================================================
+    // v9 APP SHELL — 5-tab navigation, back-button routing, Today, Settings
+    // Wraps the existing views (learn / studio / cases / quiz / notes / compare / tools) without
+    // changing them: each tab owns one or more of those views; Practice and Library get sub-tabs.
+    // =========================================================================
+    const ICON = {
+      today: '<path d="M4 6h16M4 6v13a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V6M8 3v5M16 3v5M8 13l3 3 5-6"/>',
+      learn: '<path d="M3 6l9-3 9 3-9 3-9-3zM6 8v5c0 2 3 4 6 4s6-2 6-4V8M21 6v6"/>',
+      practice: '<path d="M2 12h4l2-6 4 13 3-9 2 2h5"/>',
+      library: '<path d="M4 4h5v16H4zM10 4h4v16h-4zM15.5 5l3.8-1 3 15-3.8 1z"/>',
+      studio: '<rect x="3" y="4" width="18" height="13" rx="2"/><path d="M5 11h3l1.5-3 2 6 1.5-3h6M8 21h8M12 17v4"/>',
+      settings: '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/>'
+    };
+    const svgIcon = (k) => `<svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[k]}</svg>`;
+    const NAV = [
+      { id: 'today', label: 'Today', modes: ['today'] },
+      { id: 'learn', label: 'Learn', modes: ['learn'] },
+      { id: 'practice', label: 'Practice', modes: ['cases', 'quiz'], subs: [['cases', 'Real ECGs'], ['quiz', 'Simulated quiz']] },
+      { id: 'library', label: 'Library', modes: ['notes', 'compare', 'tools'], subs: [['notes', 'LITFL notes'], ['compare', 'Algorithms'], ['tools', 'Bedside tools']] },
+      { id: 'studio', label: 'Studio', modes: ['studio'] }
+    ];
+    const NAV_OF = {};
+    NAV.forEach(n => n.modes.forEach(m => { NAV_OF[m] = n; }));
+    const lastSub = { practice: 'cases', library: 'notes' };
+
+    function renderNav() {
+      const nav = document.getElementById('appNav');
+      if (!nav) return;
+      const cur = NAV_OF[appMode];
+      nav.innerHTML = NAV.map(n => `<button class="app-nav-btn ${cur && cur.id === n.id ? 'active' : ''}" type="button" data-nav="${n.id}" aria-label="${n.label}" ${cur && cur.id === n.id ? 'aria-current="page"' : ''}>${svgIcon(n.id)}<span>${n.label}</span></button>`).join('');
+      nav.querySelectorAll('[data-nav]').forEach(b => b.onclick = () => goNav(b.dataset.nav));
+      const sub = document.getElementById('subNav');
+      if (cur && cur.subs) {
+        sub.hidden = false;
+        sub.innerHTML = cur.subs.map(([m, l]) => `<button class="sub-btn ${appMode === m ? 'active' : ''}" type="button" data-sub="${m}">${l}</button>`).join('');
+        sub.querySelectorAll('[data-sub]').forEach(b => b.onclick = () => { if (b.dataset.sub === 'cases') rxCurrent = null; switchMode(b.dataset.sub); window.scrollTo(0, 0); });
+      } else { sub.hidden = true; sub.innerHTML = ''; }
+      const gear = document.getElementById('settingsBtn');
+      if (gear) gear.classList.toggle('active', appMode === 'settings');
+    }
+    function goNav(id) {
+      const n = NAV.find(x => x.id === id);
+      if (!n) return;
+      if (id === 'practice' && appMode === 'cases') rxCurrent = null;
+      switchMode(n.subs ? lastSub[id] : n.modes[0]);
+      window.scrollTo(0, 0);
+    }
+
+    // ---- Routing: every screen has a #/ address, so the phone's back button works ----
+    const INITIAL_HASH = location.hash;  // captured before the engine's start-up selects a rhythm
+    let routeLock = 0;
+    function modeRoute(m) {
+      const n = NAV_OF[m];
+      if (m === 'cases' && rxCurrent) return '#/case/' + rxCurrent;
+      if (m === 'studio' && typeof currentId !== 'undefined') return '#/studio/' + currentId;
+      return n && n.subs ? `#/${n.id}/${m}` : '#/' + m;
+    }
+    function setRoute(r, replace) {
+      if (routeLock || location.hash === r) return;
+      try { history[replace ? 'replaceState' : 'pushState'](null, '', r); } catch (e) {}
+    }
+    const modalOpen = () => document.getElementById('lessonModal').classList.contains('open');
+    function applyRoute() {
+      const p = (location.hash || '').replace(/^#\/?/, '').split('/');
+      routeLock++;
+      try {
+        if (modalOpen() && p[0] !== 'notes' && p[0] !== 'read') { document.getElementById('lessonModal').classList.remove('open'); }
+        if (p[0] === 'case' && RCASE_BY_ID[p[1]]) { openCase(p[1]); }
+        else if (p[0] === 'notes' && LITFL_NOTES[p[1]]) { if (!document.getElementById('view-' + appMode)) switchMode('notes'); openNotes(p[1]); }
+        else if (p[0] === 'read' && TOPIC_BY_ID[p[1]]) { openReader(p[1]); }
+        else if (p[0] === 'studio') { if (p[1] && DATA_BY_ID[p[1]]) selectRhythm(p[1]); switchMode('studio'); }
+        else if ((p[0] === 'practice' || p[0] === 'library') && NAV_OF[p[1]]) { if (p[1] === 'cases') rxCurrent = null; switchMode(p[1]); }
+        else if (['today', 'learn', 'settings'].includes(p[0])) { switchMode(p[0]); }
+        else return false;
+        return true;
+      } finally { routeLock--; }
+    }
+    window.addEventListener('popstate', applyRoute);
+
+    const _v9SwitchMode = switchMode;
+    switchMode = function (mode) {
+      if (!document.getElementById('view-' + mode)) return;
+      _v9SwitchMode(mode);
+      const n = NAV_OF[mode];
+      if (n && n.subs) lastSub[n.id] = mode;
+      if (mode === 'today') renderToday();
+      if (mode === 'settings') renderSettings();
+      renderNav();
+      setRoute(modeRoute(mode));
+    };
+    const _v9OpenCase = openCase;
+    openCase = function (id) { _v9OpenCase(id); setRoute('#/case/' + id); };
+    const _v9RenderCases = renderCases;
+    // leaving a case for the list ("← All cases") swaps the address in place; opening the list normally pushes
+    renderCases = function () { _v9RenderCases(); if (appMode === 'cases' && !rxCurrent && /^#\/case\//.test(location.hash)) setRoute(modeRoute('cases'), true); };
+    const _v9SelectRhythm = selectRhythm;
+    selectRhythm = function (id) { _v9SelectRhythm(id); if (appMode === 'studio' && shellReady) setRoute('#/studio/' + id, true); };
+    let shellReady = false;
+    const _v9OpenNotes = openNotes;
+    openNotes = function (slug, fromLink) { _v9OpenNotes(slug, fromLink); setRoute('#/notes/' + slug, !!fromLink && /^#\/notes\//.test(location.hash)); };
+    const _v9OpenReader = openReader;
+    openReader = function (id) { _v9OpenReader(id); setRoute('#/read/' + id); };
+    const _v9CloseReader = closeReader;
+    closeReader = function () {
+      _v9CloseReader();
+      // replace (not history.back): callers often navigate straight after closing
+      if (/^#\/(notes|read)\//.test(location.hash)) setRoute(modeRoute(appMode), true);
+    };
+
+    // ---- Theme: Auto (follows the phone) / Light / Dark ----
+    const THEME_KEY = 'ecgStudio.themePref';
+    const themePref = () => { try { return localStorage.getItem(THEME_KEY) || 'auto'; } catch (e) { return 'auto'; } };
+    const sysDark = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+    function applyThemePref() {
+      const p = themePref();
+      const t = p === 'light' ? 'paper' : p === 'dark' ? 'dark' : (sysDark && !sysDark.matches ? 'paper' : 'dark');
+      if (document.documentElement.getAttribute('data-theme') !== t) applyTheme(t);
+    }
+    if (sysDark && sysDark.addEventListener) sysDark.addEventListener('change', () => { if (themePref() === 'auto') applyThemePref(); });
+
+    // ---- Settings ----
+    const STORE_KEYS = () => Object.keys(localStorage).filter(k => k.startsWith('ecgStudio'));
+    function renderSettings() {
+      const host = document.getElementById('settingsRoot');
+      if (!host) return;
+      const p = themePref();
+      host.innerHTML = `
+        <div class="panel set-card"><h2>Settings</h2>
+          <h3>Appearance</h3>
+          <div class="seg-choice" role="radiogroup" aria-label="Theme">${[['auto', 'Auto (match phone)'], ['light', 'Light'], ['dark', 'Dark']].map(([k, l]) => `<button type="button" role="radio" aria-checked="${p === k}" class="btn ${p === k ? 'btn-primary' : ''}" data-theme-pref="${k}">${l}</button>`).join('')}</div>
+          <p class="muted">Dark suits live strips and night shifts; Light looks like ECG paper.</p>
+        </div>
+        <div class="panel set-card"><h3>Install & offline</h3><div id="setOffline"></div>
+          <p class="muted">After saving, every ECG, case and note works with no signal. The app updates itself next time you open it online.</p></div>
+        <div class="panel set-card"><h3>Your progress</h3>
+          <p class="muted">Progress (topics, recall cards, quiz and case history, notes) is stored only on this device. Back it up before changing phones or clearing the browser.</p>
+          <div class="set-row"><button class="btn btn-primary" type="button" id="setExport">Back up progress (file)</button>
+          <label class="btn" for="setImport">Restore from backup…</label><input id="setImport" type="file" accept="application/json,.json" hidden></div>
+          <div class="set-row"><button class="btn btn-danger" type="button" id="setReset">Reset all progress…</button></div>
+          <p id="setMsg" class="muted" role="status"></p>
+        </div>
+        <div class="panel set-card"><h3>About & credits</h3>
+          <p class="muted">Teaching text, cases and example ECGs from the <a href="https://litfl.com/ecg-library/" target="_blank" rel="noopener noreferrer">LITFL ECG Library</a> (Life in the Fast Lane), <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a>. Practice ECGs from <a href="https://physionet.org/content/ptb-xl/1.0.3/" target="_blank" rel="noopener noreferrer">PTB-XL</a> (Wagner et al., Sci Data 2020; PhysioNet), <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>. Educational use only: check drug doses, energies and protocols against current local guidelines.</p>
+        </div>`;
+      host.querySelectorAll('[data-theme-pref]').forEach(b => b.onclick = () => { try { localStorage.setItem(THEME_KEY, b.dataset.themePref); } catch (e) {} applyThemePref(); renderSettings(); });
+      const off = document.getElementById('setOffline');
+      off.innerHTML = offlineBarHtml(); bindOfflineBar(off);
+      const msg = (t) => { document.getElementById('setMsg').textContent = t; };
+      document.getElementById('setExport').onclick = () => {
+        const data = { app: 'ECG Master Studio', exported: new Date().toISOString(), store: {} };
+        STORE_KEYS().forEach(k => { data.store[k] = localStorage.getItem(k); });
+        const blob = new Blob([JSON.stringify(data, null, 1)], { type: 'application/json' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob); a.download = 'ecg-studio-progress-' + new Date().toISOString().slice(0, 10) + '.json';
+        document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+        msg('Backup file saved. Keep it somewhere safe (Files, iCloud Drive, Google Drive).');
+      };
+      document.getElementById('setImport').onchange = async (e) => {
+        const f = e.target.files[0]; if (!f) return;
+        try {
+          const d = JSON.parse(await f.text());
+          if (!d || !d.store || typeof d.store !== 'object') throw new Error('not a backup file');
+          if (!confirm('Replace the progress on this device with the backup from ' + (d.exported || 'the file').slice(0, 10) + '?')) return;
+          STORE_KEYS().forEach(k => localStorage.removeItem(k));
+          Object.entries(d.store).forEach(([k, v]) => { if (k.startsWith('ecgStudio') && typeof v === 'string') localStorage.setItem(k, v); });
+          location.hash = '#/today'; location.reload();
+        } catch (err) { msg('Could not restore: ' + err.message); }
+      };
+      document.getElementById('setReset').onclick = () => {
+        if (!confirm('Erase all progress on this device (topics, recall, quiz and case history, notes)? This cannot be undone unless you have a backup.')) return;
+        STORE_KEYS().filter(k => k !== THEME_KEY).forEach(k => localStorage.removeItem(k));
+        location.hash = '#/today'; location.reload();
+      };
+    }
+
+    // ---- Today: what to do now ----
+    function renderToday() {
+      const host = document.getElementById('todayRoot');
+      if (!host) return;
+      const now = Date.now();
+      const started = TOPICS.filter(t => topicStatus(t.id) !== 'new').length;
+      const cont = TOPICS.find(t => topicStatus(t.id) === 'new') || TOPICS[0];
+      const quizDue = Object.entries(progress.items).filter(([id, it]) => DATA_BY_ID[id] && it.due && it.due <= now).length;
+      const casesDue = RCASES.filter(c => { const s = caseState(c.id); return s && s.due <= now; });
+      const recallDue = TOPICS.filter(t => learnState.reviewed[t.id] && recallCardsFor(t.id).some((_, i) => { const r = learnState.recall[t.id + '#' + i]; return !r || r.last !== 'ok'; })).slice(0, 6);
+      const attempted = RCASES.filter(c => caseState(c.id)).length;
+      const lastCase = RCASES.filter(c => caseState(c.id)).sort((a, b) => caseState(b.id).t - caseState(a.id).t)[0];
+      const nextCase = RCASES.find(c => !caseState(c.id) && c.src !== 'ptbxl') || RCASES.find(c => !caseState(c.id));
+      const first = !started && !attempted;
+      const card = (t, body, btn, act, cls) => `<div class="panel today-card ${cls || ''}"><h3>${t}</h3><div class="muted">${body}</div>${btn ? `<button class="btn ${cls === 'prim' ? 'btn-primary' : ''}" type="button" data-today="${act}">${btn}</button>` : ''}</div>`;
+      host.innerHTML = `
+        <div class="today-head"><h2>${first ? 'Welcome' : 'Today'}</h2><p class="muted">${first ? 'Start with the Foundations — paper, leads, axis and a systematic read — then move into rhythms and real ECGs.' : `${started} / ${TOPICS.length} topics started · ${attempted} / ${RCASES.length} real ECGs attempted`}</p></div>
+        <div class="today-grid">
+          ${card(first ? 'Start learning' : 'Continue learning', `Next on your pathway: <strong>${esc(cont.name)}</strong>`, 'Open lesson →', 'continue', 'prim')}
+          ${card('Real ECG cases', casesDue.length ? `<strong>${casesDue.length}</strong> case${casesDue.length > 1 ? 's' : ''} due for review` : (nextCase ? `Next unseen: <strong>${esc(nextCase.title)}</strong>` : 'All cases attempted'), casesDue.length ? 'Review due cases' : 'Read a real ECG', casesDue.length ? 'casesdue' : 'nextcase')}
+          ${card('Simulated quiz', quizDue ? `<strong>${quizDue}</strong> rhythm${quizDue > 1 ? 's' : ''} due (spaced review)` : 'Read, diagnose and manage live strips', quizDue ? 'Review ' + quizDue + ' due' : 'Start quiz', 'quiz')}
+          ${recallDue.length ? card('Recall cards', 'Not yet nailed: ' + recallDue.map(t => `<button class="cat-chip" type="button" data-topic="${t.id}">${esc(t.name)}</button>`).join(' '), '', '') : ''}
+          ${lastCase ? card('Last case', `${esc(lastCase.title)} — ${esc(lastCase.label || '')}`, 'Open again', 'lastcase') : ''}
+          ${card('10-case blind exam', 'Real ECGs, answers hidden, graded at the end', 'Start exam', 'exam')}
+        </div>
+        <div class="panel today-card"><h3>Find anything</h3>
+          <input id="todaySearch" class="nt-search" type="search" placeholder="Search topics, LITFL notes and cases (e.g. Brugada, aVR, hyperkalaemia)">
+          <div id="todayResults"></div></div>
+        ${!isStandalone() || !OFF.files || OFF.stored !== (OFF.files || []).length ? `<div class="panel today-card"><h3>Use it offline</h3><div class="muted">Install the app and save all ECGs so it works with no signal.</div><button class="btn" type="button" data-today="settings">Install & offline settings</button></div>` : ''}`;
+      const act = {
+        continue: () => openTopic(cont.id),
+        casesdue: () => { rxCurrent = null; switchMode('cases'); const pool = casesDue; if (pool.length) openCase(pool[0].id); },
+        nextcase: () => nextCase && openCase(nextCase.id),
+        quiz: () => { document.getElementById('quizOrder').value = 'smart'; switchMode('quiz'); },
+        lastcase: () => openCase(lastCase.id),
+        exam: () => { rxCurrent = null; switchMode('cases'); document.getElementById('rxExam').click(); },
+        settings: () => switchMode('settings')
+      };
+      host.querySelectorAll('[data-today]').forEach(b => b.onclick = () => act[b.dataset.today]());
+      host.querySelectorAll('[data-topic]').forEach(b => b.onclick = () => openTopic(b.dataset.topic));
+      bindGlobalSearch(document.getElementById('todaySearch'), document.getElementById('todayResults'));
+    }
+
+    // ---- One search across topics, LITFL notes and cases ----
+    function globalSearch(q) {
+      q = q.trim().toLowerCase();
+      if (q.length < 2) return null;
+      const topics = TOPICS.filter(t => t.name.toLowerCase().includes(q) || (LEARN[t.id] && v6SearchHit(t.id, q)) ||
+        ((FOUND_BY_ID[t.id] || EXT_BY_ID[t.id]) && JSON.stringify(FOUND_BY_ID[t.id] || EXT_BY_ID[t.id]).toLowerCase().includes(q))).slice(0, 12);
+      const notes = Object.entries(LITFL_NOTES).filter(([, n]) => notesSearchText(n).includes(q))
+        .sort((a, b) => (b[1].title.toLowerCase().includes(q) ? 1 : 0) - (a[1].title.toLowerCase().includes(q) ? 1 : 0)).slice(0, 12);
+      // cases: match the vignette only (never the hidden diagnosis) unless already attempted
+      const cases = RCASES.filter(c => (c.title + ' ' + c.vignette).toLowerCase().includes(q) || (caseState(c.id) && (c.label || '').toLowerCase().includes(q))).slice(0, 12);
+      return { topics, notes, cases };
+    }
+    function bindGlobalSearch(input, out) {
+      if (!input) return;
+      const draw = () => {
+        const r = globalSearch(input.value);
+        if (!r) { out.innerHTML = ''; return; }
+        const sec = (t, items) => items ? `<div class="gs-sec"><div class="rx-label">${t}</div>${items}</div>` : '';
+        out.innerHTML = (sec('Topics', r.topics.map(t => `<button class="gs-item" type="button" data-gtopic="${t.id}"><span>${esc(t.name)}</span><span class="muted">${t.kind === 'sim' ? 'Live ECG lesson' : 'Reading lesson'}</span></button>`).join('')) +
+          sec('LITFL notes', r.notes.map(([s, n]) => `<button class="gs-item" type="button" data-gnotes="${s}"><span>${esc(n.title)}</span><span class="muted">Notes</span></button>`).join('')) +
+          sec('Cases', r.cases.map(c => `<button class="gs-item" type="button" data-gcase="${c.id}"><span>${esc(c.title)}</span><span class="muted">${esc(c.vignette.slice(0, 60))}</span></button>`).join(''))) ||
+          '<p class="muted">Nothing found.</p>';
+        out.querySelectorAll('[data-gtopic]').forEach(b => b.onclick = () => openTopic(b.dataset.gtopic));
+        out.querySelectorAll('[data-gnotes]').forEach(b => b.onclick = () => openNotes(b.dataset.gnotes));
+        out.querySelectorAll('[data-gcase]').forEach(b => b.onclick = () => openCase(b.dataset.gcase));
+      };
+      input.oninput = draw;
+    }
+
+    // ---- Offline bar now lives in Settings (and a hint on Today), not on every screen ----
+    placeOfflineBar = function () {};
+    refreshOfflineBars = function () {
+      const off = document.getElementById('setOffline');
+      if (off && appMode === 'settings') { off.innerHTML = offlineBarHtml(); bindOfflineBar(off); }
+    };
+
+    // ---- Start-up: honour the address (#/...), else Today ----
+    const _v9Init = v6Init;
+    v6Init = function () {
+      applyThemePref();
+      document.getElementById('settingsBtn').onclick = () => switchMode('settings');
+      document.getElementById('searchBtn').onclick = () => openSearch();
+      const hadRoute = /^#\//.test(INITIAL_HASH);
+      if (hadRoute) { try { history.replaceState(null, '', INITIAL_HASH); } catch (e) {} }
+      routeLock++; try { _v9Init(); } finally { routeLock--; }
+      if (!(hadRoute && applyRoute())) { routeLock++; switchMode('today'); routeLock--; setRoute('#/today', true); }
+      shellReady = true;
+      renderNav();
+    };
+
+    // ---- Phase 2: lessons — 4 tabs, lesson-first topic pages on phones ----
+    const LTAB_GROUP = { learn: ['see', 'why', 'traps', 'act', 'pearls'], real: ['real'], notes: ['notes'], recall: ['recall'] };
+    applyLessonTab = function () {
+      const panel = document.getElementById('lessonPanel');
+      if (!panel) return;
+      if (!LTAB_GROUP[learnState.ltab]) learnState.ltab = 'learn';   // old per-card tabs map onto "Learn"
+      const tab = learnState.ltab;
+      panel.classList.remove('show-all');
+      panel.querySelectorAll('.lesson-tab').forEach(b => b.classList.toggle('active', b.dataset.ltab === tab));
+      panel.querySelectorAll('.lesson-pane').forEach(p => p.classList.toggle('active', LTAB_GROUP[tab].includes(p.dataset.lpane)));
+    };
+    const studioSec = () => document.getElementById('view-studio');
+    const _v9OpenTopic = openTopic;
+    openTopic = function (id) {
+      const t = TOPIC_BY_ID[id];
+      if (t && t.kind === 'sim') {
+        studioSec().classList.add('lesson-first');
+        learnState.ltab = 'learn';
+        _v9OpenTopic(id);
+        applyLessonTab();
+        window.scrollTo(0, 0);
+      } else _v9OpenTopic(id);
+    };
+    const _v9GoNav = goNav;
+    goNav = function (id) { if (id === 'studio') studioSec().classList.remove('lesson-first'); _v9GoNav(id); };
+    const _v9RenderLesson = renderLesson;
+    renderLesson = function (id) {
+      _v9RenderLesson(id);
+      const panel = document.getElementById('lessonPanel');
+      if (!panel) return;
+      let bar = panel.querySelector('.lesson-titlebar');
+      if (!bar) {
+        panel.insertAdjacentHTML('afterbegin', '<div class="lesson-titlebar"><h1 class="lesson-title"></h1><button class="btn btn-primary" type="button" data-jump-ecg>Live ECG ↓</button></div>');
+        bar = panel.querySelector('.lesson-titlebar');
+        bar.querySelector('[data-jump-ecg]').onclick = () => {
+          const strip = document.querySelector('#view-studio .main-col > .panel');
+          if (strip) strip.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        };
+      }
+      bar.querySelector('.lesson-title').textContent = (DATA_BY_ID[id] || TOPIC_BY_ID[id] || { name: '' }).name;
+      applyLessonTab();
+    };
+
+    // ---- Phase 3: search everything from the header ----
+    function openSearch() {
+      const modal = document.getElementById('lessonModal');
+      const body = document.getElementById('lessonModalBody');
+      body.innerHTML = `<div class="modal-head"><h2 class="reader-title" style="margin:0">Search</h2><button class="btn" type="button" data-close>✕ Close</button></div>
+        <div class="search-modal"><input id="gsInput" class="nt-search" type="search" placeholder="Topics, LITFL notes, cases — e.g. Wellens, aVR, delta wave" autocomplete="off"><div id="gsOut"></div>
+        <p class="muted" style="margin-top:10px;font-size:12.5px">Case results match the clinical vignette only, so diagnoses are not spoiled.</p></div>`;
+      body.querySelector('[data-close]').onclick = () => modal.classList.remove('open');
+      bindGlobalSearch(document.getElementById('gsInput'), document.getElementById('gsOut'));
+      // results open other screens: close the search first
+      document.getElementById('gsOut').addEventListener('click', (e) => { if (e.target.closest('[data-gtopic],[data-gcase]')) modal.classList.remove('open'); }, true);
+      modal.classList.add('open'); modal.scrollTop = 0;
+      setTimeout(() => document.getElementById('gsInput').focus(), 50);
+    }
 
     // Init + Restore saved preferences
     const savedPrefs = loadPrefs();

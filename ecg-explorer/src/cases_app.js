@@ -119,7 +119,7 @@
     }
 
     // ---- Case library & viewer ----
-    let rxSrc = 'all', rxFilter = 'all', rxSys = 'all', rxCurrent = null, rxExam = null;
+    let rxQuery = '', rxSrc = 'all', rxFilter = 'all', rxSys = 'all', rxCurrent = null, rxExam = null;
     const READ_STEPS = ['Rate', 'Rhythm', 'Axis', 'PR', 'QRS', 'ST', 'T / U', 'QT', 'Final dx'];
 
     function renderCases() {
@@ -137,14 +137,20 @@
         if (rxFilter === 'due' && !(caseState(c.id) && caseState(c.id).due <= now)) return false;
         if (rxFilter === 'missed' && st(c.id) !== 'shaky') return false;
         if (rxSys !== 'all' && sysOfCase(c) !== rxSys) return false;
+        if (rxQuery.trim()) {  // vignette/title only; the diagnosis is searchable once attempted (no spoilers)
+          const q = rxQuery.trim().toLowerCase();
+          if (!((c.title + ' ' + c.vignette).toLowerCase().includes(q) || (caseState(c.id) && (c.label || '').toLowerCase().includes(q)))) return false;
+        }
         return true;
       });
+      const rxView = learnState.rxView || 'list';
       const sysChips = SYS.filter(s => s.id !== 'found' && POOL.some(c => sysOfCase(c) === s.id));
       host.innerHTML = `
         <div class="panel learn-hero">
           <div class="learn-hero-text">
-            <h2>Real ECG review <span class="muted" style="font-size:13px;font-weight:500;">— ${nL - nX} LITFL Top 100 cases${nX ? ' + ' + nX + ' step-by-step ECG Exigency puzzles' : ''}${nP ? ' + ' + nP + ' PTB-XL practice ECGs' : ''}</span></h2>
-            <p class="muted">Real 12-leads. <strong>Commit to your read first</strong> (the checklist keeps you systematic), then reveal the interpretation and grade yourself honestly. Misses come back sooner (spaced repetition).${nP ? ' LITFL cases come with a clinical vignette and a full teaching answer; PTB-XL ECGs are real recordings with cardiologist-validated labels, good for volume practice.' : ''}</p>
+            <h2>Real ECGs</h2>
+            <p class="muted rx-counts">${nL - nX} LITFL Top 100 cases${nX ? ' · ' + nX + ' step-by-step puzzles' : ''}${nP ? ' · ' + nP + ' PTB-XL practice ECGs' : ''}</p>
+            <details class="howto"><summary>How it works</summary><p class="muted">Real 12-leads. <strong>Commit to your read first</strong> (the checklist keeps you systematic), then reveal the interpretation and grade yourself honestly. Misses come back sooner (spaced repetition).${nP ? ' LITFL cases come with a clinical vignette and a full teaching answer; PTB-XL ECGs are real recordings with cardiologist-validated labels, good for volume practice.' : ''}</p></details>
             <div class="learn-progress"><span style="width:${Math.round(100 * counts.done / Math.max(1, POOL.length))}%"></span></div>
             <div class="learn-stats"><span><strong>${counts.done}</strong> / ${POOL.length} attempted</span><span><strong>${counts.due}</strong> due for review</span><span><strong>${counts.missed}</strong> missed last time</span></div>
           </div>
@@ -154,18 +160,21 @@
             <button class="btn" type="button" id="rxExam">10-case blind exam (spoilers hidden)</button>
           </div>
         </div>
+        <div class="rx-searchrow">
+          <input id="rxSearch" class="nt-search" type="search" placeholder="Search cases (vignette, e.g. syncope, chest pain)" value="${esc(rxQuery)}">
+          <div class="rx-viewtog" role="group" aria-label="View"><button class="btn ${rxView === 'list' ? 'btn-primary' : ''}" type="button" data-rxview="list" aria-label="Compact list">☰ List</button><button class="btn ${rxView === 'cards' ? 'btn-primary' : ''}" type="button" data-rxview="cards" aria-label="Cards with ECG thumbnails">▦ Cards</button></div>
+        </div>
         <div class="rx-filters">
           ${nP ? [['all', 'All sources'], ['litfl', 'LITFL cases'], ['ptbxl', 'PTB-XL practice']].map(([k, l]) => `<button class="cat-chip ${rxSrc === k ? 'active' : ''}" type="button" data-rxsrc="${k}">${l}</button>`).join('') + '<span class="rx-sep"></span>' : ''}
           ${[['all', 'All'], ['new', 'Unseen'], ['due', 'Due'], ['missed', 'Missed']].map(([k, l]) => `<button class="cat-chip ${rxFilter === k ? 'active' : ''}" type="button" data-rxf="${k}">${l}</button>`).join('')}
           <span class="rx-sep"></span>
-          <button class="cat-chip ${rxSys === 'all' ? 'active' : ''}" type="button" data-rxs="all">Any system</button>
-          ${sysChips.map(s => `<button class="cat-chip ${rxSys === s.id ? 'active' : ''}" type="button" data-rxs="${s.id}">${esc(s.short || s.label)}</button>`).join('')}
+          <select id="rxSysSel" class="rx-sel" aria-label="Topic area (reveals the answer category)"><option value="all">Any topic area (honest practice)</option>${sysChips.map(s => `<option value="${s.id}" ${rxSys === s.id ? 'selected' : ''}>${esc(s.label || s.short)}</option>`).join('')}</select>
         </div>
-        <p class="muted rx-spoiler-note">System filters reveal the answer category — use "Any system" for honest practice.</p>
-        <div class="rx-grid">${list.map(c => {
+        <p class="muted rx-spoiler-note">${list.length} case${list.length === 1 ? '' : 's'}${rxSys !== 'all' ? ' · topic filter reveals the answer category' : ''}</p>
+        <div class="rx-grid ${rxView === 'list' ? 'rx-list' : ''}">${list.map(c => {
           const s = caseState(c.id);
           return `<button class="rx-card" type="button" data-case="${c.id}">
-            ${(() => { const q = c.images.find(i => i.where === 'q') || c.images[0]; return q ? `<img loading="lazy" referrerpolicy="no-referrer" src="${esc(imgUrl(q.src))}" alt="ECG thumbnail" onerror="this.style.visibility='hidden'">` : '<div class="rx-card-noimg">ECG case</div>'; })()}
+            ${rxView === 'list' ? '' : (() => { const q = c.images.find(i => i.where === 'q') || c.images[0]; return q ? `<img loading="lazy" referrerpolicy="no-referrer" src="${esc(imgUrl(q.src))}" alt="ECG thumbnail" onerror="this.style.visibility='hidden'">` : '<div class="rx-card-noimg">ECG case</div>'; })()}
             <div class="rx-card-body"><div class="rx-card-title"><i class="tc-dot st-${caseStatus(c.id)}"></i>${esc(c.title)}</div>
             <div class="rx-card-vig">${esc(c.vignette.slice(0, 110))}${c.vignette.length > 110 ? '…' : ''}</div>
             ${s ? `<div class="rx-card-dx">${esc(c.label)}</div>` : ''}</div></button>`;
@@ -174,7 +183,10 @@
       host.querySelectorAll('[data-case]').forEach(b => b.onclick = () => openCase(b.dataset.case));
       host.querySelectorAll('[data-rxsrc]').forEach(b => b.onclick = () => { rxSrc = b.dataset.rxsrc; renderCases(); });
       host.querySelectorAll('[data-rxf]').forEach(b => b.onclick = () => { rxFilter = b.dataset.rxf; renderCases(); });
-      host.querySelectorAll('[data-rxs]').forEach(b => b.onclick = () => { rxSys = b.dataset.rxs; renderCases(); });
+      document.getElementById('rxSysSel').onchange = (e) => { rxSys = e.target.value; renderCases(); };
+      host.querySelectorAll('[data-rxview]').forEach(b => b.onclick = () => { learnState.rxView = b.dataset.rxview; saveLearn(); renderCases(); });
+      const rs = document.getElementById('rxSearch');
+      rs.oninput = () => { rxQuery = rs.value; const pos = rs.selectionStart; renderCases(); const r2 = document.getElementById('rxSearch'); if (r2) { r2.focus(); r2.setSelectionRange(pos, pos); } };
       document.getElementById('rxNextNew').onclick = () => { const c = POOL.find(x => !caseState(x.id)) || POOL[0]; openCase(c.id); };
       document.getElementById('rxDue').onclick = () => {
         const due = POOL.filter(c => { const s = caseState(c.id); return s && s.due <= Date.now(); });

@@ -1,0 +1,99 @@
+
+    /* ===== v9 app shell: navigation, sub-tabs, Today, Settings, search ===== */
+    .topbar .seg-group, #themeToggle { display: none !important; }   /* replaced by #appNav + Settings */
+    .app-nav { display: flex; gap: 4px; align-items: center; }
+    .app-nav-btn { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 9px; border: 1px solid transparent; background: transparent; color: var(--text-muted); font: inherit; font-size: 13.5px; font-weight: 600; cursor: pointer; }
+    .app-nav-btn:hover { color: var(--text); background: var(--bg-hover); }
+    .app-nav-btn.active { color: var(--primary); background: color-mix(in srgb, var(--primary) 14%, transparent); border-color: color-mix(in srgb, var(--primary) 35%, transparent); }
+    .nav-ico { width: 18px; height: 18px; flex: none; }
+    .icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; padding: 0; border-radius: 10px; }
+    .icon-btn .nav-ico { width: 20px; height: 20px; }
+    .icon-btn.active { color: var(--primary); border-color: var(--primary); }
+    .subnav { display: flex; gap: 6px; overflow-x: auto; padding: 2px 2px 10px; scrollbar-width: none; }
+    .subnav::-webkit-scrollbar { display: none; }
+    .sub-btn { flex: none; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-muted); font: inherit; font-size: 13.5px; font-weight: 600; cursor: pointer; }
+    .sub-btn.active { background: var(--primary); border-color: var(--primary); color: var(--bg, #0b111a); }
+    .brand-title { white-space: nowrap; }
+
+    .today-head h2, .set-card h2 { margin: 0 0 4px; font-size: 22px; }
+    .today-head { padding: 4px 2px 10px; }
+    .today-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; margin-bottom: 10px; }
+    .today-card { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+    .today-card h3 { margin: 0; font-size: 16px; }
+    .today-card .muted { font-size: 14px; line-height: 1.5; }
+    .today-card.prim { border-color: var(--primary); }
+    .today-card .btn { margin-top: auto; }
+    .set-card { margin-bottom: 10px; }
+    .set-card h3 { margin: 6px 0 8px; font-size: 16px; }
+    .set-card p { font-size: 14px; line-height: 1.55; }
+    .seg-choice, .set-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0; }
+    .gs-sec { margin-top: 10px; }
+    .gs-item { display: flex; justify-content: space-between; gap: 10px; width: 100%; text-align: left; padding: 9px 10px; margin-top: 5px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text); font: inherit; font-size: 14px; cursor: pointer; }
+    .gs-item .muted { font-size: 12.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 45%; }
+    .gs-item:hover { border-color: var(--primary); }
+
+    /* lesson / notes modal: close button always reachable */
+    .modal-card .modal-head { position: sticky; top: 0; z-index: 5; background: var(--bg-elev, var(--bg-card)); padding-top: 4px; padding-bottom: 6px; }
+
+    @media (min-width: 721px) {
+      .topbar { flex-wrap: wrap; }
+      .app-nav { order: 2; flex: 1 1 auto; }
+      .topbar .topbar-controls { order: 3; margin-left: auto; }
+    }
+    @media (max-width: 720px) {
+      /* one-row bottom tab bar with icons */
+      .app-nav { position: fixed; left: 0; right: 0; bottom: 0; z-index: 800; display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px;
+        background: var(--bg-elev); border-top: 1px solid var(--border); padding: 5px 4px calc(5px + env(safe-area-inset-bottom)); box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.28); }
+      .app-nav-btn { flex-direction: column; gap: 2px; padding: 6px 2px; font-size: 11.5px; min-height: 50px; justify-content: center; }
+      .app-nav-btn.active { background: color-mix(in srgb, var(--primary) 16%, transparent); }
+      .nav-ico { width: 22px; height: 22px; }
+      .app-shell { padding-bottom: calc(70px + env(safe-area-inset-bottom)) !important; }
+      .topbar { position: sticky; top: 0; z-index: 700; padding: calc(6px + env(safe-area-inset-top)) 10px 6px !important; }
+      .topbar .topbar-controls { margin-left: auto; }
+      .subnav { position: sticky; top: calc(54px + env(safe-area-inset-top)); z-index: 600; background: var(--bg); padding: 6px 2px 8px; }
+      /* readable text on phones */
+      .muted, .cat-chip, .rx-card-vig, .learn-stats, .tc-name, .rx-label, .lesson-sub, .pearl-src, .learn-foot { font-size: max(13px, 1em) !important; }
+      .rx-label { font-size: 12px !important; }
+      .learn-hero h2, .panel h2 { font-size: 19px; }
+    }
+    .icon-btn.active, .icon-btn.active:hover { background: color-mix(in srgb, var(--primary) 14%, transparent) !important; color: var(--primary) !important; }
+    /* quiz: the strip toolbar used to force the column wider than a phone */
+    #view-quiz .quiz-grid > *, #view-quiz .quiz-grid > * > * { min-width: 0; }
+    .quiz-ctrl-strip, .ecg-status-bar { flex-wrap: wrap; row-gap: 6px; }
+    /* Phase 2: lessons */
+    .lesson-titlebar { display: none; align-items: center; gap: 10px; justify-content: space-between; }
+    .lesson-title { margin: 0; font-size: 20px; line-height: 1.25; }
+    .lesson-panes .lesson-pane.active + .lesson-pane.active { margin-top: 2px; }
+    .tc-kind { font-size: 11px !important; font-weight: 600; color: var(--text-muted); border: 1px solid var(--border); border-radius: 999px; padding: 1px 7px; white-space: nowrap; margin-left: 6px; }
+    details.nt-sec { border-bottom: 1px solid var(--border); }
+    details.nt-sec > summary { cursor: pointer; list-style: none; font-size: 16px; font-weight: 700; padding: 12px 26px 12px 0; position: relative; }
+    details.nt-sec > summary::-webkit-details-marker { display: none; }
+    details.nt-sec > summary::after { content: '+'; position: absolute; right: 4px; top: 9px; font-size: 20px; color: var(--primary); }
+    details.nt-sec[open] > summary::after { content: '−'; }
+    details.nt-sec[open] { padding-bottom: 8px; }
+    .nt-tools { display: flex; justify-content: flex-end; margin: -4px 0 4px; }
+    @media (max-width: 720px) {
+      #view-studio.lesson-first .main-col { display: flex; flex-direction: column; }
+      #view-studio.lesson-first #lessonPanel { order: -1; }
+      #view-studio.lesson-first .lesson-titlebar { display: flex; }
+      .lesson-tabs { position: sticky; top: calc(54px + env(safe-area-inset-top)); z-index: 50; background: var(--bg); padding: 6px 0; }
+    }
+    /* Phase 3: practice hub */
+    .rx-counts { margin: 2px 0 6px; }
+    details.howto > summary { cursor: pointer; color: var(--primary); font-size: 13.5px; font-weight: 600; margin: 2px 0 6px; }
+    .rx-searchrow { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin: 10px 0 6px; }
+    .rx-searchrow .nt-search { flex: 1 1 220px; margin: 0; max-width: none; }
+    .rx-viewtog { display: flex; gap: 4px; }
+    .rx-sel { padding: 7px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text); font: inherit; font-size: 13.5px; max-width: 100%; }
+    .rx-grid.rx-list { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 6px; }
+    .rx-grid.rx-list .rx-card { flex-direction: row; min-height: 0; }
+    .rx-grid.rx-list .rx-card-body { padding: 10px 12px; }
+    .rx-grid.rx-list .rx-card-vig { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .search-modal input { width: 100%; max-width: none; }
+    @media (max-width: 720px) { .rx-grid.rx-list { grid-template-columns: 1fr; } }
+    /* Phase 4: studio display buttons as a grid on phones (were a 760 px sideways row) */
+    @media (max-width: 720px) {
+      #view-studio .toolbar-left { display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; overflow: visible !important; -webkit-mask-image: none !important; mask-image: none !important; }
+      #view-studio .toolbar-left .btn { white-space: normal; padding: 7px 4px; font-size: 12px; line-height: 1.2; min-height: 40px; text-align: center; }
+      #view-studio .toolbar-right, #actionBtns { flex-wrap: wrap; overflow: visible !important; }
+    }

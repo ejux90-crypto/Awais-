@@ -104,15 +104,10 @@ LESSON_PANEL = """        <!-- v6 Lesson panel: bottom line + tabbed learning pa
               <div id="lessonBottomLine" class="lesson-bl-text"></div>
             </div>
             <div class="lesson-tabs" role="tablist" aria-label="Lesson sections">
-              <button class="lesson-tab active" data-ltab="see" type="button">Recognise</button>
-              <button class="lesson-tab" data-ltab="why" type="button">Mechanism</button>
-              <button class="lesson-tab" data-ltab="traps" type="button">Mimics &amp; traps</button>
-              <button class="lesson-tab" data-ltab="act" type="button">Manage</button>
-              <button class="lesson-tab" data-ltab="pearls" type="button">LITFL pearls</button>
-              <button class="lesson-tab" data-ltab="notes" type="button">LITFL notes</button>
+              <button class="lesson-tab active" data-ltab="learn" type="button">Learn</button>
               <button class="lesson-tab" data-ltab="real" type="button">Real ECGs</button>
+              <button class="lesson-tab" data-ltab="notes" type="button">LITFL notes</button>
               <button class="lesson-tab" data-ltab="recall" type="button">Recall</button>
-              <button class="lesson-tab lesson-tab-all" data-ltab="all" type="button">Show all</button>
             </div>
             <div class="cards-4 lesson-panes">
               <div class="info-card card-crit lesson-pane active" data-lpane="see">
@@ -155,7 +150,18 @@ LESSON_PANEL = """        <!-- v6 Lesson panel: bottom line + tabbed learning pa
           </div>
         </main>"""
 
-LEARN_SECTION = """    <!-- v6 LEARN (PATHWAY) VIEW -->
+LEARN_SECTION = """    <!-- v9 sub-tabs (Practice / Library) -->
+    <div id="subNav" class="subnav" hidden></div>
+
+    <!-- v9 TODAY + SETTINGS -->
+    <section id="view-today" class="view-section">
+      <div id="todayRoot"></div>
+    </section>
+    <section id="view-settings" class="view-section">
+      <div id="settingsRoot"></div>
+    </section>
+
+    <!-- v6 LEARN (PATHWAY) VIEW -->
     <section id="view-learn" class="view-section">
       <div id="learnRoot"></div>
     </section>
@@ -262,7 +268,7 @@ def build():
 
     # Header / branding
     html = patch(html, "60 Resident-Grade ECGs • Dual &amp; 12-Lead 25 mm/s Studio • 2D Calipers, Bedside Tools &amp; Mobile-Ready • v5",
-                 "Foundations → Expert pathway • 60 live ECGs + reading lessons • real LITFL ECG cases &amp; examples • recall &amp; spaced review • v7",
+                 "Learning pathway • live 12-lead studio • 599 real ECGs (LITFL + PTB-XL) • LITFL notes • spaced review",
                  "brand sub")
     html = patch(html, '<button class="seg-btn active" data-mode="studio" type="button">',
                  '<button class="seg-btn" data-mode="learn" type="button"><span class="tab-full">Learn Path</span><span class="tab-short">Learn</span></button>\n'
@@ -274,6 +280,14 @@ def build():
     html = patch(html, '<span class="tab-full">Algorithms &amp; Tables</span>', '<span class="tab-full">Algorithms</span>', "short tab label")
     html = patch(html, '<span class="tab-full">Bedside Tools</span>', '<span class="tab-full">Tools</span>', "short tab label 2")
     html = patch(html, "    <!-- STUDIO VIEW -->", LEARN_SECTION, "learn section")
+    html = patch(html, '      <div class="topbar-controls">',
+                 '      <nav id="appNav" class="app-nav" aria-label="Main"></nav>\n'
+                 '      <div class="topbar-controls">\n'
+                 '        <button id="searchBtn" class="btn icon-btn" type="button" aria-label="Search" title="Search"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button>\n'
+                 '        <button id="settingsBtn" class="btn icon-btn" type="button" aria-label="Settings" title="Settings">'
+                 '<svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+                 '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>', "app nav")
+    html = patch(html, '<div class="brand-title">ECG &amp; Arrhythmia Master Studio</div>', '<div class="brand-title">ECG Master Studio</div>', "short title")
 
     # Replace the 4 static cards with the lesson panel (same element IDs kept)
     start = html.index("          <!-- 4 Structured Breakdown Cards -->")
@@ -305,7 +319,7 @@ def build():
                  'placeholder="Search rhythms & learning points (e.g. aVL, Kosuge, verapamil)"', "search placeholder")
 
     # CSS
-    html = patch(html, "  </style>", (SRC / "v6.css").read_text(encoding="utf-8") + (SRC / "cases.css").read_text(encoding="utf-8") + "  </style>", "css")
+    html = patch(html, "  </style>", (SRC / "v6.css").read_text(encoding="utf-8") + (SRC / "cases.css").read_text(encoding="utf-8") + (SRC / "shell.css").read_text(encoding="utf-8") + "  </style>", "css")
 
     # Content + learning app, injected before init
     titles = json.loads((SRC / "litfl_titles.json").read_text(encoding="utf-8"))
@@ -316,7 +330,7 @@ def build():
                  "learn_rhythms_5.js", "learn_foundations.js", "learn_extend.js"]:
         js.append((SRC / name).read_text(encoding="utf-8"))
     js.extend(real_ecg_data())
-    for name in ["learn_app.js", "cases_app.js", "notes_app.js", "offline_app.js"]:
+    for name in ["learn_app.js", "cases_app.js", "notes_app.js", "offline_app.js", "shell_app.js"]:
         js.append((SRC / name).read_text(encoding="utf-8"))
     html = patch(html, "    // Init + Restore saved preferences", "\n".join(js) + "\n    // Init + Restore saved preferences", "inject js")
     html = patch(html, "    selectRhythm('avnrt');\n    requestAnimationFrame(mainLoop);",
