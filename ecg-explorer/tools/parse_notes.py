@@ -84,6 +84,8 @@ def clean(body, images, cut=True):
 
     def head(mm):
         lvl, t = int(mm.group(1)), text(mm.group(2))
+        # protect < > & in heading text ("Short PR interval (<120ms)") from the tag-stripping below
+        t = t.replace('&', '\x06').replace('<', '\x04').replace('>', '\x05')
         return f'\x00H{2 if lvl <= 5 else 3}:{t}\x00' if t else ''
     body = re.sub(r'<h([1-6])\b[^>]*>(.*?)</h\1>', head, body, flags=re.S)
     if cut:  # stop at the reference / author sections
@@ -107,8 +109,9 @@ def clean(body, images, cut=True):
     body = re.sub(r'\x02(/?(?:' + '|'.join(KEEP) + r'))\x03', r'<\1>', body)
     body = body.replace('\x02', '&lt;').replace('\x03', '&gt;')
     body = re.sub(r'\x00FIG(\d+)\x00', r'<figure data-img="\1"></figure>', body)
-    body = re.sub(r'\x00H2:(.*?)\x00', lambda mm: f'<h4>{H.escape(mm.group(1))}</h4>', body)
-    body = re.sub(r'\x00H3:(.*?)\x00', lambda mm: f'<h5>{H.escape(mm.group(1))}</h5>', body)
+    body = re.sub(r'\x00H2:(.*?)\x00', lambda mm: f'<h4>{mm.group(1)}</h4>', body)
+    body = re.sub(r'\x00H3:(.*?)\x00', lambda mm: f'<h5>{mm.group(1)}</h5>', body)
+    body = body.replace('\x06', '&amp;').replace('\x04', '&lt;').replace('\x05', '&gt;')
     body = re.sub(r'\x00L([a-z0-9-]+)\x01(.*?)\x00', r'<a data-litfl="\1">\2</a>', body)
     body = re.sub(r'<(p|li|strong|em|b|i|summary)>\s*</\1>', '', body)
     body = re.sub(r'<details>\s*(?:<summary>.*?</summary>)?\s*</details>', '', body, flags=re.S)  # empty accordions
