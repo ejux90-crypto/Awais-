@@ -184,7 +184,8 @@
       nextBtn.onclick = () => nx && openTopic(nx.id);
 
       document.getElementById('cardPearls').innerHTML = L ? L.lp.map(x => `<li>${esc(x)}</li>`).join('') : '';
-      document.getElementById('cardPearlSrc').innerHTML = L ? litflLinks(L.src, L.litflNotRead) : '';
+      document.getElementById('cardPearlSrc').innerHTML = L ? notesButtonsHtml(L.src) + litflLinks(L.src, L.litflNotRead) : '';
+      document.getElementById('cardPearlSrc').querySelectorAll('[data-notes]').forEach(b => b.onclick = () => openNotes(b.dataset.notes));
       const recallHost = document.getElementById('cardRecall');
       const drawRecall = () => { recallHost.innerHTML = recallHtml(id); bindRecall(recallHost, () => { drawRecall(); syncDone(); }); };
       drawRecall();
@@ -251,7 +252,7 @@
           </div>
           <div class="lesson-bl-text">${esc(L.bl)}</div>
           <div class="reader-grid">
-            <div class="info-card card-pearl"><h3>Learning points</h3><ul>${L.lp.map(x => `<li>${esc(x)}</li>`).join('')}</ul>${litflLinks(L.src, L.litflNotRead)}</div>
+            <div class="info-card card-pearl"><h3>Learning points</h3><ul>${L.lp.map(x => `<li>${esc(x)}</li>`).join('')}</ul>${notesButtonsHtml(L.src)}${litflLinks(L.src, L.litflNotRead)}</div>
             <div class="info-card card-recall"><h3>Active recall</h3><div class="reader-recall">${recallHtml(id)}</div></div>
           </div>
           <div class="info-card card-real reader-real"><h3>Real ECGs</h3>${realEcgHtml(id)}</div>
@@ -271,6 +272,7 @@
         body.querySelectorAll('[data-go]').forEach(b => b.onclick = () => { closeReader(); openTopic(b.dataset.go); });
         bindRecall(body.querySelector('.reader-recall'), draw);
         bindRealEcg(body.querySelector('.reader-real'));
+        body.querySelectorAll('[data-notes]').forEach(b => b.onclick = () => openNotes(b.dataset.notes));
       };
       draw();
       modal.classList.add('open');
@@ -307,7 +309,7 @@
           <div class="learn-hero-actions">
             <button class="btn btn-primary" type="button" id="learnContinue">Continue: ${esc(cont.name)} →</button>
             <button class="btn btn-warn" type="button" id="learnDue">${due ? 'Review ' + due + ' due case' + (due > 1 ? 's' : '') : 'Quiz drill (spaced)'}</button>
-            <button class="btn" type="button" id="learnCases">Real ECG review (${RCASES.length} LITFL cases)</button>
+            <button class="btn" type="button" id="learnCases">Real ECG review (${RCASES.filter(c => c.src !== 'ptbxl').length} LITFL + ${RCASES.filter(c => c.src === 'ptbxl').length} PTB-XL)</button>
             <button class="btn" type="button" id="learnBlind">Blind reading drill</button>
           </div>
         </div>
@@ -366,6 +368,7 @@
       learnState.lastMode = mode; saveLearn();
       if (mode === 'learn') renderLearn();
       if (mode === 'cases') renderCases();
+      if (mode === 'notes') renderNotes();
     };
 
     document.querySelectorAll('#lessonPanel .lesson-tab').forEach(b => b.onclick = () => setLessonTab(b.dataset.ltab));
@@ -376,6 +379,6 @@
     function v6Init() {
       const first = !learnState.visited;
       learnState.visited = true; saveLearn();
-      const start = first ? 'learn' : (['learn', 'studio', 'cases', 'compare', 'quiz', 'tools'].includes(learnState.lastMode) ? learnState.lastMode : 'learn');
+      const start = first ? 'learn' : (['learn', 'studio', 'cases', 'notes', 'compare', 'quiz', 'tools'].includes(learnState.lastMode) ? learnState.lastMode : 'learn');
       switchMode(start === 'quiz' ? 'learn' : start);
     }

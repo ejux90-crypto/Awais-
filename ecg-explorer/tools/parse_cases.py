@@ -41,14 +41,27 @@ def sanitise(fragment):
     return f.strip()
 
 
+def real_src(img_tag):
+    """Image URL from an <img>, including lazy-loaded ones whose src is a data: placeholder."""
+    attrs = dict(re.findall(r'([a-z-]+)="([^"]*)"', img_tag))
+    for k in ('data-orig-file', 'data-lazy-src', 'data-src', 'src'):
+        v = attrs.get(k, '')
+        if v.startswith('http'):
+            return re.sub(r'-\d+x\d+(\.\w+)$', r'\1', v) if k != 'data-orig-file' else v
+    return ''
+
+
 def parse(path):
     s = path.read_text(encoding='utf-8', errors='ignore')
     title = text(re.search(r'<title>(.*?)</title>', s, re.S).group(1)).split('•')[0].split('|')[0].strip()
-    m = re.search(r'<div[^>]*class="[^"]*entry-content[^"]*"[^>]*>(.*)', s, re.S)
+    art = max(s.find('<article'), 0)  # newer page templates put a header widget with the same class first
+    m = re.search(r'<div[^>]*class="[^"]*entry-content[^"]*"[^>]*>(.*)', s[art:], re.S)
     body = m.group(1)
+    if '</article>' in body:
+        body = body[:body.find('</article>')]
     # cut the tail (references, series nav, authors, comments)
     cut = len(body)
-    for pat in [r'<h[1-6][^>]*>\s*References', r'Further Reading', r'TOP 100 ECG Series', r'<div[^>]*class="[^"]*(?:saboxplugin|author|comments|sharedaddy)']:
+    for pat in [r'<h[1-6][^>]*>\s*References', r'Further Reading', r'TOP 1[05]0 ECG Series', r'<div[^>]*class="[^"]*(?:saboxplugin|author|comments|sharedaddy)']:
         mm = re.search(pat, body, re.I)
         if mm:
             cut = min(cut, mm.start())
@@ -59,22 +72,22 @@ def parse(path):
     qpart, apart = (body[:am.start()], body[am.start():]) if am else (body, '')
 
     def images(part, where):
-        out, third = [], []
+        out, third, seen = [], [], set()
         for fig in re.finditer(r'(<figure.*?</figure>)|(<img[^>]+>)', part, re.S):
             chunk = fig.group(0)
             im = re.search(r'<img[^>]+>', chunk)
             if not im:
                 continue
             attrs = dict(re.findall(r'([a-z-]+)="([^"]*)"', im.group(0)))
-            src = attrs.get('data-src') or attrs.get('src') or ''
-            if not src.startswith('https://litfl.com/wp-content/uploads/') or SKIP_IMG.search(src):
+            src = real_src(im.group(0))
+            if not src.startswith('https://litfl.com/wp-content/uploads/') or SKIP_IMG.search(src) or src in seen:
                 continue
             try:
                 if int(attrs.get('width', '1000')) < 400:
                     continue
             except ValueError:
                 pass
-            src = re.sub(r'-\d+x\d+(\.\w+)$', r'\1', src)  # prefer original size
+            seen.add(src)
             cap = text(re.search(r'<figcaption.*?</figcaption>', chunk, re.S).group(0)) if '<figcaption' in chunk else ''
             if THIRD.search(cap):
                 third.append(cap)
@@ -97,7 +110,7 @@ def parse(path):
         im = re.search(r'<img[^>]+>', m.group(0))
         if not im:
             return ''
-        src = re.sub(r'-\d+x\d+(\.\w+)$', r'\1', (dict(re.findall(r'([a-z-]+)="([^"]*)"', im.group(0))).get('src') or ''))
+        src = real_src(im.group(0))
         for k, a in enumerate(aimgs):
             if a['src'] == src:
                 return f'<p>[[IMG{k}]]</p>'
@@ -106,6 +119,7 @@ def parse(path):
     ahtml = sanitise(ahtml)
     ahtml = re.sub(r'\s*(?:<(?:p|h4|strong)>\s*)*\bReferences\b(?:(?!</?(?:ul|li)).){0,400}$', '', ahtml, flags=re.S)  # trailing reference stub
     ahtml = re.sub(r'(?:<(p|h4)>\s*(?:<strong>)?\s*(?:References|Further Reading|Related Topics)\s*(?:</strong>)?\s*</\1>\s*)+$', '', ahtml.strip())
+    ahtml = re.sub(r'\s*Reveal answer\s*', ' ', ahtml)  # inline spoiler toggles are already expanded
     ahtml = re.sub(r'\[\[IMG(\d+)\]\]', r'<span data-aimg="\1"></span>', ahtml)
     ahtml = re.sub(r'^.*?(ECG\s+ANSWER[^<]*|ANSWER\s+and\s+INTERPRETATION|ECG Interpretation)', '', ahtml, count=1, flags=re.I | re.S).strip()
     ahtml = re.sub(r'^(</?\w+>\s*)+(?=<)', lambda m: m.group(0) if m.group(0).startswith('<') and not m.group(0).startswith('</') else '', ahtml)

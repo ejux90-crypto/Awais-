@@ -15,6 +15,12 @@ examples = json.loads((DATA / 'examples.json').read_text(encoding='utf-8'))
 img_map = json.loads((DATA / 'img_map.json').read_text(encoding='utf-8'))
 
 urls = [i['src'] for c in cases for i in c['images']] + [e['src'] for v in examples.values() for e in v]
+pz_file = DATA / 'litfl_puzzles.json'  # step-by-step ECG Exigency cases (tools/parse_puzzles.py)
+if pz_file.exists():
+    urls += [i['src'] for c in json.loads(pz_file.read_text(encoding='utf-8')) for i in c['images']]
+notes_file = DATA / 'litfl_notes.json'  # full LITFL teaching pages (tools/parse_notes.py)
+if notes_file.exists():
+    urls += [i['src'] for n in json.loads(notes_file.read_text(encoding='utf-8')).values() for i in n['images']]
 for u in dict.fromkeys(urls):
     if not (u in img_map and (ROOT / 'ecgs' / img_map[u]).exists()):
         print(u)

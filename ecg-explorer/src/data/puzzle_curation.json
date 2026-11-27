@@ -1,0 +1,20 @@
+{
+ "xa-subtle-sign-of-something-sinister": {"label": "Inverted U waves in the lateral leads — subtle sign of myocardial ischaemia in chest pain", "tags": ["x_nste", "f_twave"], "lvl": 3},
+ "xanother-widow-maker": {"label": "ST elevation in aVR with widespread ST depression — left main / 3-vessel disease", "tags": ["left_main_avr"], "lvl": 3},
+ "xdiagnosis-wenckebach-squared": {"label": "Grouped beating without a dropped P: type I second-degree SA block with Wenckebach AV conduction", "tags": ["x_saexit", "mobitz1"], "lvl": 4},
+ "xelectrocardiographic-exigency": {"label": "Massive pulmonary embolism — new RBBB with RV strain (deep TWI V1–3) in a young man with syncope", "tags": ["pe_s1q3t3", "rbbb"], "lvl": 2},
+ "xflummoxing-familial-fibrillation": {"label": "Short QT syndrome — QTc 250 ms with peaked T waves in a young woman with familial AF", "tags": ["x_sqts", "afib"], "lvl": 3},
+ "xmarathon-related-ecg-exasperation": {"label": "AIVR with isorhythmic AV dissociation and sinus capture beats in a marathon runner", "tags": ["aivr"], "lvl": 2},
+ "xmetabolic-mayhem": {"label": "Two cases: severe hypokalaemia (K⁺ 1.7, Conn syndrome) and hyperkalaemia in DKA (K⁺ 8.5)", "tags": ["hypok", "hyperk"], "lvl": 2},
+ "xpacemaker-panic-2": {"label": "Severe hyperkalaemia in a paced patient — very broad QRS and pacemaker failure to capture", "tags": ["hyperk", "pacer_fail", "paced"], "lvl": 3},
+ "xpain-free-and-in-vt": {"label": "Rate-dependent LBBB (not VT) + Wellens T waves — critical proximal LAD stenosis", "tags": ["lbbb", "wellens"], "lvl": 3},
+ "xpost-op-pacing-puzzler": {"label": "Atrial pacing with 100% capture and Mobitz I (Wenckebach) AV block after cardiac surgery", "tags": ["mobitz1", "paced"], "lvl": 3},
+ "xpuzzling-paroxysmal-palpitations": {"label": "Regular broad-complex tachycardia in a teenager — antidromic AVRT (WPW)", "tags": ["anti_avrt", "wpw_sinus", "vt"], "lvl": 3},
+ "xrisky-rhythyms": {"label": "Five rhythm strips: tachy-brady syndrome, PAC-triggered SVT, polymorphic VT → VF, long QT with torsades risk, AVNRT terminated by adenosine", "tags": ["tachy_brady", "torsades", "vf", "avnrt"], "lvl": 2},
+ "xseizures-somnolence-and-a-scary-ecg": {"label": "Sodium-channel blocker (TCA) toxicity — broad QRS, RAD, terminal R in aVR > 3 mm", "tags": ["tca_tox"], "lvl": 2},
+ "xshock-syncope-and-severe-chest-pain": {"label": "Widespread ST depression with STE aVR ≥ 1 mm — left main / proximal LAD / 3-vessel disease", "tags": ["left_main_avr"], "lvl": 3},
+ "xsudden-syncope-at-soccer": {"label": "ARVC — RVOT-type VT degenerating to VF; resting ECG with epsilon waves and anterior TWI", "tags": ["arvc", "x_rvot", "vf"], "lvl": 3},
+ "xtroubling-tachycardia": {"label": "Bidirectional VT — digoxin toxicity or CPVT", "tags": ["bidir_vt", "digoxin"], "lvl": 3},
+ "xvt-or-not-vt": {"label": "Wide-complex tachycardia: VT vs SVT with aberrancy — clinical features, Brugada and Vereckei algorithms", "tags": ["vt", "pac_aberrant"], "lvl": 3},
+ "xwinter-is-coming": {"label": "De Winter T waves — proximal LAD occlusion (STEMI equivalent)", "tags": ["dewinter"], "lvl": 3}
+}

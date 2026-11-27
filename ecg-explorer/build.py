@@ -8,6 +8,7 @@ patch below; the build fails loudly if a patch target is missing or ambiguous,
 so a future v5 edit can't silently drop a correction.
 """
 import json
+import re
 import pathlib
 import sys
 
@@ -108,6 +109,7 @@ LESSON_PANEL = """        <!-- v6 Lesson panel: bottom line + tabbed learning pa
               <button class="lesson-tab" data-ltab="traps" type="button">Mimics &amp; traps</button>
               <button class="lesson-tab" data-ltab="act" type="button">Manage</button>
               <button class="lesson-tab" data-ltab="pearls" type="button">LITFL pearls</button>
+              <button class="lesson-tab" data-ltab="notes" type="button">LITFL notes</button>
               <button class="lesson-tab" data-ltab="real" type="button">Real ECGs</button>
               <button class="lesson-tab" data-ltab="recall" type="button">Recall</button>
               <button class="lesson-tab lesson-tab-all" data-ltab="all" type="button">Show all</button>
@@ -137,6 +139,10 @@ LESSON_PANEL = """        <!-- v6 Lesson panel: bottom line + tabbed learning pa
                 <ul id="cardPearls"></ul>
                 <div id="cardPearlSrc"></div>
               </div>
+              <div class="info-card card-notes lesson-pane" data-lpane="notes">
+                <h3>Full LITFL notes</h3>
+                <div id="cardLitflNotes"></div>
+              </div>
               <div class="info-card card-real lesson-pane" data-lpane="real">
                 <h3>Real ECGs — LITFL cases &amp; examples</h3>
                 <div id="cardRealEcg"></div>
@@ -157,6 +163,11 @@ LEARN_SECTION = """    <!-- v6 LEARN (PATHWAY) VIEW -->
     <!-- v7 REAL ECG REVIEW VIEW -->
     <section id="view-cases" class="view-section">
       <div id="casesRoot"></div>
+    </section>
+
+    <!-- v8 LITFL NOTES VIEW -->
+    <section id="view-notes" class="view-section">
+      <div id="notesRoot"></div>
     </section>
 
     <!-- STUDIO VIEW -->"""
@@ -197,20 +208,50 @@ def real_ecg_data():
     img_map = {k: v for k, v in img_map.items() if (ROOT / "ecgs" / v).exists()}
     all_srcs = set(i["src"] for c in cases for i in c["images"]) | set(e["src"] for v in examples.values() for e in v)
     used = set(img_map[s] for s in all_srcs if s in img_map)
-    missing = []
-    if missing:
-        sys.exit(f"[build] {len(missing)} referenced images missing from ecgs/")
-    img_map = {k: v for k, v in img_map.items() if v in used}
+    # Full LITFL teaching pages (tools/parse_notes.py); their images share the same bundle map
+    notes_file = DATA / "litfl_notes.json"
+    notes = json.loads(notes_file.read_text(encoding="utf-8")) if notes_file.exists() else {}
+    note_srcs = set(i["src"] for n in notes.values() for i in n["images"])
+    pz_file = DATA / "litfl_puzzles.json"
+    if pz_file.exists():  # puzzle-case images are kept in the bundle map the same way
+        note_srcs |= set(i["src"] for c in json.loads(pz_file.read_text(encoding="utf-8")) for i in c["images"])
+    note_used = set(img_map[s] for s in note_srcs if s in img_map)
+    img_map = {k: v for k, v in img_map.items() if v in used or v in note_used}
+    # PTB-XL practice ECGs (PhysioNet, CC BY 4.0), rendered locally by tools/ptbxl_build.py
+    ptb_file = DATA / "ptbxl_cases.json"
+    ptb = json.loads(ptb_file.read_text(encoding="utf-8")) if ptb_file.exists() else []
+    ptb = [c for c in ptb if all((ROOT / i["src"]).exists() for i in c["images"])]
+    # LITFL "ECG Exigency" puzzles as step-by-step cases (tools/parse_puzzles.py)
+    pz_file = DATA / "litfl_puzzles.json"
+    puzzles = json.loads(pz_file.read_text(encoding="utf-8")) if pz_file.exists() else []
     global DATA_STATS
     DATA_STATS = (f"{len(cases)} LITFL cases, {sum(len(v) for v in examples.values())} topic examples, "
-                  f"{len(used)}/{len(all_srcs)} images bundled (rest load from LITFL when online)")
+                  f"{len(used)}/{len(all_srcs)} images bundled (rest load from LITFL when online); "
+                  f"{len(puzzles)} ECG Exigency puzzles; {len(ptb)} PTB-XL cases; {len(notes)} LITFL note pages "
+                  f"({len(note_srcs & set(img_map))}/{len(note_srcs)} note images bundled)")
+    cases = cases + puzzles + ptb
     dump = lambda o: json.dumps(o, ensure_ascii=False, separators=(",", ":"))
     return ["    const RCASES = " + dump(cases) + ";",
             "    const RX_EXAMPLES = " + dump(examples) + ";",
-            "    const RX_IMG = " + dump(img_map) + ";"]
+            "    const RX_IMG = " + dump(img_map) + ";",
+            "    const LITFL_NOTES = " + dump(notes) + ";"]
 
 
 DATA_STATS = ""
+
+
+def write_offline_files(html):
+    """offline.json (every bundled image the app can show) + sw.js with a version tied to this build."""
+    import hashlib
+    files = sorted(set(re.findall(r'"([0-9a-f]{12}\.webp)"', html)))
+    files = ["ecgs/" + f for f in files if (ROOT / "ecgs" / f).exists()]
+    files += sorted("ecgs/ptbxl/" + f.name for f in (ROOT / "ecgs" / "ptbxl").glob("*.webp")
+                    if f'ecgs/ptbxl/{f.name}' in html)
+    size = sum((ROOT / f).stat().st_size for f in files)
+    (ROOT / "offline.json").write_text(json.dumps({"files": files, "bytes": size}, separators=(",", ":")), encoding="utf-8")
+    version = hashlib.sha1(html.encode("utf-8")).hexdigest()[:10]
+    (ROOT / "sw.js").write_text((SRC / "sw.js").read_text(encoding="utf-8").replace("__VERSION__", version), encoding="utf-8")
+    print(f"[build] offline: {len(files)} images, {size / 1e6:.0f} MB; sw version {version}")
 
 
 def build():
@@ -228,6 +269,7 @@ def build():
                  '          <button class="seg-btn active" data-mode="studio" type="button">', "learn tab")
     html = patch(html, '<button class="seg-btn" data-mode="compare" type="button">',
                  '<button class="seg-btn" data-mode="cases" type="button"><span class="tab-full">Real ECGs</span><span class="tab-short">Cases</span></button>\n'
+                 '          <button class="seg-btn" data-mode="notes" type="button"><span class="tab-full">LITFL Notes</span><span class="tab-short">Notes</span></button>\n'
                  '          <button class="seg-btn" data-mode="compare" type="button">', "cases tab")
     html = patch(html, '<span class="tab-full">Algorithms &amp; Tables</span>', '<span class="tab-full">Algorithms</span>', "short tab label")
     html = patch(html, '<span class="tab-full">Bedside Tools</span>', '<span class="tab-full">Tools</span>', "short tab label 2")
@@ -274,15 +316,24 @@ def build():
                  "learn_rhythms_5.js", "learn_foundations.js", "learn_extend.js"]:
         js.append((SRC / name).read_text(encoding="utf-8"))
     js.extend(real_ecg_data())
-    for name in ["learn_app.js", "cases_app.js"]:
+    for name in ["learn_app.js", "cases_app.js", "notes_app.js", "offline_app.js"]:
         js.append((SRC / name).read_text(encoding="utf-8"))
     html = patch(html, "    // Init + Restore saved preferences", "\n".join(js) + "\n    // Init + Restore saved preferences", "inject js")
     html = patch(html, "    selectRhythm('avnrt');\n    requestAnimationFrame(mainLoop);",
                  "    selectRhythm('nsr');\n    v6Init();\n    requestAnimationFrame(mainLoop);", "init")
 
+    # Phone app: manifest + icons (iOS and Android)
+    html = patch(html, "  <title>ECG &amp; Arrhythmia Master Studio</title>",
+                 "  <title>ECG &amp; Arrhythmia Master Studio</title>\n"
+                 "  <link rel=\"manifest\" href=\"manifest.webmanifest\" />\n"
+                 "  <link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"icons/favicon-32.png\" />\n"
+                 "  <link rel=\"apple-touch-icon\" href=\"icons/apple-touch-icon.png\" />\n"
+                 "  <meta name=\"apple-mobile-web-app-title\" content=\"ECG Studio\" />\n"
+                 "  <meta name=\"mobile-web-app-capable\" content=\"yes\" />", "pwa head")
     if "</script" in "\n".join(js).lower():
         sys.exit("[build] content contains a closing script tag")
     OUT.write_text(html, encoding="utf-8")
+    write_offline_files(html)
     print(f"[build] wrote {OUT.name} ({OUT.stat().st_size / 1024:.0f} KB), {len(CONTENT_FIXES)} content fixes applied; {DATA_STATS}")
 
 

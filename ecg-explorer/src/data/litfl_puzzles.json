@@ -1,0 +1,1008 @@
+[
+{
+"id": "xa-subtle-sign-of-something-sinister",
+"src": "litfl-x",
+"url": "https://litfl.com/a-subtle-sign-of-something-sinister/",
+"title": "ECG Exigency 007: A Subtle Sign of Something Sinister",
+"vignette": "A 65-year old man presents to ED at 1am with 90 minutes of central chest pressure that awoke him from sleep. He says he thinks he has ‘indigestion’. The pain is non-radiating, with mild shortness of breath, but no nausea, vomiting or diaphoresis. He is an ex-smoker with a 20 pack-year history. There is no previous history of IHD, diabetes, hypertension or high cholesterol. On arrival he looks well",
+"images": [
+{
+"src": "https://litfl.com/wp-content/uploads/2018/02/ECG-lateral-U-wave-inversion-Something-Sinister.jpg",
+"cap": "ECG lateral U wave inversion Something Sinister",
+"where": "q"
+},
+{
+"src": "https://litfl.com/wp-content/uploads/2018/09/ECG-complex-U-wave-inversion-V5-V6.jpg",
+"cap": "ECG complex U wave inversion V5 V6",
+"where": "q"
+}
+],
+"steps": [
+{
+"pre": " <p>A 65-year old man presents to ED at 1am with 90 minutes of central chest pressure that awoke him from sleep. He says he thinks he has ‘indigestion’. The pain is non-radiating, with mild shortness of breath, but no nausea, vomiting or diaphoresis. He is an ex-smoker with a 20 pack-year history. There is no previous history of IHD, diabetes, hypertension or high cholesterol.</p> <p>On arrival he looks well, with normal heart rate (54 bpm), blood pressure (127/86) and oxygen saturations (98% on room air). His pain has improved slightly with sublingual nitrates in the ambulance, although he still has some ongoing chest discomfort. </p> <p>His ECG is shown below:</p> <figure data-img=\"0\"></figure>  ",
+"q": "Q1. Can you describe the ECG?",
+"a": "<p><strong>The ECG shows:</strong></p> <ul> <li>Sinus rhythm at 54 bpm</li> <li>Normal axis</li> <li>Normal intervals</li> <li>Borderline <a data-litfl=\"p-wave-ecg-library\">left atrial enlargement</a> with a bifid P wave in lead II (P <em>mitrale</em>) and enlargement of the terminal negative portion of the P wave in V1</li> <li>Essentially normal ST segments and T waves, except for some non-specific T-wave flattening in aVL</li> <li><strong>Inverted U waves</strong> in the lateral leads I, V5 and V6 (and possibly also in leads II and III)</li> </ul> <figure data-img=\"1\"></figure>"
+},
+{
+"pre": "",
+"q": "Q2. What is the significance of these ECG findings?",
+"a": "<p>Most important finding: <em><strong>inverted U waves in the lateral leads</strong></em></p> <p>In patients presenting with chest pain, <strong>inverted U waves</strong>:</p> <ul> <li>Are a very specific sign of myocardial ischaemia</li> <li>May be the earliest marker of unstable angina and evolving myocardial infarction</li> <li>May be observed during attacks of Prinzmetal angina</li> <li>Have been associated with LAD or LMCA occlusion and the presence of left ventricular dysfunction</li> <li>U wave inversion tends to occur mainly in the lateral leads (I, aVL, V5-6) and may be seen either during ischaemic symptoms or at rest.</li> </ul> <p>With this patient’s history, the <a data-litfl=\"u-wave-ecg-library\">U wave inversion</a> would be strongly suggestive of an <strong>acute coronary syndrome</strong> (unstable angina or NSTEMI).</p> <p><strong>Inverted U waves may also be seen in:</strong></p> <ul> <li>Hypertension</li> <li>Valvular heart disease</li> <li>Congenital heart disease</li> <li>Cardiomyopathy</li> <li>Hyperthyroidism</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q3. How would you manage this patient?",
+"a": "<ul> <li>This patient needs to be managed as a suspected acute coronary syndrome with analgesia, nitrates, aspirin, clopidogrel +/- low-molecular-weight heparin (enoxaparin)</li> <li>At this stage there are no indications for thrombolysis or emergent PCI</li> <li>He will need serial ECGs and troponins to look for evidence of infarction</li> <li>He needs to be admitted under a cardiology team to a monitored bed for further investigation (e.g. angiography</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q4. Can you guess what happened next?",
+"a": "<ul> <li>This was a difficult case to <em>sell to cardiology</em>, as the initial troponin I was equivocal (0.05 ng/mL at 2 hours) and the cardiology registrar was dubious about the significance of the ECG changes</li> <li>The patient ended up spending the night in ED in a monitored bed</li> <li>Serial cardiac enzymes confirmed a <strong>NSTEMI</strong>, with a troponin I of 0.87 ng/mL at 6 hours and 4.0 ng/mL at 12 hours</li> <li>Serial ECGs remained unchanged throughout his hospital stay – the lateral U wave inversion persisted and there was no progression to ST segment elevation or depression</li> <li>In the morning, he was transferred to a CCU bed under the care of a cardiologist, with angiography planned for the following day</li> </ul> <p><strong>CLINICAL CASES</strong></p> <p>ECG EXIGENCY</p> more exigencies… <h4>Ed Burns</h4><p>Emergency Physician in Prehospital and Retrieval Medicine in Sydney, Australia. He has a passion for ECG interpretation and medical education | <a data-litfl=\"ecg-library\">ECG Library</a> |</p> <h4>Robert Buttner</h4><p>MBBS DDU (Emergency) CCPU. Adult/Paediatric Emergency Medicine Advanced Trainee in Melbourne, Australia. Special interests in diagnostic and procedural ultrasound, medical education, and ECG interpretation. Co-creator of the LITFL <a data-litfl=\"ecg-library\">ECG Library</a>. Twitter: @rob_buttner</p> <h4>Leave a Reply Cancel reply</h4> <p>This site uses Akismet to reduce spam. Learn how your comment data is processed.</p>"
+}
+],
+"label": "Inverted U waves in the lateral leads — subtle sign of myocardial ischaemia in chest pain",
+"tags": [
+"x_nste",
+"f_twave"
+],
+"lvl": 3
+},
+{
+"id": "xanother-widow-maker",
+"src": "litfl-x",
+"url": "https://litfl.com/another-widow-maker/",
+"title": "ECG Exigency 015: Another Widow Maker",
+"vignette": "A 55 year old man presents with a good chest pain story that makes you nervous. An ECG is taken on arrival and shown below: His chest pain and his ST depression seem to settle with some GTN and morphine. You load him with Aspirin, Clopidogrel and Heparin and admit him under the cardiologists with a view to angiography in the next 24 hours. The junior cardiology registrar seems a bit overwhelmed bu",
+"images": [
+{
+"src": "https://litfl.com/wp-content/uploads/2018/09/AVR-STE-ECG-Widow-maker.jpg",
+"cap": "AVR STE ECG Widow maker",
+"where": "q"
+}
+],
+"steps": [
+{
+"pre": " <p>A 55 year old man presents with a good chest pain story that makes you nervous. An ECG is taken on arrival and shown below:</p> <figure data-img=\"0\"></figure> <p>His chest pain and his ST depression seem to settle with some GTN and morphine. You load him with Aspirin, Clopidogrel and Heparin and admit him under the cardiologists with a view to angiography in the next 24 hours.</p> <p>The junior cardiology registrar seems a bit overwhelmed but is delighted with your management so far and happily accepts the patient.</p> <p>You arrive in work the next morning and the first thing the night team say is that phrase dreaded by Emergency Doctors the world over:</p> <p>‘<em>Do you remember that patient you saw last night…?</em>‘</p> <p>Turns out he crashed and burned in the Coronary care unit and is now in ICU on an <a data-litfl=\"intra-aortic-balloon-pump\">intraaortic balloon pump</a> with a guarded prognosis…</p> <p>The cardiologist storms into the ED and corners you yelling:</p> <p>‘<em>Didn’t you know ST elevation in aVR means left main coronary artery occlusion?</em>‘</p> <p><strong>Is he right?</strong> <em>Could you or should you have done anything differently?</em></p> ",
+"q": "Is aVR ST elevation a predictor of LMCA occlusion?",
+"a": "<ul> <li>aVR is the forgotten ECG lead – some even suggest we should call it an 11 lead ECG. ST segment elevation in aVR is often ignored as just being a reciprocal change but does it mean more than that?</li> <li>The answer is yes, but it probably isn’t as much of a direct correlate with LMCA stenosis as the cardiologist is stating.</li> <li>Some quote a specificity of 98% when ST elevation in aVR is also present in aVL. However this figure seems to be from several deeply flawed papers with small numbers of highly selected non-emergency patients.</li> <li>The largest study on ST elevation in aVR found it was associated with LMCA stenosis when compared to patients with ACS without elevation, but nowhere near as strongly as previously suggested (14.7% of patients with ≥ 1mm vs 5.1% without).</li> <li>When LMCA stenosis was combined with 3 vessel disease into a composite endpoint (ie: the traditional indications for CABG) it performed substantially better – 55.9% vs 26.1. It’s a good indicator, but certainly not a done deal.</li> </ul>"
+},
+{
+"pre": "",
+"q": "Is aVR ST elevation a Mortality predictor in LMCA occlusion?",
+"a": "<ul> <li>One study of 775 consecutive patients with NSTEMI found in hospital mortality was 1.3% in those without ST elevation in aVR, compared with 19.4% in those with ≥ 1mm ST elevation.</li> <li>However a subsequent much larger (and possibly definitive study) of 5064 patients from the GRACE registry suggests a much less startling , but still substantial difference in mortality (4.2 % vs 7.9%. p&lt;0.03).</li> </ul>"
+},
+{
+"pre": "<p><strong>In Conclusion…</strong></p>",
+"q": "",
+"a": "<p><strong>Key Points</strong></p> <ul> <li>LMCA stenosis is bad – 70 % mortality without surgery / PTCA.</li> <li>ST Elevation of more than 1mm inaVR in the setting of Acute Coronary syndrome: <ul> <li>is associated with left mainstem disease and 3 vessel disease</li> <li>suggests urgent angiography is necessary</li> <li>is associated with an increase in mortality.</li> <li>probably not an indication for<em> emergent </em>angiography @ 3am unless the patient is not settling with standard medical therapy.</li> </ul> </li> </ul> <p><strong>CLINICAL CASES</strong></p> <p>ECG EXIGENCY</p> more exigencies… <h4>Ed Burns</h4><p>Emergency Physician in Prehospital and Retrieval Medicine in Sydney, Australia. He has a passion for ECG interpretation and medical education | <a data-litfl=\"ecg-library\">ECG Library</a> |</p> <h4>4 Comments</h4> <ol> <li> <h4>tom fiero</h4> <a data-litfl=\"another-widow-maker\">October 1, 2018 / 22:24</a> Reply <p>hi Ed<br> another extraordinary case.<br> Stephen Smith, an ECG guru from Hannepin in minneapolis, (i hope i ma quoting him correctly!) says that true acute complete occlusions of the left main almost never make it to us, because it is so devastating. and on his blog, he has shown a case of true OMI involving the LM and there was actually ST seg depression (!) in aVR., as well as global ischemic changes.</p> <p>i think that st elevation in aVR, with global depression elsewhere often represents significant multi-vessel disease, or a critical narrowing /stenosis (but not yet complete occlusion ) of the left main, or very prox LAD. ( i would not give this patient PLavix , since they may require open heart surgery, like yesterday.).</p> <p>sometimes, say with multi-vessel severe disease, these findings are seen when the heart is “stressed” by other more critical factors, like sepsis, or afib with RVR.<br> one more point, if i may. this ecg is quite interesting.<br> see leads III, and V1. there is up-coving of the T waves, very abnormal, i think. STEMI-ish.<br> i wonder if the disease/occlusion involved something like an OM/diagonal off the prox LAD with wrap around to the apex, inferiorly.<br> it would have been nice to see serial ecg’s , perhaps an echo, and the angiogram itself.<br> and a more polite cardiologist.</p> <p>thank you again, Ed</p> <p>tom</p>"
+}
+],
+"label": "ST elevation in aVR with widespread ST depression — left main / 3-vessel disease",
+"tags": [
+"left_main_avr"
+],
+"lvl": 3
+},
+{
+"id": "xdiagnosis-wenckebach-squared",
+"src": "litfl-x",
+"url": "https://litfl.com/diagnosis-wenckebach-squared/",
+"title": "ECG Exigency 018.2: Diagnosis, Wenckebach Squared?",
+"vignette": "Thanks to all who contributed to solving the puzzle of Diagnosis, Wenckebach? in ECG Exigency 018.1 – Let’s recap: The following tracing can be found in our ECG library , allegedly as an example of Wenckebach AV block . However, as one of our readers, Jan Štros has pointed out, there is something not entirely right about this ECG tracing…Can you spot the ‘ deliberate’ mistake? Q1. What features of",
+"images": [
+{
+"src": "https://litfl.com/wp-content/uploads/2018/08/Wenckebach-AV-block-with-Wenckebach-SA-block.jpg",
+"cap": "Wenckebach AV block with Wenckebach SA block",
+"where": "q"
+},
+{
+"src": "https://litfl.com/wp-content/uploads/2018/09/ECG-Exigency-700-4.jpg",
+"cap": "ECG Exigency 700 4",
+"where": "q"
+}
+],
+"steps": [
+{
+"pre": " <p>Thanks to all who contributed to solving the puzzle of Diagnosis, Wenckebach? in <a data-litfl=\"diagnosis-wenckebach\">ECG Exigency 018.1</a> – <strong>Let’s recap:</strong></p> <p>The following tracing can be found in our <a data-litfl=\"ecg-library\">ECG library</a>, allegedly as an example of <a data-litfl=\"av-block-2nd-degree-mobitz-i-wenckebach-phenomenon\">Wenckebach AV block</a>. However, as one of our readers, Jan Štros has pointed out, there is something not entirely right about this ECG tracing…Can you spot the ‘<em>deliberate’</em> mistake?</p> <figure data-img=\"0\"></figure> <ul> <li>Q1. What features of Wenckebach AV block are present on this ECG?</li> <li>Q2. What features of Wenckebach are notably ABSENT?</li> <li>Q3. What possible explanations could exist to explain this tracing?</li> </ul> <p>Here is my impression of the ECG (by no means the “correct” answers) is as follows…</p> ",
+"q": "Q1. What features of Wenckebach AV block are present on this ECG?",
+"a": "<p><strong>Answer:</strong></p> <ul> <li>The presence of a progressively prolonging PR interval that abruptly shortens (i.e. resets) after a pause in the rhythm is strongly suggestive of Wenckebach AV block.</li> </ul> <p><strong>Explanation:</strong></p> <ul> <li>The underlying process is progressive fatigue of dysfunctional AV node cells. Commonly, this culminates in a non-conducted P wave, as the AV node cells fatigue to the point where they are unable to conduct a further impulse. </li> <li>However, anything that interrupts the rhythm (e.g. a sinus pause or ventricular ectopic beat) will give the AV node cells chance to “rest”, following which they will conduct normally.</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q2. What features of Wenckebach are notably ABSENT?",
+"a": "<p><strong>Answer:</strong></p> <ul> <li>Notably absent is the lack of a non-conducted P wave. While it is tempting to assume (as I did) that the non-conducted P wave must be hidden in the preceding T wave, there is no evidence of this – the P waves are too tall to be superimposed on the T waves without producing an obvious “bump”.</li> </ul> <p><strong>Explanation:</strong></p> <ul> <li> As discussed above, the presence of a non-conducted P wave is not required to make the diagnosis of Wenckebach AV block.</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q3. What possible explanations could exist to explain this tracing?",
+"a": "<p><strong>Answer:</strong></p> <p>The frequently dropped P waves occurring in a regular pattern are suggestive of second degree SA block (type I). Features that are supportive of this: </p> <ul> <li>Grouping of the QRS complexes</li> <li>The duration of the each sinus pause is less than double the preceding PP interval</li> </ul> <p><strong>Explanation:</strong></p> <p>There are two types of cells in the SA node – the inner core of P cells that produce the impulse, and the outer layer of T cells that transmit the impulse out into the atrium. Analogous to <a data-litfl=\"av-block-2nd-degree-mobitz-i-wenckebach-phenomenon\">Wenckebach AV block</a>, progressive fatigue of the T cells produces second-degree SA exit block (type I), also known as Wenckebach SA block.</p> <p>This is the most common type of SA block detectable on the surface ECG and is characterized by grouping / clustering of the QRS complexes culminating in a dropped P wave.</p> <p>See our <a data-litfl=\"sinoatrial-exit-block-ecg-library\">ECG library page on SA block</a> for further explanation.</p>"
+},
+{
+"pre": "",
+"q": "Final Interpretation",
+"a": "<p>Possible causes of this ECG pattern would include conditions that suppress both SA and AV node function, e.g. </p> <ul> <li><a data-litfl=\"sinus-node-dysfunction-sick-sinus-syndrome\">Sick sinus syndrome</a></li> <li>Increased vagal tone</li> <li><a data-litfl=\"inferior-stemi-ecg-library\">Inferior AMI</a></li> <li><a data-litfl=\"myocarditis-ecg-library\">Myocarditis</a></li> <li>Drugs: <a data-litfl=\"digoxin-toxicity-ecg-library\">digoxin</a>, <a data-litfl=\"beta-blocker-and-calcium-channel-blocker-toxicity\">beta-blockers</a>, <a data-litfl=\"beta-blocker-and-calcium-channel-blocker-toxicity\">Ca channel blockers</a></li> </ul> <p>So, the final diagnosis:</p> <p><strong>Wenckebach AV block with Wenckebach SA block!</strong></p> <figure data-img=\"1\"></figure> <h4>CLINICAL CASES</h4> <p>ECG EXIGENCY</p> more exigencies… <h4>Ed Burns</h4><p>Emergency Physician in Prehospital and Retrieval Medicine in Sydney, Australia. He has a passion for ECG interpretation and medical education | <a data-litfl=\"ecg-library\">ECG Library</a> |</p> <h4>4 Comments</h4> <ol> <li> <h4>Bishoy Bishay</h4> <a data-litfl=\"diagnosis-wenckebach-squared\">September 21, 2021 / 05:33</a> Reply <p>I do have another ECG with the same finding, and I do agree with you for the diagnosis of Wenckebach AV block with Wenckebach SA block</p>"
+}
+],
+"label": "Grouped beating without a dropped P: type I second-degree SA block with Wenckebach AV conduction",
+"tags": [
+"x_saexit",
+"mobitz1"
+],
+"lvl": 4
+},
+{
+"id": "xelectrocardiographic-exigency",
+"src": "litfl-x",
+"url": "https://litfl.com/electrocardiographic-exigency/",
+"title": "ECG Exigency 001: Electrocardiographic Exigency",
+"vignette": "A 23 year-old man is brought in by paramedics after an episode of syncope at home. On arrival he is in severe respiratory distress, extremely pale and dripping with sweat. B P is 125/70, HR is 80bpm, RR 40, SaO2 95% on 15L O2 via NRB. Portable CXR in resus is normal. His ECG is presented below:",
+"images": [
+{
+"src": "https://litfl.com/wp-content/uploads/2018/02/ECG-Electrocardiographic-Exigency-001.jpg",
+"cap": "ECG Electrocardiographic Exigency 001",
+"where": "q"
+}
+],
+"steps": [
+{
+"pre": " <p>A 23 year-old man is brought in by paramedics after an episode of syncope at home. On arrival he is in severe respiratory distress, extremely pale and dripping with sweat. B</p> <p>P is 125/70, HR is 80bpm, RR 40, SaO2 95% on 15L O2 via NRB. Portable CXR in resus is normal.</p> <p>His ECG is presented below:</p> <figure data-img=\"0\"></figure> ",
+"q": "Q1. Describe the ECG",
+"a": "<ul> <li><strong>Sinus rhythm</strong> at 80 bpm</li> <li><strong>Left axis deviation</strong> (-70 degrees)</li> <li><strong>RBBB</strong> with wide QRS (150ms), tall R wave in V1, RSR’ complexes in leads V1-3</li> <li><strong>Right ventricular strain</strong> pattern with deep T wave inversions in V1-3</li> <li><strong>Widespread ischaemic changes</strong> with 1-2mm ST elevation and early Q waves in the anterior leads (V2-5) and 1-2 mm ST depression in inferior leads (II, III and aVF). There is also significant ST elevation in leads aVR and aVL with formation of Q waves.</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q2. What is your interpretation of the ECG findings given the clinical context?",
+"a": "<ul> <li>The combination of new RBBB with signs of right ventricular strain (deep T wave inversions in V1-3) in a patient presenting with dyspnoea and syncope is strongly suggestive of <strong>acute pulmonary hypertension</strong> secondary to <strong>massive PE</strong>.</li> <li>Widespread myocardial ischaemia/infarction is likely related to <strong>severe global tissue hypoxia</strong> from <strong>obstructive shock</strong> (VBG in this patient showed venous saturations of 10%, venous PO2 10mmHg with a lactate of 8mmol/L).</li> <li>Left axis deviation may represent left anterior fascicular block.</li> </ul> <details><summary><strong>…and then what happened?</strong></summary> <ul> <li>Shortly after this ECG was taken, the patient lost consciousness and had a PEA arrest from which he was unable to be resuscitated.</li> <li>Bedside echocardiogram performed during the resuscitation attempt showed a grossly dilated right ventricle and partially collapsed left ventricle with deviation of the interventricular septum to the left.</li> <li>Post-mortem examination confirmed a large saddle pulmonary embolus with complete obstruction of the pulmonary trunk.</li> <li>Previous hospital notes showed a history of thrombophilia and two previous episodes of venous thromboembolism.</li> </ul>"
+},
+{
+"pre": "</details> ",
+"q": "Q3. What other ECG changes may be seen in this condition?",
+"a": "<p>ECG changes are all fairly insensitive for the diagnosis of PE, and in most patients with PE the ECG will be normal.</p> <p><strong>The following ECG changes may be seen in acute pulmonary embolism:</strong></p> <ul> <li>Sinus tachycardia</li> <li>SI QIII TIII – deep S wave in I, Q wave in III, inverted T wave in III</li> <li>Complete or incomplete RBBB</li> <li>Right axis deviation</li> <li>Right ventricular strain pattern: T wave inversions in V1-3, sometimes extending to V4</li> <li>Simultaneous T wave inversions in the inferior (II, III, aVF) and right precordial leads (V1-3).</li> <li>Right atrial enlargement (“P pulmonale”): peaked P wave in lead II &gt; 2mm in height</li> <li>Clockwise rotation: shift of the R/S transition point towards V6, persistent S wave in V6</li> <li>Atrial tachyarrhythmias: AF, flutter, atrial tachycardia</li> </ul> <p>Extreme right axis deviation may occur, with axis between zero and -90 degrees, giving the appearance of left axis deviation (“pseudo left axis”). Simultaneous T wave inversions in the inferior and right precordial leads is the most specific finding for PE, with reported specificities up to 99% in one study.</p> <p>Check out Amal Mattu and William Brady’s excellent <em>ECG’s for the Emergency Physician</em>‘ books for some great examples of this.</p>"
+},
+{
+"pre": "",
+"q": "Q4. What causes ECG changes in this condition?",
+"a": "<p><strong>ECG changes in PE are related to:</strong></p> <ul> <li>dilation of the right atrium and right ventricle with consequent shift in the position of the heart</li> <li>right ventricular ischaemia</li> <li>increased catecholamine levels (which drives the tachyarrhythmias)</li> </ul> <p><strong>CLINICAL CASES</strong></p> <p>ECG EXIGENCY</p> more exigencies… <h4>Ed Burns</h4><p>Emergency Physician in Prehospital and Retrieval Medicine in Sydney, Australia. He has a passion for ECG interpretation and medical education | <a data-litfl=\"ecg-library\">ECG Library</a> |</p> <h4>Leave a Reply Cancel reply</h4> <p>This site uses Akismet to reduce spam. Learn how your comment data is processed.</p>"
+}
+],
+"label": "Massive pulmonary embolism — new RBBB with RV strain (deep TWI V1–3) in a young man with syncope",
+"tags": [
+"pe_s1q3t3",
+"rbbb"
+],
+"lvl": 2
+},
+{
+"id": "xflummoxing-familial-fibrillation",
+"src": "litfl-x",
+"url": "https://litfl.com/flummoxing-familial-fibrillation/",
+"title": "ECG Exigency 009: Flummoxing Familial Fibrillation",
+"vignette": "An 18-year old female presents to ED with sudden onset of rapid, irregular palpitations and is found to be in fast atrial fibrillation. She denies chest pain or shortness of breath, has no significant past medical history and is not taking any prescription medications or illicit drugs. She has an interesting family history. Her mother, brother and maternal grandfather have all suffered previous ep",
+"images": [
+{
+"src": "https://litfl.com/wp-content/uploads/2018/09/ECG-Exigency-009-schimpf.jpg",
+"cap": "ECG Exigency 009 schimpf",
+"where": "q"
+}
+],
+"steps": [
+{
+"pre": " <p>An 18-year old female presents to ED with sudden onset of rapid, irregular palpitations and is found to be in fast atrial fibrillation. She denies chest pain or shortness of breath, has no significant past medical history and is not taking any prescription medications or illicit drugs.</p> <p>She has an interesting family history. Her mother, brother and maternal grandfather have all suffered previous episodes of paroxysmal atrial fibrillation. She had an uncle who died of a sudden cardiac arrest at the age of 30 and a sister who died in infancy from presumed sudden infant death syndrome (SIDS).</p> <p>She undergoes electrical cardioversion and successfully reverts to sinus rhythm. CXR is unremarkable. Bloods reveal normal levels of potassium, magnesium, calcium and TSH. </p> <p>Her ECG looks something like this:</p> <figure data-img=\"0\"></figure>  ",
+"q": "Q1. What are the main abnormalities on the ECG?",
+"a": "<p>The most striking abnormalities on the ECG are:</p> <ul> <li>An <strong>extremely short QT interval</strong> (240ms at a heart rate of 65 bpm = QTc 250ms)</li> <li>Virtually absent ST segments (the end of the QRS complex merges with the start of the T wave)</li> <li>Very tall, narrow, symmetrically <strong>peaked T waves</strong> in the precordial leads</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q2. What is the likely diagnosis?",
+"a": "<p>The combination of…</p> <ul> <li>a young patient presenting with atrial fibrillation</li> <li>a family history of paroxysmal AF</li> <li>a family history of sudden cardiac death / SIDS</li> <li>an ECG showing extremely short QT interval and peaked T waves</li> </ul> <p>…suggestive of <strong>congenital <a data-litfl=\"short-qt-syndrome-ecg-library\">short QT syndrome (SQTS)</a></strong></p>"
+},
+{
+"pre": "",
+"q": "Q3. What other conditions may cause a similar ECG appearance?",
+"a": "<p><strong>QT shortening</strong> on the ECG may be due to:</p> <ul> <li><a data-litfl=\"hyperkalaemia-ecg-library\">Hyperkalaemia</a></li> <li><a data-litfl=\"hypercalcaemia-ecg-library\">Hypercalcaemia</a></li> <li>Acidosis</li> <li><a data-litfl=\"digoxin-toxicity-ecg-library\">Digitalis toxicity</a></li> <li><a data-litfl=\"hyperthermia\">Hyperthermia</a></li> <li>Catecholamine excess</li> </ul> <p><strong>Peaked T waves</strong> on the ECG may be due to:</p> <ul> <li><a data-litfl=\"hyperkalaemia-ecg-library\">Hyperkalaemia</a></li> <li>Myocardial ischaemia</li> <li><a data-litfl=\"benign-early-repolarisation-ecg-library\">Benign early repolarisation</a></li> </ul> <p><strong>CLINICAL CASES</strong></p> <p>ECG EXIGENCY</p> more exigencies… <h4>Ed Burns</h4><p>Emergency Physician in Prehospital and Retrieval Medicine in Sydney, Australia. He has a passion for ECG interpretation and medical education | <a data-litfl=\"ecg-library\">ECG Library</a> |</p> <h4>Leave a Reply Cancel reply</h4> <p>This site uses Akismet to reduce spam. Learn how your comment data is processed.</p>"
+}
+],
+"label": "Short QT syndrome — QTc 250 ms with peaked T waves in a young woman with familial AF",
+"tags": [
+"x_sqts",
+"afib"
+],
+"lvl": 3
+},
+{
+"id": "xmarathon-related-ecg-exasperation",
+"src": "litfl-x",
+"url": "https://litfl.com/marathon-related-ecg-exasperation/",
+"title": "ECG Exigency 005: Marathon-related ECG Exasperation",
+"vignette": "The following two ECGs were taken from a 36-year old marathon runner presenting to the ED with acute gastroenteritis. He was completely asymptomatic at the time the ECGs were taken, with normal blood pressure and no chest pain, palpitations or dizziness. Electrolytes were normal.",
+"images": [
+{
+"src": "https://litfl.com/wp-content/uploads/2018/09/ECG-Exigency-005-01.jpg",
+"cap": "ECG 1",
+"where": "q"
+},
+{
+"src": "https://litfl.com/wp-content/uploads/2018/09/ECG-Exigency-005-02.jpg",
+"cap": "ECG 2",
+"where": "q"
+}
+],
+"steps": [
+{
+"pre": " <p>The following two ECGs were taken from a 36-year old marathon runner presenting to the ED with acute gastroenteritis.</p> <p>He was completely asymptomatic at the time the ECGs were taken, with normal blood pressure and no chest pain, palpitations or dizziness. Electrolytes were normal.</p> <figure data-img=\"0\"></figure> <figure data-img=\"1\"></figure>  ",
+"q": "Q1. What are the ECG findings?",
+"a": "<p><strong>ECGs findings include</strong>:</p> <ul> <li><a data-litfl=\"accelerated-idioventricular-rhythm-aivr\">Accelerated idioventricular rhythm</a> (AIVR) at around 60 bpm</li> <li>Multiple <strong>sinus capture beats</strong></li> <li><strong>Isorhythmic AV dissociation</strong>: Sinus P waves are buried in the QRS complexes and T waves at a similar rate to the ventricular rhythm – best seen in the rhythm strip in ECG # 2</li> <li><a data-litfl=\"sinus-arrhythmia-ecg-library\">Sinus arrhythmia</a>, with variation in the PP interval of up to 0.2 s</li> </ul> <p><strong>Summary</strong></p> <ul> <li>Competing sinus and idioventricular pacemakers are present.</li> <li>There is underlying sinus arrhythmia, with sinus capture occurring when the sinus rate exceeds the idioventricular rate.</li> </ul> <p><strong>Definitions</strong></p> <p><strong>Accelerated idioventricular rhythm:</strong></p> <ul> <li>An ectopic ventricular rhythm consisting of three or more ventricular complexes occurring at a rate of 50-110 bpm.</li> <li>The rate differentiates AIVR from ventricular escape rhythms (rate &lt; 50 bpm) and VT (&gt; 110bpm).</li> </ul> <p><strong>Isorhythmic AV dissociation:</strong></p> <ul> <li>AV dissociation with sinus and ventricular complexes occurring at similar rates, unlike 3<sup>rd</sup>degree heart block where the atrial rate is usually faster than the ventricular rate.</li> <li>Isorhythmic AV dissociation is usually due to functional block at the AV node from retrogradely conducted ventricular impulses (“interference-dissociation”), which leaves the AV node refractory to the anterograde sinus impulses.</li> </ul> <p><strong>Sinus arrhythmia</strong>:</p> <ul> <li>Sinus rhythm in which the PP interval varies by 0.16 s or more.</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q2. What is the mechanism of this arrhythmia?",
+"a": "<p>The likely mechanism of the <a data-litfl=\"accelerated-idioventricular-rhythm-aivr\">AIVR</a> in this patient is <strong>enhanced automaticity</strong> of an <strong>ectopic pacemaker</strong> in the<strong> ventricles</strong> coupled with <strong>sinus bradycardia</strong> and <strong>sinus arrhythmia</strong> due to athletic training.</p> <p>There are pacemaker cells at various sites throughout the conducting system, with each site capable of independently sustaining the heart rhythm<strong>. </strong>The rate of spontaneous depolarisation of pacemaker cells decreases down the conducting system:</p> <ul> <li>SA node (60-100 bpm)</li> <li>Atria (&lt; 60 bpm)</li> <li>AV node (40-60 bpm)</li> <li>Ventricles (20-40 bpm)</li> </ul> <p>Under normal conditions, subsidiary pacemakers are suppressed by the more rapid impulses from the sinus node. AIVR occurs when the rate of an ectopic ventricular pacemaker exceeds that of the sinus node.</p> <ul> <li>Athletic training leads to changes in the autonomic nervous system, with <strong>increased resting vagal tone</strong> and <strong>decreased sympathetic tone</strong>.</li> <li>This <strong>hypervagotonic</strong> state causes suppression of impulse generation by the SA node and propagation by the AV node.</li> <li>As a result, athletic individuals will commonly exhibit sinus bradycardia and low-grade AV blocks (e.g. <a data-litfl=\"first-degree-heart-block-ecg-library\">1 st degree heart block</a>, <a data-litfl=\"av-block-2nd-degree-mobitz-i-wenckebach-phenomenon\">Mobitz I</a>).</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q3. What are the other causes of this arrhythmia?",
+"a": "<p><strong>AIVR</strong> is most commonly seen during the reperfusion phase of an acute myocardial infarction. It is also seen with:</p> <ul> <li>Drug toxicity, especially <a data-litfl=\"digoxin-effect-ecg-library\">digoxin</a>, cocaine and volatile anaesthetics such as desflurane</li> <li>Electrolyte abnormalities</li> <li><a data-litfl=\"dilated-cardiomyopathy-dcm-ecg-library\">Cardiomyopathy</a></li> <li>Congenital heart disease</li> <li><a data-litfl=\"myocarditis-ecg-library\">Myocarditis</a></li> <li>Following return of spontaneous circulation in the post-cardiac-arrest period</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q4. What other ECG abnormalities are common in athletes?",
+"a": "<p>The following abnormalities may be present, due to autonomic conditioning (enhanced vagal tone, decreased sympathetic tone) and ventricular hypertrophy:</p> <ul> <li><a data-litfl=\"sinus-arrhythmia-ecg-library\">Sinus arrhythmia</a></li> <li><a data-litfl=\"sinus-bradycardia-ecg-library\">Sinus bradycardia</a></li> <li><a data-litfl=\"junctional-escape-rhythm-ecg-library\">Junctional</a> or <a data-litfl=\"ventricular-escape-rhythm-ecg-library\">ventricular</a> escape rhythms</li> <li><a data-litfl=\"first-degree-heart-block-ecg-library\">1 st degree heart block</a></li> <li><a data-litfl=\"av-block-2nd-degree-mobitz-i-wenckebach-phenomenon\">Wenckebach phenomenon</a></li> <li><a data-litfl=\"left-ventricular-hypertrophy-lvh-ecg-library\">Left ventricular hypertrophy</a></li> <li><a data-litfl=\"ecg-axis-interpretation\">Axis deviation</a></li> <li>Incomplete RBBB</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q5. How should this rhythm be managed?",
+"a": "<p><strong>Management</strong></p> <ul> <li>AIVR is a benign rhythm in most settings and does not usually require treatment.</li> <li>Administration of anti-arrhythmics may cause precipitous haemodynamic deterioration and should be avoided.</li> <li>Treat the underlying cause: <ul> <li>correct electrolytes</li> <li>restore myocardial perfusion</li> <li>give Digibind in the case of digoxin toxicity.</li> </ul> </li> <li>Patients with low-cardiac-output states (e.g. dilated cardiomyopathy) may benefit from restoration of AV synchrony to restore atrial ’kick’ – in this case atropine may be used to increase sinus rate and AV conduction</li> </ul> <p><strong>CLINICAL CASES</strong></p> <p>ECG EXIGENCY</p> more exigencies… <h4>Ed Burns</h4><p>Emergency Physician in Prehospital and Retrieval Medicine in Sydney, Australia. He has a passion for ECG interpretation and medical education | <a data-litfl=\"ecg-library\">ECG Library</a> |</p> <h4>4 Comments</h4> <ol> <li> <h4>Dr. Shyamal Kumar Chatterjee</h4> <a data-litfl=\"marathon-related-ecg-exasperation\">October 7, 2019 / 23:12</a> Reply <p>Thank you very much Sir. I am so so grateful to you sir for getting a lot of knowledge and informations in ECG and Cardiology.</p>"
+}
+],
+"label": "AIVR with isorhythmic AV dissociation and sinus capture beats in a marathon runner",
+"tags": [
+"aivr"
+],
+"lvl": 2
+},
+{
+"id": "xmetabolic-mayhem",
+"src": "litfl-x",
+"url": "https://litfl.com/metabolic-mayhem/",
+"title": "ECG Exigency 012: Metabolic Mayhem",
+"vignette": "Two quick ECG cases for you! Case 1 A 30-year old female with a history of Conn syndrome secondary to bilateral adrenal adenomas presents with generalised weakness and muscle pains after a change in her medications.",
+"images": [
+{
+"src": "https://litfl.com/wp-content/uploads/2018/09/ECG-012-Metabolic-Mayhem-001.jpg",
+"cap": "ECG 012 Metabolic Mayhem 001",
+"where": "q"
+},
+{
+"src": "https://litfl.com/wp-content/uploads/2018/09/U-waves-ECG-hypokalemia.jpg",
+"cap": "T wave inversion and prominent U waves in severe hypokalaemia",
+"where": "q"
+},
+{
+"src": "https://litfl.com/wp-content/uploads/2018/09/ECG-012-Metabolic-Mayhem-002.jpg",
+"cap": "ECG 012 Metabolic Mayhem 002",
+"where": "q"
+},
+{
+"src": "https://litfl.com/wp-content/uploads/2018/09/ECG-012-Metabolic-Mayhem-003.jpg",
+"cap": "Potassium now 5.5, T wave changes resolving",
+"where": "q"
+}
+],
+"steps": [
+{
+"pre": " <p><em>Two quick ECG cases for you!</em></p> <h4>Case 1</h4> <p>A 30-year old female with a history of <a data-litfl=\"jerome-w-conn\">Conn syndrome</a> secondary to bilateral adrenal adenomas presents with generalised weakness and muscle pains after a change in her medications.</p> <figure data-img=\"0\"></figure> ",
+"q": "Q1. Describe the ECG.",
+"a": "<p><strong>The ECG shows:</strong></p> <ul> <li>Sinus rhythm at around 70 bpm</li> <li>Normal axis</li> <li>PR interval 200ms (upper limit of normal)</li> <li>Long QT (640ms, QTc 700ms)</li> <li>Widespread downsloping ST depression / T wave inversion</li> <li>Prominent U waves, especially in the precordial leads</li> </ul> <p><em>NB. Note that the long QT in this case is an ‘apparent’ long QT due to fusion of the T wave and U wave (see comments below).</em></p>"
+},
+{
+"pre": "",
+"q": "Q2. What is the diagnosis?",
+"a": "<p>The combination of a markedly prolonged QT interval, widespread ST depression and T wave inversion with prominent U waves is pathognomonic of <strong>severe hypokalaemia</strong>.</p> <ul> <li>This patient’s potassium was 1.7 mmol/L (she had recently stopped taking her spironalactone).</li> <li>The muscle pain was rhabdomyolysis secondary to hypokalaemia.</li> <li>She was treated in the high-dependency area for 3 days on a continuous potassium drip and made a good recovery.</li> </ul> <figure data-img=\"1\"></figure> <p>Full review of the <a data-litfl=\"hypokalaemia-ecg-library\">ECG features of hypokalaemia</a></p>"
+},
+{
+"pre": "<h4>Case 2</h4> <p> A 24-year old male with type 1 diabetes presents to ED with 2 days of nausea and vomiting.</p> <figure data-img=\"2\"></figure> ",
+"q": "Q1. Describe the ECG.",
+"a": "<p><strong>The ECG shows:</strong></p> <ul> <li>Sinus tachycardia at 120 bpm</li> <li>Inferior axis (+90 degrees)</li> <li>Normal intervals</li> <li>Markedly peaked T waves, particularly in V3-4</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q3. What is the diagnosis?",
+"a": "<p><strong>Hyperkalaemia</strong> secondary to <strong>diabetic ketoacidosis</strong> (this patient’s potassium was 8.5 mmol/L)</p> <p>This is his ECG after treatment, by which time the potassium was 5.5 mmol/L:</p> <figure data-img=\"3\"></figure> <p>Full review of the <a data-litfl=\"hyperkalaemia-ecg-library\">ECG features of hyperkalaemia</a></p> <p><strong>CLINICAL CASES</strong></p> <p>ECG EXIGENCY</p> more exigencies… <h4>Ed Burns</h4><p>Emergency Physician in Prehospital and Retrieval Medicine in Sydney, Australia. He has a passion for ECG interpretation and medical education | <a data-litfl=\"ecg-library\">ECG Library</a> |</p> <h4>Leave a Reply Cancel reply</h4> <p>This site uses Akismet to reduce spam. Learn how your comment data is processed.</p>"
+}
+],
+"label": "Two cases: severe hypokalaemia (K⁺ 1.7, Conn syndrome) and hyperkalaemia in DKA (K⁺ 8.5)",
+"tags": [
+"hypok",
+"hyperk"
+],
+"lvl": 2
+},
+{
+"id": "xpacemaker-panic-2",
+"src": "litfl-x",
+"url": "https://litfl.com/pacemaker-panic-2/",
+"title": "ECG Exigency 016: Pacemaker Panic #2",
+"vignette": "A 68-year old woman presents by ambulance to the Emergency Department. Per the ambulance crew, she was brought from home after experiencing 7 out of 10 chest discomfort and weakness. She has a history of hypertension that is well controlled with furosemide, and has a pacemaker because her “ heart used to go funny .” The ambulance crew are basic life support only, so the patient has received 324mg ",
+"images": [
+{
+"src": "https://litfl.com/wp-content/uploads/2018/09/ECG-Exigency-016-Pacemaker-Panic-001-.jpg",
+"cap": "ECG Exigency 016 Pacemaker Panic 001",
+"where": "q"
+},
+{
+"src": "https://litfl.com/wp-content/uploads/2018/09/ECG-Exigency-016-Pacemaker-Panic-002.jpg",
+"cap": "ECG Exigency 016 Pacemaker Panic 002",
+"where": "q"
+}
+],
+"steps": [
+{
+"pre": " <p>A 68-year old woman presents by ambulance to the Emergency Department. Per the ambulance crew, she was brought from home after experiencing 7 out of 10 chest discomfort and weakness. She has a history of hypertension that is well controlled with furosemide, and has a pacemaker because her “<em>heart used to go funny</em>.”</p> <p>The ambulance crew are basic life support only, so the patient has received 324mg of aspirin, and oxygen by nasal cannula. Upon arrival she is seated upright on the stretcher breathing rapidly, with the following vitals: heart rate 107, blood pressure 180/110, respiratory rate 20 and slightly labored, oxygen saturation 100% on 2 L/min by nasal cannula, and blood glucose 110 mg/dL (6.1 mmol/L).</p> <p>The medical student said the patient appeared to be in ventricular tachycardia on the monitor, and so has brought the crash cart to the bedside. Her ECG is shown below:</p> <figure data-img=\"0\"></figure> ",
+"q": "Q1. Describe the ECG",
+"a": "<ul> <li>Broad complex tachycardia at 107 bpm.</li> <li>Extremely wide QRS complexes.</li> <li>Indeterminate QRS axis.</li> <li>Pacemaker spikes dissociated from QRS complexes.</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q2. What is the significance of these ECG findings?",
+"a": "<p>There are a number of causes for a wide QRS complex, including:</p> <ul> <li>Bundle branch block</li> <li>Pacemaker</li> <li>Wolff-Parkinson-White syndrome</li> <li>Ventricular Rhythm</li> <li>Metabolic</li> <li>Sodium Channel Blockade</li> <li>Nonspecific Intraventricular Conduction Delay</li> </ul> <p>However, when the QRS duration is greater than 200 ms, hyperkalemia should immediately move to the top of the differential. Hyperkalemia would also explain the pacemaker failure to capture. When the QRS becomes too wide, the pacemaker attempts to trigger during the refractory period and fails to capture.</p>"
+},
+{
+"pre": "",
+"q": "Q3. What other diagnostics are warranted at this point?",
+"a": "<ul> <li>The ECG alone is neither particularly sensitive nor specific for diagnosing hyperkalemia.</li> <li>Serial blood draws should be used to track the patient’s potassium.</li> <li>A VBG using an ED-based gas analyser is often the most rapid way to get an initial potassium reading, and may give useful information about acid-base status.</li> <li>Urea and electrolytes should be checked to detect renal dysfunction.</li> <li>Her initial <strong>potassium is 8 mmol/L</strong>.</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q4. How would you manage this patient?",
+"a": "<p>There are <strong>3 goals</strong> in treating hyperkalemia: membrane stabilisation, shift potassium into cells, and increased potassium elimination from the body.</p> <p><strong>Membrane stabilisation</strong></p> <ul> <li>Calcium chloride and gluconate are both effective. Remember that calcium gluconate does not have to be metabolised by the liver to work.</li> </ul> <p><strong>Shift potassium</strong></p> <ul> <li>Sodium bicarbonate: alone <strong>does not</strong> lower potassium, and there is debate whether it will potentiate the effects of salbutamol / albuterol and insulin + dextrose.</li> <li>Insulin + Dextrose</li> <li>Salbutamol / Albuterol</li> </ul> <p><strong>Increase potassium elimination</strong></p> <ul> <li>Diuretics such as furosemide</li> <li>Dialysis</li> <li>Kayexalate: while a mainstay of treatment, there is no evidence that kayexelate reduces potassium levels. The original research that promoted its has serious methodological flaws.</li> </ul>"
+},
+{
+"pre": "<p>Q5. After your initial round of treatment, you acquire another ECG, shown below:</p>",
+"q": "Show ECG 2",
+"a": "<figure data-img=\"1\"></figure>"
+},
+{
+"pre": "",
+"q": "Q6. Can you describe this ECG?",
+"a": "<ul> <li>Underlying rhythm is a dual chamber AV sequential pacemaker.</li> <li>Pacemaker rate: 100 bpm, Ventricular rate captured: 50 bpm.</li> <li>Pacemaker failure to capture</li> <li>Wide QRS complex</li> <li>ST-T wave abnormalities</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q7. What are the significance of these ECG findings?",
+"a": "<ul> <li>While the patient’s pacemaker has taken over, it is still unable to capture 100% of the time.</li> <li>The wide QRS from the underlying hyperkalemia is causing half the pacemaking impulses to fall during the refractory period of the QRS and fail to conduct.</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q8. Based on the ECG findings, do you believe the patient’s condition has improved?",
+"a": "<ul> <li><strong>Yes</strong>.</li> <li>A blood draw confirms that the patient’s potassium level has dropped to 6.6 mmol/L.</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q9. Can you guess how the patient wound up in this state?",
+"a": "<ul> <li>Furosemide is a loop diuretic that when administered alone may cause <strong>low</strong> potassium levels.</li> <li>As such, many patients on furosemide will be taking a potassium supplement.</li> <li>After additional interviewing, you find that the patient misunderstood the dosing instructions for the potassium and unintentionally overdosed.</li> </ul> <p><strong>CLINICAL CASES</strong></p> <p>ECG EXIGENCY</p> more exigencies… <h4>Ed Burns</h4><p>Emergency Physician in Prehospital and Retrieval Medicine in Sydney, Australia. He has a passion for ECG interpretation and medical education | <a data-litfl=\"ecg-library\">ECG Library</a> |</p> <h4>3 Comments</h4> <ol> <li> <h4>An zhe (@Anzhe20180903)</h4> <a data-litfl=\"pacemaker-panic-2\">March 6, 2020 / 09:45</a> Reply <p>ECG2：<br> DDD 50 beat per min（right apex pacing）<br> Atrial pacing and Perception dysfunction</p> <p>would you like to contact me on Twitter？</p>"
+}
+],
+"label": "Severe hyperkalaemia in a paced patient — very broad QRS and pacemaker failure to capture",
+"tags": [
+"hyperk",
+"pacer_fail",
+"paced"
+],
+"lvl": 3
+},
+{
+"id": "xpain-free-and-in-vt",
+"src": "litfl-x",
+"url": "https://litfl.com/pain-free-and-in-vt/",
+"title": "ECG Exigency 002: Pain free and in VT?",
+"vignette": "Can you take a look at the patient in bed 2? I think he’s having runs of VT! You are called to the monitored area in ED to see a 62-year man who is awaiting a bed under the medics for investigation of an episode of chest pain earlier in the day. He is currently pain free, sat up in bed looking undistressed with a blood pressure of 150/90. The monitor shows intermittent runs of a broad complex rhyt",
+"images": [
+{
+"src": "https://litfl.com/wp-content/uploads/2018/02/ECG-exigency-002.jpg",
+"cap": "ECG Exigency 002",
+"where": "q"
+}
+],
+"steps": [
+{
+"pre": " <p><em>Can you take a look at the patient in bed 2? I think he’s having runs of VT!</em></p> <p>You are called to the monitored area in ED to see a 62-year man who is awaiting a bed under the medics for investigation of an episode of chest pain earlier in the day. He is currently pain free, sat up in bed looking undistressed with a blood pressure of 150/90.</p> <p>The monitor shows intermittent runs of a broad complex rhythm. His ECG is shown:</p> <figure data-img=\"0\"></figure> ",
+"q": "Q1. Describe the ECG",
+"a": "<p>The ECG shows sinus rhythm with <strong>rate-dependent left bundle-branch block</strong>.</p> <p>The first eight QRS complexes show:</p> <ul> <li>Sinus rhythm at around 82 bpm</li> <li>Normal PR interval (160ms)</li> <li>Broad complexes (120ms)</li> <li>Typical LBBB morphology (leftward axis, deep S-wave in V1, broad ‘M’ pattern in I, aVL)</li> </ul> <p><strong>The remainder of the ECG shows:</strong></p> <ul> <li>Slowing of the sinus rate to 60bpm</li> <li>Narrowing of the QRS complexes to 80ms</li> <li>Disappearance of the LBBB pattern</li> </ul> <p>The appearance in the chest leads is suggestive of <strong>Wellens syndrome</strong>, with:</p> <ul> <li>Deep T wave inversions in the right- and mid-precordial leads (V1-4)</li> <li>Biphasic T wave morphology in V2</li> </ul> <p>There is also subtle T wave flattening and ST depression in the last four complexes of the lead II rhythm strip, indicating possible <strong>inferior ischaemia</strong>.</p>"
+},
+{
+"pre": "",
+"q": "Q2. What is the electrophysiological basis for the broad complex rhythm?",
+"a": "<p><strong>Rate-dependent bundle-branch block</strong> (AKA “tachycardia-dependent BBB”) is simple to understand:</p> <ul> <li>One of the bundle branches becomes diseased and rather than fail completely (which would produce a fixed bundle branch block pattern), it develops a prolonged refractory period.</li> <li>Below a certain rate, this prolonged refractory period has no effect; impulses are conducted normally.</li> <li>Above the ‘critical’ rate, the diseased bundle branch is unable to conduct impulses fast enough and a bundle branch pattern appears on the ECG.</li> <li>Rate related fascicular blocks (LAFB, LPFB) may also occur, producing left or right axis deviation respectively when the rate increases above a certain threshold.</li> </ul> <p><strong>Bradycardia-dependent bundle branch block</strong> (which is much less common) is essentially the opposite:</p> <ul> <li>A bundle branch pattern appears whenever the rate falls <em>below</em> a certain rate.</li> <li>This happens because of a tendency for damaged cells within the bundle branches to leak their charge and become inexcitable when the intervals between impulses are too long.</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q3. What treatment is required for the broad complex rhythm?",
+"a": "<p>No specific treatment is required for rate-dependent LBBB.</p>"
+},
+{
+"pre": "",
+"q": "Q4. What is the clinical significance of the other ECG changes?",
+"a": "<p>In a patient presenting with recent chest pain, an ECG showing biphasic or deeply inverted T waves in leads V1-4 is highly specific for a <strong>critical occlusion of the proximal LAD – <a data-litfl=\"wellens-syndrome-ecg-library\">Wellens Syndrome</a></strong></p> <p>These patients may be pain free by the time the ECG is taken and have normally or minimally elevated cardiac enzymes; however, they are at <em>extremely high risk for extensive anterior wall MI</em> within the next 2-3 weeks.</p> <p><strong>There are two types of T wave inversions seen in Wellens syndrome.</strong></p> <p><strong>Type A</strong> T-waves are biphasic:</p> <p><strong>Type B</strong> T-waves are deeply, symmetrically inverted:</p>"
+},
+{
+"pre": "",
+"q": "Q5. How should this patient be managed?",
+"a": "<ul> <li>This patient needs urgent cardiology referral, admission to a monitored bed and early PCI (ideally within 48 hours).</li> <li>Medical management (including thrombolysis) is frequently ineffective in this condition.</li> <li>The only way to prevent progression to extensive anterior MI is revascularization via PCI or CABG.</li> </ul> <p><strong>CLINICAL CASES</strong></p> <p>ECG EXIGENCY</p> more exigencies… <h4>Ed Burns</h4><p>Emergency Physician in Prehospital and Retrieval Medicine in Sydney, Australia. He has a passion for ECG interpretation and medical education | <a data-litfl=\"ecg-library\">ECG Library</a> |</p> <h4>3 Comments</h4> <ol> <li> <h4>Dili01</h4> <a data-litfl=\"pain-free-and-in-vt\">January 19, 2021 / 08:35</a> Reply <p>Could this inverted T wave be a chatterjee effect ?</p>"
+}
+],
+"label": "Rate-dependent LBBB (not VT) + Wellens T waves — critical proximal LAD stenosis",
+"tags": [
+"lbbb",
+"wellens"
+],
+"lvl": 3
+},
+{
+"id": "xpost-op-pacing-puzzler",
+"src": "litfl-x",
+"url": "https://litfl.com/post-op-pacing-puzzler/",
+"title": "ECG Exigency 011: Post-op Pacing Puzzler",
+"vignette": "It is night time in the surgical ICU and you are called to the bedside of a 72-year old gentleman who is day 2 post-op from a mitral valve repair, CABG x 3, maze procedure and resection of the left atrial appendage (for correction of severe mitral regurgitation and AF). He still has A+V epicardial pacing wires in situ with AAI pacingset at 90 bpm but the nursing staff are concerned that his rhythm",
+"images": [
+{
+"src": "https://litfl.com/wp-content/uploads/2018/09/ECG-011-Post-op-Pacing-Puzzler.jpg",
+"cap": "ECG 011 Post-op Pacing Puzzler",
+"where": "q"
+}
+],
+"steps": [
+{
+"pre": " <p>It is night time in the surgical ICU and you are called to the bedside of a 72-year old gentleman who is day 2 post-op from a mitral valve repair, CABG x 3, maze procedure and resection of the left atrial appendage (for correction of severe mitral regurgitation and AF).</p> <p>He still has A+V epicardial pacing wires in situ with AAI pacingset at 90 bpm but the nursing staff are concerned that his rhythm has become irregular. He also complains of some anterior sternal discomfort that is worse with deep breathing and coughing. He is otherwise stable with BP 130/70, MAP 95, clear chest, normal mental status and good urine output.</p> <p>The nurse asks you: “<em>Are you sure his pacemaker is working OK</em>?”</p> <p>His ECG is shown below:</p> <figure data-img=\"0\"></figure>  ",
+"q": "Q1. Describe the ECG.",
+"a": "<p><strong>The ECG shows:</strong></p> <ul> <li><strong>Atrial paced rhythm</strong> with atrial pacing spikes at around 90 bpm</li> <li>Narrow QRS (90 ms)</li> <li>Each pacing spike is followed by a small P wave, indicating <strong>100% capture of the atria</strong></li> <li>There are <strong>intermittent non-conducted P waves</strong> (dropped QRS complexes) with overall ventricular rate around 72 bpm</li> <li>The PR interval increases with each successive beat until a QRS complex is dropped</li> <li>PR interval is longest immediately before the dropped beats (460 ms) and shortest immediately after the dropped beats (240 ms)</li> <li><strong>No acute ST changes</strong> to indicate ischaemia as the cause of his pain</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q2. What is the diagnosis?",
+"a": "<p>Atrial paced rhythm with 100% atrial capture and second degree AV block with Mobitz I conduction (<a data-litfl=\"av-block-2nd-degree-mobitz-i-wenckebach-phenomenon\">Wenckebach phenomenon</a>).</p>"
+},
+{
+"pre": "",
+"q": "Q3. What are the possible causes of this rhythm?",
+"a": "<p><strong>Wenckebach phenomenon</strong> is usually due to <strong>impaired conduction at the level of the AV node </strong>(unlike Mobitz II where the site of block is infranodal), and may be seen with the following conditions:</p> <ul> <li>Increased vagal tone (athletes, young children, painful stimuli)</li> <li>Valvular heart surgery (especially mitral valve surgery)</li> <li>AV nodal blocking drugs (beta-blockers, calcium channel blockers, amiodarone, digoxin)</li> <li>Inferior MI</li> <li>Congenital heart disease (e.g. Tetralogy of Fallot)</li> </ul> <p><strong>AV block following mitral valve surgery</strong></p> <ul> <li>AV block is fairly common following mitral valve surgery, as the AV node lies close to the posterior leaflet of the mitral valve.</li> <li>In a study of 391 patients following mitral valve surgery (replacement or repair), the incidence of AV block was 23.5%.</li> <li>The most common type of AV block was first degree (in 18% of patients), followed by third degree (4%), with second degree block the least common (1.3%).</li> <li>A large proportion (44%) of these AV blocks are transient, resolving prior to hospital discharge.</li> </ul> <p><strong>Possible mechanisms for AV block following mitral valve surgery include</strong>:</p> <ul> <li>Direct damage to the AV conduction system during surgery</li> <li>Damage to the AV nodal artery causing ischaemia of the AV node</li> <li>Prolonged cross-clamp time causing ischaemia of the AV node</li> <li>Peri-operative use of AV-nodal blocking drugs</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q4. How would you manage this patient?",
+"a": "<p><strong>Management</strong></p> <ul> <li>Withhold any AV nodal blocking drugs</li> <li>Correct any electrolyte abnormalities</li> <li>Treat his pain (most likely due to his recent sternotomy – but be on the lookout for any signs of myocardial ischaemia)</li> <li>Given that this patient is currently haemodynamically stable, there is no need to alter his pacemaker settings at present</li> <li>If hypotension developed secondary to a low heart rate, he could be switched over to VVI pacing to maintain cardiac output</li> <li>Permanent pacing would need to be considered if haemodynamically unstable AV block persisted beyond the first week post-op</li> </ul> <p><strong>Indications for permanent pacing would include</strong>:</p> <ul> <li>Progression to complete (third degree) AV block</li> <li>Development of Mobitz II AV block</li> <li>Persistent Mobitz I AV block with an inadequate ventricular rate (causing haemodynamic compromise)</li> <li>AF with a slow ventricular response</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q5. Can you guess what happened next?",
+"a": "<ul> <li>The patient remained in Mobitz I for the next 12 hrs without any drop in BP or deterioration to 3rd degree AV block.</li> <li>The following morning he was trialed off pacing and found to be in sinus bradycardia at 56 bpm with a first degree heart block (PR 240 ms); BP was stable at 130/80, so he was switched over to backup VVI pacing with the pacing wires capped after a further few hours.</li> <li>The first degree heart block was not present on his pre-op ECG.</li> <li>It appears that he had developed some post-op AV dysfunction that resulted in a first degree heart block at slower heart rates and progressed into Mobitz I when paced at a faster rate.</li> <li>At present, his first degree heart block persists but he is recovering well from surgery.</li> </ul> <p><strong>CLINICAL CASES</strong></p> <p>ECG EXIGENCY</p> more exigencies… <h4>Ed Burns</h4><p>Emergency Physician in Prehospital and Retrieval Medicine in Sydney, Australia. He has a passion for ECG interpretation and medical education | <a data-litfl=\"ecg-library\">ECG Library</a> |</p> <h4>One comment</h4> <ol> <li> <h4>Hisham Ali</h4> <a data-litfl=\"post-op-pacing-puzzler\">June 21, 2025 / 06:08</a> Reply <p>Great Case !<br> Thank You</p>"
+}
+],
+"label": "Atrial pacing with 100% capture and Mobitz I (Wenckebach) AV block after cardiac surgery",
+"tags": [
+"mobitz1",
+"paced"
+],
+"lvl": 3
+},
+{
+"id": "xpuzzling-paroxysmal-palpitations",
+"src": "litfl-x",
+"url": "https://litfl.com/puzzling-paroxysmal-palpitations/",
+"title": "ECG Exigency 004: Puzzling Paroxysmal Palpitations",
+"vignette": "A previously healthy 15-year old boy presents to ED with sudden onset of palpitations while playing sport. On arrival to ED he is alert and pain free with a good blood pressure. His ECG is shown below:",
+"images": [
+{
+"src": "https://litfl.com/wp-content/uploads/2018/08/ECG-Wolf-Parkinson-White-AVRT-15-year-old-boy.jpg",
+"cap": "ECG Wolf-Parkinson-White AVRT 15 year old boy",
+"where": "q"
+},
+{
+"src": "https://litfl.com/wp-content/uploads/2018/02/ECG-Strip-Capture-beats.jpg",
+"cap": "Capture beats",
+"where": "q"
+},
+{
+"src": "https://litfl.com/wp-content/uploads/2018/02/ECG-Strip-positive-QRS-oncordance.jpg",
+"cap": "Positive concordance in VT",
+"where": "q"
+},
+{
+"src": "https://litfl.com/wp-content/uploads/2018/02/ECG-strip-Negative-concordance.jpg",
+"cap": "Negative concordance in VT",
+"where": "q"
+},
+{
+"src": "https://litfl.com/wp-content/uploads/2018/02/ECG-Brugada-sign-Josephson-sign.jpg",
+"cap": "Brugada sign – Josephson sign",
+"where": "q"
+},
+{
+"src": "https://litfl.com/wp-content/uploads/2018/02/ECG-Taller-right-rabbit-ear-in-RBBB.jpg",
+"cap": "Taller right rabbit ear RBBB",
+"where": "q"
+},
+{
+"src": "https://litfl.com/wp-content/uploads/2018/02/ECG-Strip-Fusion-beats-.jpg",
+"cap": "Fusion beats",
+"where": "q"
+}
+],
+"steps": [
+{
+"pre": " <p>A previously healthy 15-year old boy presents to ED with sudden onset of palpitations while playing sport.</p> <p>On arrival to ED he is alert and pain free with a good blood pressure. His ECG is shown below:</p> <figure data-img=\"0\"></figure> ",
+"q": "Q1. Describe the ECG.",
+"a": "<p><strong>Features of the ECG include:</strong></p> <ul> <li>Regular broad complex tachycardia at 190 bpm</li> <li>No P waves preceding the QRS complexes</li> <li>Left axis deviation</li> <li>QRS complexes show a <strong>left bundle branch block morphology</strong> with dominant S-wave in V1, broad, notched R waves in the lateral leads (I, aVL) and secondary ST/T-wave changes</li> <li>High left ventricular voltage (HLVV)</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q2. What is the differential diagnosis of this rhythm?",
+"a": "<p>The diagnosis of a regular broad complex tachycardia (BCT) involves a distinction between two main entities:</p> <ul> <li>Ventricular tachycardia (VT)</li> <li>Supraventricular tachycardia (SVT) with aberrant conduction</li> </ul> <p>The term ‘<strong> supraventricular tachycardia</strong>’, while often used synonymously with <strong>junctional re-entry tachycardia</strong> (JRT), can refer to any tachycardia arising above the level of the ventricles, including:</p> <ul> <li><strong><a data-litfl=\"sinus-tachycardia-ecg-library\">Sinus tachycardia</a></strong></li> <li><a data-litfl=\"atrial-flutter-ecg-library\">Atrial flutter</a></li> <li><a data-litfl=\"atrial-tachycardia-ecg-library\">Ectopic atrial tachycardia</a></li> <li><a data-litfl=\"accelerated-junctional-rhythm-ajr\">Junctional re-entry tachycardia</a></li> </ul> <p><strong>Junctional re-entry tachycardia</strong> can be divided into:</p> <ul> <li><strong>AV nodal re-entry tachycardia</strong> (<strong>AVNRT</strong>; micro-re-entry circuit within the AV node)</li> <li><strong>Atrio-ventricular re-entry tachycardia</strong> (<strong>AVRT</strong>; macro-re-entry circuit via an accessory pathway as seen in WPW syndrome). This can be either <strong>orthodromic</strong>, where the impulse travels down through the AV node and recycles back up the accessory pathway (producing a narrow complex SVT) or <strong>antidromic</strong>, where the impulse travels down the accessory pathway and recycles back via the AV node (producing a broad complex SVT)<br></li> </ul> <p>Only VT and junctional tachycardia with aberrancy would produce a regular BCT with no discernible atrial activity. Sinus tachycardia, ectopic atrial tachycardia and flutter would all be expected to show characteristic P waves or flutter waves visible somewhere on the ECG.</p> <p><strong>So, the differential diagnosis of this ECG boils down to three main possibilities:</strong></p> <ul> <li>Ventricular tachycardia</li> <li>AVNRT with LBBB</li> <li>Antidromic AVRT due to WPW</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q3. What is aberrant conduction?",
+"a": "<ul> <li><strong>Aberrant conduction</strong> is any situation where electrical impulses take an abnormal route through the conducting system, leading to a broadening of the QRS complex</li> <li>The most common causes being either <strong>bundle branch block</strong> (<a data-litfl=\"left-bundle-branch-block-lbbb-ecg-library\">LBBB</a>, <a data-litfl=\"right-bundle-branch-block-rbbb-ecg-library\">RBBB</a>) or <strong><a data-litfl=\"pre-excitation-syndromes-ecg-library\">pre-excitation</a></strong> (e.g. Wolff-Parkinson-White syndrome).</li> <li>There are other types of aberrancy that can produce broad complexes, including conditions such as <strong>rate-related bundle branch block</strong> (discussed in <a data-litfl=\"pain-free-and-in-vt\">ECG Exigency 002</a>) and <a data-litfl=\"atrial-fibrillation-ecg-library\">Ashman aberrancy</a> (a type of transient aberrant conduction related to abrupt changes in heart rate).</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q4. Is there any way to distinguish between diagnoses based on ECG alone?",
+"a": "<p><strong>The answer is no!</strong></p> <p>The electrocardiographic differentiation of VT from SVT with aberrancy is not always possible. There are several electrocardiographic features (<em>not</em> present on this ECG) that <strong>increase the likelihood of VT</strong>:</p> <ul> <li>Absence of typical RBBB or LBBB morphology</li> <li>Extreme axis deviation (“northwest axis”)</li> <li>Very broad complexes (&gt;160ms)</li> <li><strong>AV dissociation</strong> (P and QRS complexes at different rates)</li> <li><strong>Capture</strong> <strong>beats </strong>— occur when the sinoatrial node transiently ‘captures’ the ventricles, in the midst of AV dissociation, to produce a QRS complex of normal duration.</li> <li><strong>Fusion</strong> <strong>beats</strong> — occur when a sinus and ventricular beat coincides to produce a hybrid complex.</li> <li><strong>Positive or negative</strong> <strong>concordance</strong> throughout the chest leads, i.e. leads V1-6 show entirely positive (R) or entirely negative (QS) complexes, with no RS complexes seen.</li> <li><strong>Brugada sign</strong> – The distance from the onset of the QRS complex to the nadir of the S-wave is &gt; 100ms</li> <li><strong>Josephson sign </strong>– Notching near the nadir of the S-wave</li> <li>RSR’ complexes with a <strong>taller left <em>rabbit ear</em></strong>. This is the most specific finding in favour of VT. This is in contrast to RBBB, where the right rabbit ear is taller.</li> </ul> <p><strong>Examples of these ECG features are shown below</strong></p> <figure data-img=\"1\"></figure> <figure data-img=\"2\"></figure> <figure data-img=\"3\"></figure> <figure data-img=\"4\"></figure> <figure data-img=\"5\"></figure> <figure data-img=\"6\"></figure> <p></p>"
+},
+{
+"pre": "",
+"q": "Q5. What features, other than those present on the ECG, are suggestive of each of the differential diagnoses?",
+"a": "<p><strong>The likelihood of VT is also increased with:</strong></p> <ul> <li>Age &gt; 35 (positive predictive value of 85%)</li> <li>Structural heart disease <ul> <li>Ischaemic heart disease</li> <li>Previous MI</li> <li>Congestive heart failure</li> <li>Cardiomyopathy</li> </ul> </li> <li>Family history of sudden cardiac death (suggesting conditions such as HOCM, congenital long QT syndrome, Brugada syndrome or arrhythmogenic right ventricular dysplasia that are associated with episodes of VT)</li> </ul> <p><strong>The likelihood of SVT with aberrancy is increased if:</strong></p> <ul> <li>Previous ECGs show a bundle branch block pattern with identical morphology to the broad complex tachycardia.</li> <li>Previous ECGs show evidence of WPW (short PR &lt; 120ms, broad QRS, delta wave).</li> <li>The patient has a history of paroxysmal tachycardias that have been successfully terminated with adenosine or vagal manoeuvres.</li> </ul> <p>… But don’t rely on these features to make the diagnosis!</p>"
+},
+{
+"pre": "",
+"q": "Q6. How would manage a patient presenting with a regular BCT?",
+"a": "<p>All these patients need to be managed in a monitored bed equipped for cardiopulmonary resuscitation, defibrillation and airway management.The first question is whether the patient is stable or unstable…</p> <p><strong>Signs of instability:</strong></p> <ul> <li>Hypotension</li> <li>Loss of consciousness</li> <li>Chest pain</li> <li>Acute heart failure</li> </ul> <p><strong>Unstable patients require </strong><strong>immediate synchronised DC cardioversion</strong>. Starting energy is 100 J (monophasic) or 70 J (biphasic), with titration of energy settings upwards as required.</p> <p>In stable patients, consider whether SVT with aberrancy is likely.</p> <ul> <li>Previous similar episodes</li> <li>Young, fit patient with structurally normal heart</li> <li>No family history of sudden death or cardiomyopathy</li> </ul> <p>In these cases, a trial of adenosine or vagal manoeuvres (Valsalva manoeuvre or carotid sinus massage) is a reasonable next step. The starting dose of adenosine is 6mg rapid IV push, preferably through a proximally-sited large-bore cannula, followed by incremental doses at 12mg and 18mg.</p> <p>Beware that adenosine may occasionally provoke degeneration to VF (particularly in patients with coronary artery disease) so the patient should have defibrillator pads attached during this procedure.</p> <p>If adenosine is unsuccessful, or if VT is the likely diagnosis, then the options for treatment are as follows:</p> <ul> <li>Procedural sedation and DC cardioversion – this would be the treatment of choice in a fasted patient with no significant cardio-respiratory comorbidities</li> <li>Amiodarone 150 mg IV over 10 mins (first-line antiarrhythmic)</li> <li>Lignocaine 1-1.5 mg/kg over 2-3 minutes</li> <li>Procainamide 100mg every 5 minutes up to a maximum dose of 10-20mg/kg</li> </ul> <p>Serum electrolytes (potassium and magnesium) should be corrected to normal and associated conditions such as hypoxia, myocardial ischaemia and drug toxicities (e.g. poisoning with sodium-channel blocking drugs) should be treated.</p> <p>Remember that overall, <strong>VT accounts for</strong>:</p> <ul> <li>80% of cases of BCT</li> <li>95% of cases of BCT in patients with structural heart disease</li> </ul> <p><strong>So if in doubt, treat as VT!</strong></p>"
+},
+{
+"pre": "",
+"q": "Q7. Can you guess the underlying diagnosis?",
+"a": "<p>This ECG is an example of <strong>antidromic </strong><strong>AVRT </strong>secondary to <strong>Wolff-Parksinson-White syndrome.</strong></p> <ul> <li>The patient gave a history of previous similar palpitations and recalled one previous ED presentation where his palpitations had been successfully terminated with adenosine.</li> <li>He was due to see a cardiologist but had not yet attended his appointment.On this occasion, he reverted to sinus rhythm following a Valsalva manoeuvre, with immediate narrowing of his QRS complexes.</li> <li>Baseline ECG showed sinus rhythm with PR interval of 110ms and subtle delta waves.</li> <li>Electrophysiology testing confirmed pre-excitation with a right-sided accessory pathway (Type B WPW).</li> <li>Echocardiography revealed a structurally normal heart. He was discharged home on oral flecainide pending ablation of his accessory pathway.</li> </ul> <p><strong>CLINICAL CASES</strong></p> <p>ECG EXIGENCY</p> more exigencies… <h4>Ed Burns</h4><p>Emergency Physician in Prehospital and Retrieval Medicine in Sydney, Australia. He has a passion for ECG interpretation and medical education | <a data-litfl=\"ecg-library\">ECG Library</a> |</p> <h4>Leave a Reply Cancel reply</h4> <p>This site uses Akismet to reduce spam. Learn how your comment data is processed.</p>"
+}
+],
+"label": "Regular broad-complex tachycardia in a teenager — antidromic AVRT (WPW)",
+"tags": [
+"anti_avrt",
+"wpw_sinus",
+"vt"
+],
+"lvl": 3
+},
+{
+"id": "xrisky-rhythyms",
+"src": "litfl-x",
+"url": "https://litfl.com/risky-rhythyms/",
+"title": "ECG Exigency 003: Risky Rhythyms",
+"vignette": "5 risky rhythms . Each tells a story. Can you work out what is happening before its too late? What can you do to save the day? Rhythm strip 1",
+"images": [
+{
+"src": "https://litfl.com/wp-content/uploads/2018/09/ECG-Rhythm-strip-Exigency-003-1.jpg",
+"cap": "ECG Rhythm strip Exigency 003 1",
+"where": "q"
+},
+{
+"src": "https://litfl.com/wp-content/uploads/2018/09/ECG-Rhythm-strip-Exigency-003-2.jpg",
+"cap": "ECG Rhythm strip Exigency 003 2",
+"where": "q"
+},
+{
+"src": "https://litfl.com/wp-content/uploads/2018/09/ECG-Rhythm-strip-Exigency-003-3.jpg",
+"cap": "ECG Rhythm strip Exigency 003 3",
+"where": "q"
+},
+{
+"src": "https://litfl.com/wp-content/uploads/2018/09/ECG-Rhythm-strip-Exigency-003-4.jpg",
+"cap": "ECG Rhythm strip Exigency 003 4",
+"where": "q"
+},
+{
+"src": "https://litfl.com/wp-content/uploads/2018/09/ECG-Rhythm-strip-Exigency-003-5.jpg",
+"cap": "ECG Rhythm strip Exigency 003 5",
+"where": "q"
+}
+],
+"steps": [
+{
+"pre": " <p><strong>5 risky rhythms</strong>. Each tells a story. Can you work out what is happening before its too late? What can you do to save the day?</p> <h4>Rhythm strip 1</h4> <figure data-img=\"0\"></figure>",
+"q": "Q1.1 What rhythm is shown?",
+"a": "<p>This is a classic example of <strong>sick sinus</strong> with the <strong>“tachy-brady” syndrome</strong></p> <ul> <li>Runs of tachycardia interspersed with long sinus pauses (up to 6 seconds).</li> <li>The sinus rate is extremely slow, varying from 40 bpm down to around 10 bpm in places.</li> <li>Sinus beats are followed by paroxysms of junctional tachycardia at around 140 bpm.</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q 1.2 What will you do next?",
+"a": "<p>This patient needs a pacemaker, stat!</p> <ul> <li>Admit to a monitored bed on a coronary care unit. </li> <li>Commence temporary pacing via external pads or pacing wire until a permanent pacemaker can be arranged.</li> </ul>"
+},
+{
+"pre": "<h4>Rhythm strip 2</h4> <figure data-img=\"1\"></figure>",
+"q": "Q 2.1 What rhythm is shown?",
+"a": "<ul> <li>Six beats of sinus rhythm at 90 bpm.</li> <li>The 7th beat is a premature atrial complex (<strong>PAC</strong>) with different morphology P, QRS and T waves, which initiates a run of a supraventricular tachycardia at 150bpm.</li> <li>The onset of the SVT is typical of an AV-nodal re-entry tachycardia (<strong>AVNRT</strong>), although with the rate of 150bpm, atrial flutter with a 2:1 block is also a possibility.</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q 2.2 What will you do next?",
+"a": "<ul> <li>Scrutinise the 12-lead ECG for flutter waves.</li> <li>Try some adenosine (or vagal stimuli such as a Valsalva manoeuvre or carotid massage); this should unmask any flutter waves and may convert AVNRT to sinus rhythm.</li> <li>Flutter may require DC cardioversion or treatment with anti-arrhythmics (e.g. amiodarone).</li> </ul>"
+},
+{
+"pre": "<h4>Rhythm Strip 3</h4> <figure data-img=\"2\"></figure>",
+"q": "Q 3.1 What rhythm is shown?",
+"a": "<p>A <strong>narrow complex tachycardia</strong> is interrupted by a run of <strong>polymorphic VT</strong>, which rapidly deteriorates into <strong>ventricular fibrillation</strong>.</p>"
+},
+{
+"pre": "",
+"q": "Q 3.2 What will you do next?",
+"a": "<ul> <li>Precordial thump!</li> <li>Start charging the defibrillator!</li> <li>Shock at 200 J (biphasic) or 360 J (monophasic). Three stacked shocks if the arrest is witnessed and monitored.</li> <li>Start CPR!</li> </ul>"
+},
+{
+"pre": "<h4>Rhythm Strip 4</h4> <figure data-img=\"3\"></figure>",
+"q": "Q 4.1 What rhythm is shown?",
+"a": "<ul> <li>Sinus rhythm, or possibly ectopic atrial rhythm (biphasic / inverted P waves in lead II)</li> <li>Rate of 90 bpm</li> <li>Prolonged QTc interval of 540 ms (greater than half the R-R interval)</li> <li>Ventricular ectopics with <strong>‘R-on-T’ phenomenon</strong></li> <li>The second ventricular ectopic initiates a run of <strong>torsades de pointes</strong></li> </ul>"
+},
+{
+"pre": "",
+"q": "Q 4.2 What will you do next?",
+"a": "<ul> <li>DC cardioversion if unstable.</li> <li>Load with magnesium (e.g. 2 g over 1-2 minutes) and start a magnesium infusion.</li> <li>Correct hypokalemia.</li> <li><strong>Consider: </strong>Overdrive pacing to achieve a ventricular rate of 90-120 bpm.</li> <li><strong>Consider: </strong>Isoprenaline infusion.</li> </ul>"
+},
+{
+"pre": "<h4>Rhythm Strip 5</h4> <figure data-img=\"4\"></figure>",
+"q": "Q 5.1 What rhythm is shown?",
+"a": "<p>This is a typical ECG recording of a patient receiving a <strong>bolus of adenosine for AVNRT</strong>.</p> <ul> <li>AV-nodal re-entry tachycardia (AVNRT) at 140 bpm</li> <li>A pause in the middle of the strip with several ventricular escape complexes</li> <li>Cardioversion to sinus rhythm at 90 bpm at the end of the strip</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q 5.2 What will you do next?",
+"a": "<ul> <li>Get a 12-lead ECG to confirm return to sinus rhythm.</li> <li>If the patient is well and remains in sinus rhythm they can be discharged.</li> <li>Consider electrophysiology follow up for recurrent AVNRT.</li> </ul> <p><strong>CLINICAL CASES</strong></p> <p>ECG EXIGENCY</p> more exigencies… <h4>CLINICAL CASES</h4> <p>ECG EXIGENCY</p> more exigencies… <h4>Leave a Reply Cancel reply</h4> <p>This site uses Akismet to reduce spam. Learn how your comment data is processed.</p>"
+}
+],
+"label": "Five rhythm strips: tachy-brady syndrome, PAC-triggered SVT, polymorphic VT → VF, long QT with torsades risk, AVNRT terminated by adenosine",
+"tags": [
+"tachy_brady",
+"torsades",
+"vf",
+"avnrt"
+],
+"lvl": 2
+},
+{
+"id": "xseizures-somnolence-and-a-scary-ecg",
+"src": "litfl-x",
+"url": "https://litfl.com/seizures-somnolence-and-a-scary-ecg/",
+"title": "ECG Exigency 006: Seizures, Somnolence and a Scary ECG",
+"vignette": "An 18-year old male is brought to ED by ambulance following a generalised seizure at home. He has a further witnessed seizure en route in the ambulance. By the time of arrival to ED he is comatose with a GCS of 3 and poor respiratory effort. Pupils are symmetrically dilated. Blood sugar is normal. BP is 70/40. His ECG is shown below:",
+"images": [
+{
+"src": "https://litfl.com/wp-content/uploads/2018/02/ECG-Somnolence-broad-complex-tachycardia.jpg",
+"cap": "ECG Somnolence broad complex tachycardia",
+"where": "q"
+}
+],
+"steps": [
+{
+"pre": " <p>An 18-year old male is brought to ED by ambulance following a generalised seizure at home. He has a further witnessed seizure en route in the ambulance.</p> <p>By the time of arrival to ED he is comatose with a GCS of 3 and poor respiratory effort. Pupils are symmetrically dilated. Blood sugar is normal. BP is 70/40. </p> <p>His ECG is shown below:</p> <figure data-img=\"0\"></figure>  ",
+"q": "Q1. Describe the ECG findings.",
+"a": "<p><strong>The ECG shows:</strong></p> <ul> <li>Regular broad complex tachycardia</li> <li>Rate 130 bpm</li> <li>Right axis deviation (+120 degrees)</li> <li>Hidden P waves buried in the ST-segments / T waves (best seen in leads II, aVF). These could be retrograde P waves from a junctional / ventricular rhythm or sinus P waves with an extremely long PR interval (360ms)</li> <li>Very broad QRS complexes (160ms)</li> <li>Terminal R wave in aVR &gt; 3mm; R/S ratio in aVR &gt; 0.7</li> <li>Atypical RBBB pattern in V1-2 (bizarre morphology with left rabbit ear higher than the right)</li> <li>QT 400ms with markedly prolonged QTc 590 ms</li> <li>Non-specific T wave abnormalities with T-wave inversions in V1-2 &amp; lead III</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q2. What is the likely diagnosis?",
+"a": "<p>The combination of tachycardia, QRS and QTc prolongation, right axis deviation and terminal R wave in aVR &gt; 3mm is highly specific for poisoning with sodium-channel blocking drugs, in particular the <a data-litfl=\"tricyclic-overdose-sodium-channel-blocker-toxicity\">tricyclic antidepressants</a>.</p> <p>This patient had attempted suicide by deliberate self-poisoning with around 35mg/kg of Doxepin (a tricyclic antidepressant) an hour prior to presentation.In overdose, the tricyclics produce rapid onset (within 1-2 hours) of:</p> <ul> <li>Sedation and coma</li> <li>Seizures</li> <li>Hypotension</li> <li>Tachycardia</li> <li>Broad complex dysrhythmias</li> <li>Anticholinergic syndrome</li> </ul> <p>Tricyclics mediate their <strong>cardiotoxic effects</strong> via blockade of myocardial fast sodium channels (QRS prolongation, tall R wave in aVR), inhibition of potassium channels (QTc prolongation) and direct myocardial depression. Other toxic effects are produced by blockade at muscarinic (M1), histamine (H1) and α<sub>1</sub>-adenergic receptors.</p> <p>The <strong>degree of QRS broadening</strong> on the ECG is correlated with adverse events:</p> <ul> <li>QRS &gt; 100 ms is predictive of seizures</li> <li>QRS &gt; 160 ms is predictive of ventricular arrhythmias (e.g. VT)</li> </ul> <p>The <strong>risk assessment</strong> for Doxepin ingestion is as follows:</p> <ul> <li>&lt; 5 mg/kg — Minimal symptoms</li> <li>5-10 mg / kg — Drowsiness and mild anticholinergic effects; major toxicity not expected</li> <li>&gt; 10 mg / kg — Potential for all major toxic effects to occur within 1-2 h of ingestion</li> <li>&gt; 30 mg / kg — Severe toxicity with pH-dependent cardiotoxicity and coma &gt; 24 h</li> </ul> <p>An overdose of this magnitude (&gt; 30 mg/kg) is associated with profound TCA toxicity and likely to be rapidly fatal without intervention.</p>"
+},
+{
+"pre": "",
+"q": "Q3. How would you manage this patient?",
+"a": "<p><strong>Management:</strong></p> <ul> <li>This patient needs to be managed in a monitored area equipped for airway management and resuscitation.</li> <li>Secure IV access, administer high flow oxygen and attach monitoring equipment.</li> <li>Administer IV sodium bicarbonate 100 mEq (1-2 mEq / kg); repeat every few minutes until BP improves and QRS complexes begin to narrow.</li> <li>Intubate as soon as possible.</li> <li>Hyperventilate to maintain a pH of 7.50 – 7.55.</li> <li>Once the airway is secure, place a nasogastric tube and give 50g (1g/kg) of activated charcoal.</li> <li>Treat further seizures with IV benzodiazepines (e.g. diazepam 5-10mg).</li> <li>Treat hypotension with a crystalloid bolus (10-20 mL/kg). If this is unsuccessful in restoring BP then consider starting vasopressors (e.g. noradrenaline infusion).</li> <li>If arrhythmias occur, the first step is to give more sodium bicarbonate. Lidocaine (1.5mg/kg) IV is a second line agent once pH is &gt; 7.5.</li> <li>Avoid Ia (procainamide) and Ic (flecainide) antiarrhythmics, beta-blockers and amiodarone as they may worsen hypotension and conduction abnormalities.</li> <li>Admit the patient to the intensive care unit for ongoing management.</li> </ul> <p><strong>CLINICAL CASES</strong></p> <p>ECG EXIGENCY</p> more exigencies… <h4>Ed Burns</h4><p>Emergency Physician in Prehospital and Retrieval Medicine in Sydney, Australia. He has a passion for ECG interpretation and medical education | <a data-litfl=\"ecg-library\">ECG Library</a> |</p> <h4>Leave a Reply Cancel reply</h4> <p>This site uses Akismet to reduce spam. Learn how your comment data is processed.</p>"
+}
+],
+"label": "Sodium-channel blocker (TCA) toxicity — broad QRS, RAD, terminal R in aVR > 3 mm",
+"tags": [
+"tca_tox"
+],
+"lvl": 2
+},
+{
+"id": "xshock-syncope-and-severe-chest-pain",
+"src": "litfl-x",
+"url": "https://litfl.com/shock-syncope-and-severe-chest-pain/",
+"title": "ECG Exigency 014: Shock, syncope and severe chest pain",
+"vignette": "A 67-year old male is brought to hospital by ambulance following an episode of syncope at home. He had just finished eating lunch at home when he developed severe crushing retrosternal chest pain radiating to his left arm, profuse sweating and vomiting. Shortly after the onset of the pain he lost consciousness and awoke to find himself on the floor. En route in the ambulance he has several brief r",
+"images": [
+{
+"src": "https://litfl.com/wp-content/uploads/2018/09/ECG-Exigency-014.jpg",
+"cap": "ECG Exigency 014",
+"where": "q"
+},
+{
+"src": "https://litfl.com/wp-content/uploads/2018/09/ECG-LMCA-.jpg",
+"cap": "ECG LMCA",
+"where": "q"
+},
+{
+"src": "https://litfl.com/wp-content/uploads/2018/09/STE-aVR-ostial-LAD-thrombus.jpg",
+"cap": "",
+"where": "q"
+},
+{
+"src": "https://litfl.com/wp-content/uploads/2018/09/ECG-LMCA-or-proximal-LAD.jpg",
+"cap": "ECG LMCA or proximal LAD",
+"where": "q"
+}
+],
+"steps": [
+{
+"pre": " <p>A 67-year old male is brought to hospital by ambulance following an episode of syncope at home. He had just finished eating lunch at home when he developed severe crushing retrosternal chest pain radiating to his left arm, profuse sweating and vomiting.</p> <p>Shortly after the onset of the pain he lost consciousness and awoke to find himself on the floor. En route in the ambulance he has several brief runs of non-sustained VT associated with dizziness and an impalpable radial pulse.</p> <p>On arrival to ED, his observations are: BP 80/50, HR 130 regular, SaO2 91% on 15L, RR 30. He looks unwell, grey, sweaty and dyspnoeic. Chest exam reveals bilateral basal crepitations extending to the midzones. Heart sounds are normal with no murmurs. This is his ECG…</p> <figure data-img=\"0\"></figure> ",
+"q": "Q1. Describe the ECG",
+"a": "<ul> <li>Sinus tachycardia with two premature supraventricular complexes (“PSVC”) – these are probably atrial in origin as they are both preceded by abnormal P waves (hidden within the preceding T-waves)</li> <li>Overall ventricular rate = 108 bpm</li> <li>Left axis deviation</li> <li>PR interval normal (~160ms)</li> <li>Broad QRS (~120ms) secondary to non-specific interventricular conduction delay (not characteristic of LBBB or RBBB); the QRS appears wider than it actually is in some leads due to the upsloping ST segments</li> <li>Widespread ST depression in I, II, aVF and V2-6 with T-wave inversion in aVL</li> <li>Marked ST elevation in aVR (&gt; 3mm at the J-point)</li> <li>In comparison, there is minimal ST elevation in V1 (i.e. STE in aVR &gt; V1)</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q2. What is the significance of the ECG changes?",
+"a": "<p>In a patient presenting with ischaemic chest pain, the combination of:</p> <ul> <li>Widespread ST depression</li> <li>ST elevation in aVR ≥ 1mm</li> <li>ST elevation in aVR ≥ V1</li> </ul> <p>Is strongly suggestive of <strong>left main coronary artery (LMCA) occlusion </strong>or <strong>severe</strong> <strong>multi-vessel disease</strong>.</p> <h4>ST elevation in aVR: Left Main Coronary Artery Occlusion?</h4> <p>This ECG demonstrates the classical pattern of LMCA occlusion:</p> <ul> <li>Widespread horizontal ST depression, most prominent in leads I, II and V4-6</li> <li>ST elevation in aVR ≥ 1mm</li> <li>ST elevation in aVR ≥ V1</li> </ul> <figure data-img=\"1\"></figure> <p>However, ST elevation in aVR is not entirely specific to LMCA occlusion. It may also be seen with:</p> <ul> <li>Proximal left anterior descending artery (LAD) occlusion</li> <li>Severe triple-vessel disease (3VD)</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q3. What is the electrophysiological basis for the ECG changes?",
+"a": "<p>Mechanism of STE in aVR</p> <ul> <li>Lead aVR is electrically opposite to the left-sided leads I, II, aVL and V4-6; therefore ST depression in these leads will produce reciprocal ST elevation in aVR.</li> <li>Lead aVR also directly records electrical activity from the right upper portion of the heart, including the right ventricular outflow tract and the basal portion of the interventricular septum; infarction in this area could theoretically produce ST elevation in aVR.</li> </ul> <p>ST elevation is aVR is thought to result from two possible mechanisms:</p> <ul> <li>Diffuse subendocardial ischaemia (producing reciprocal change in aVR)</li> <li>Transmural ischaemia / infarction of the basal interventricular septum (e.g. due to a proximal occlusion within the left coronary system)</li> </ul> <p><em><strong>NOTE</strong>: The basal septum is supplied by the first septal perforator artery (a very proximal branch of the LAD), so ischaemia/infarction of the basal septum would imply involvement of the proximal LAD or LMCA.</em> </p>"
+},
+{
+"pre": "",
+"q": "Q4. What is the predictive value of these ECG changes?",
+"a": "<p>Predictive Value of STE in aVR</p> <p>In the context of widespread ST depression + symptoms of myocardial ischaemia:</p> <ul> <li>STE in aVR ≥ 1mm indicates proximal LAD / LMCA occlusion or severe 3VD</li> <li>STE in aVR ≥ 1mm predicts the need for CABG</li> <li>STE in aVR ≥ V1 differentiates LMCA from proximal LAD occlusion</li> <li>Absence of ST elevation in aVR almost entirely excludes a significant LMCA lesion</li> </ul> <p>In the context of anterior STEMI:</p> <ul> <li>STE in aVR ≥ 1mm is highly specific for LAD occlusion proximal to the first septal branch</li> </ul> <p>In patients undergoing exercise stress testing:</p> <ul> <li>STE of ≥ 1mm in aVR during exercise stress testing predicts LMCA or ostial LAD stenosis</li> </ul> <p>Magnitude of ST elevation in aVR is correlated with mortality in patients with acute coronary syndromes:</p> <ul> <li>STE in aVR ≥ 0.5mm was associated with a 4-fold increase in mortality</li> <li>STE in aVR ≥ 1mm was associated with a 6- to 7-fold increase in mortality</li> <li>STE in aVR ≥ 1.5mm has been associated with mortalities ranging from 20-75%</li> </ul>"
+},
+{
+"pre": "",
+"q": "In-depth review of relevant literature",
+"a": "<p>A Brief Review of the Literature</p> <p> Over the past 18 years, multiple studies have examined the utility of ST elevation in aVR for predicting severe coronary artery disease (proximal LAD/LMCA/3VD) and mortality in patients with acute coronary syndromes and those undergoing exercise stress testing. Some of the important studies are summarised below… </p> <p>Gorgels et al. (1993)</p> <ul> <li><strong>Population</strong>: 113 patients with unstable angina, including 20 patients with LMCA stenosis and 24 patients with 3VD.</li> <li><strong>Findings</strong>: Patients with LMCA or 3VD frequently demonstrated ST-segment depression in multiple leads (typically I, II and V4-V6) plus ST-segment elevation in lead aVR during attacks of angina.</li> </ul> <p>Engelen et al. (1999)</p> <ul> <li><strong>Population</strong>: 100 patients with anterior STEMI.</li> <li><strong>Findings</strong>: STE in aVR of any magnitude was 43% sensitive and 95% specific for LAD occlusion proximal to the first septal branch.</li> </ul> <p>Yamaji et al. (2001)</p> <ul> <li><strong>Population</strong>: 16 patients with acute LMCA occlusion, 46 patients with acute LAD occlusion and 24 patients with acute RCA occlusion.</li> <li><strong>Findings</strong>: <ul> <li>STE in aVR (≥ 0.5mm) occurred with a significantly higher incidence in the LMCA group (88%) than in the LAD (43%) or RCA (8%) groups.</li> <li>Magnitude of STE in aVR was significantly greater in the LMCA group (1.6 ± 1.3 mm) than the LAD group (0.4 ± 1.0 mm).</li> <li>In contrast, magnitude of STE in V1 was <em>less</em> in the LMCA group (0.0 ± 2.1 mm) than in the LAD group (1.4 ± 1.1 mm).</li> <li>STE in aVR ≥ V1 distinguished the LMCA group from the LAD group with 81% sensitivity, 80% specificity and 81% accuracy.</li> </ul> </li> </ul> <p>Barrabes et al. (2003)</p> <ul> <li><strong>Population</strong>: 775 patients with first presentation of acute NSTEMI</li> <li><strong>Findings</strong>: <ul> <li>Two-thirds of patients with STE in aVR ≥ 1 mm had either LMCA occlusion or severe 3VD.</li> <li>Degree of STE in aVR was an independent predictor of mortality: STE of ≥ 1 mm was associated with a six- to seven-fold increase in in-hospital mortality (odds ratio of death = 6.6).</li> <li>Magnitude of STE in aVR was also closely associated with rates of recurrent ischemic events and heart failure.</li> <li>STE in aVR predicted the need for CABG – coronary grafting was required in 22% of patients with aVR STE &gt; 1mm compared to 5% of those without.</li> </ul> </li> </ul> <p>Rostoff et al. (2005)</p> <ul> <li><strong>Population</strong>: 150 patients with acute coronary syndromes – 46 with LMCA obstruction, 104 with occlusion of a different vessel</li> <li><strong>Findings</strong>: STE in aVR was twice as common in patients with LMCA occlusion as those without (69.6% vs 34.6%).</li> </ul> <p>Kosuge et al. (2005)</p> <ul> <li><strong>Population</strong>: 310 patients with non-ST-elevation acute coronary syndromes.</li> <li><strong>Findings</strong>: <ul> <li>STE in aVR ≥ 0.5 mm was the strongest predictor of LMCA or 3VD (78% sensitivity, 86% specificity, 57% PPV and 95% NPV).</li> <li>STE in aVR was superior to the presence of ST depression in other leads for predicting LMCA/3VD.</li> </ul> </li> </ul> <p>Aygul et al. (2008)</p> <ul> <li><strong>Population</strong>: 950 patients with STEMI (any type).</li> <li><strong>Findings</strong>: <ul> <li>STE in aVR ≥ 0.5 mm predicted proximal LAD or LMCA occlusion (with 50% sensitivity, 91% specificity, 55% PPV, 89% NPV).</li> <li>STE in aVR ≥ 0.5 mm was also an independent predictor of mortality (in-hospital mortality was 19% in those with ≥ 0.5 mm STE in aVR compared to only 5% in those without).</li> <li>Patients with STE in aVR also had higher heart rates, lower systolic BPs, lower ejection fractions and worse Killip class at the time of admission.</li> </ul> </li> </ul> <p>Wong et al. (2011)</p> <ul> <li><strong>Population</strong>: 15, 315 patients with STEMI enrolled in the HERO-2 trial (heparin vs bivalirudin for acute MI).</li> <li><strong>Findings</strong>: STE ≥1.5 mm in aVR was associated with a two-fold increase in 30-day mortality for both inferior and anterior STEMI, compared to the baseline mortality rate of 10.8%.</li> </ul> <p>Uthamalingam et al. (2011)</p> <ul> <li><strong>Population</strong>: 454 patients undergoing both exercise stress testing (standard Bruce protocol) and cardiac catheterization within 6 months, including 75 patients with LMCA or ostial LAD stenosis.</li> <li><strong>Findings</strong>: STE of ≥ 1mm in aVR during stress testing predicted LMCA or ostial LAD stenosis with sensitivity 75%, specificity 81% and overall accuracy 80%.</li> </ul> <p>Kosuge et al. (2011)</p> <ul> <li><strong>Population</strong>: 572 patients with acute NSTEMI.</li> <li><strong>Findings</strong>: <ul> <li>Degree of STE in aVR was the strongest independent predictor of severe LMCA occlusion / 3VD requiring CABG (odds ratio 29.1), followed by positive troponin T level (odds ratio 1.27).</li> <li>STE ≥ 1.0 mm in aVR identified severe LMCA occlusion /3VD with 80% sensitivity, 93% specificity, 56% PPV, and 98% NPV.</li> </ul> </li> </ul>"
+},
+{
+"pre": "",
+"q": "Further ECG examples",
+"a": "<h4>More ECG Examples</h4> <details><summary><strong>Proximal LAD occlusion</strong></summary> <figure data-img=\"2\"></figure> <p>This ECG shows:</p> <ul> <li>ST elevation in aVR and V1 of similar magnitude.</li> <li>Widespread ST depression (V3-6, I, II, III, aVF)</li> </ul> <p><em>This patient had a <strong>severe ostial LAD thrombus</strong> that was close to the left main </em><em>(This ECG is reproduced from Dr Smith’s ECG Blog)</em></p>"
+},
+{
+"pre": "",
+"q": "Severe Multi-Vessel Disease",
+"a": "<figure data-img=\"3\"></figure> <p>This ECG shows:</p> <ul> <li>ST elevation in aVR and V1, of similar magnitude</li> <li>ST depression in multiple leads (V5-6, I, II, aVL, aVF)</li> <li>Evidence of anteroseptal STEMI – ST elevation with Q wave formation in V1-3</li> </ul> <p><em>It would be reasonable to suspect a proximal LAD occlusion based on this ECG. However, this patient actually had <strong>severe multi-vessel disease</strong>. Angiography demonstrated a chronic total occlusion of his circumflex artery, with critical stenoses of his proximal LAD, RCA and ramus intermedius. Surprisingly, in this case the culprit vessel was thought to be the RCA, which had been collateralising his chronically occluded circumflex. </em></p>"
+},
+{
+"pre": "</details> ",
+"q": "Q5. What are the implications of this ECG pattern for the treatment of acute coronary syndromes?",
+"a": "<p><strong>Implications for therapy in acute coronary syndromes</strong></p> <p>Given the ability of STE in aVR to predict critical coronary lesions and death, this ECG pattern is increasingly being recognised as a “STEMI equivalent” that requires emergent reperfusion therapy to prevent cardiogenic shock and death. Furthermore, the presence or absence of STE in aVR may potentially inform the decision to give thienopyridine platelet inhibitors (e.g. clopidogrel, prasugrel) during an acute coronary syndrome: </p> <ul> <li>Clopidogrel treatment ≤ 7 days before CABG is associated with an increase in major bleeding, haemorrhage-related complications, and transfusion requirements.</li> <li>Prasugrel is associated with even more bleeding than clopidogrel.</li> <li>If urgent CABG (within 7 days) is likely, then there is an argument for omitting thienopyridines during the initial management of an acute coronary syndrome (or at least using clopidogrel instead of prasugrel).</li> </ul> <p>In the study by Kosuge et al. (2011)</p> <ul> <li>STE in aVR ≥ 1 mm was a strong predictor of severe LMCA / 3VD requiring CABG.</li> <li>Conversely, patients with &lt; 1mm ST elevation in aVR had a negligible risk of severe LMCA / 3VD requiring CABG.</li> </ul> <p><strong>Based on this data:</strong></p> <ul> <li>Patients with &lt; 1mm STE in aVR may safely receive clopidogrel/prasugrel during the initial treatment of their ACS as they are unlikely to proceed to urgent CABG.</li> <li>Patients with ≥ 1 mm STE in aVR may potentially require early CABG; therefore these patients should ideally be discussed with the interventional cardiologist (± cardiac surgeon) before thienopyridines are given.</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q6. Can you guess what happened next?",
+"a": "<ul> <li>There was some initial resistance to urgent angiography as the junior cardiology registrar failed to appreciate the significance of the ECG changes.</li> <li>Luckily for the patient, the astute Emergency Physician persisted…</li> <li>Shortly after showing the ECG to his boss, a rather panicky cardiology registrar ran into ED and whisked the patient off to the cath lab!</li> <li>Coronary angiogram showed a <strong>complete ostial occlusion of the LMCA</strong>, with acute thrombus. The remainder of the coronary arteries were normal, apart from some minor irregularities in the RCA.</li> <li>The patient stabilised after PCI to the LMCA.</li> <li>An intra-aortic balloon pump (IABP) was inserted at the time of angiography and remained in situ for two days while the patient recovered from his cardiogenic shock.</li> <li>Troponin peaked at 220 μg/L.</li> <li>The patient made a good recovery – echocardiography performed six days later showed normal LV size with only mild segmental systolic dysfunction and an ejection fraction of 48%.</li> <li>He was transferred to a private hospital for ongoing management, so I am not sure whether he ultimately required CABG.</li> </ul> <p><strong>CLINICAL CASES</strong></p> <p>ECG EXIGENCY</p> more exigencies… <h4>Ed Burns</h4><p>Emergency Physician in Prehospital and Retrieval Medicine in Sydney, Australia. He has a passion for ECG interpretation and medical education | <a data-litfl=\"ecg-library\">ECG Library</a> |</p> <h4>2 Comments</h4> <ol> <li> <h4>tom fiero</h4> <a data-litfl=\"shock-syncope-and-severe-chest-pain\">October 1, 2018 / 22:57</a> Reply <p>Ed<br> another extraordinary case!<br> and excellent presentation. this was a great save, thanks to the persistence of the ED doc.<br> perhaps i was mistaken in my comment elsewhere (i think it was the widow-maker blog).<br> this case clearly shows a man who had “complete” OMI, involving the os to the LM.<br> and an ECG that had marked ST elevation aVR.</p> <p>question, ED…<br> tell me if i’m mistaken.<br> i think the actual QRS width determination is best seen in leads aVL and V1, which makes the QRS nearly normal width, but it we “march” this width out to the other leads it dramatically illustrates the severe ST elevation in aVR, and depression elsewhere.<br> get post, ED. thank you.</p> <p>tom</p>"
+}
+],
+"label": "Widespread ST depression with STE aVR ≥ 1 mm — left main / proximal LAD / 3-vessel disease",
+"tags": [
+"left_main_avr"
+],
+"lvl": 3
+},
+{
+"id": "xsudden-syncope-at-soccer",
+"src": "litfl-x",
+"url": "https://litfl.com/sudden-syncope-at-soccer/",
+"title": "ECG Exigency 008: Sudden Syncope at Soccer",
+"vignette": "A 26-year old man presents to ED by ambulance after an episode of syncope while playing soccer. On arrival, he is dizzy and slightly pale with a BP of 85/60. ECG 1 on arrival: ECG 2 is being taken as the patient becomes unconscious on the trolley Two cycles of CPR and 100 joules of (biphasic) electricity later, he wakes up with a start and pushes the resuscitating team off his chest. ECG 3 Post CP",
+"images": [
+{
+"src": "https://litfl.com/wp-content/uploads/2018/02/ECG-exigency-008_1-2.jpg",
+"cap": "ECG-exigency 008_1 2",
+"where": "q"
+},
+{
+"src": "https://litfl.com/wp-content/uploads/2018/02/ECG-VT-VF-Soccer.jpg",
+"cap": "ECG VT VF Soccer",
+"where": "q"
+},
+{
+"src": "https://litfl.com/wp-content/uploads/2018/02/ECG-exigency-Sudden-Syncope-003.jpg",
+"cap": "ECG exigency Sudden Syncope 003ECG exigency Sudden Syncope 003",
+"where": "q"
+},
+{
+"src": "https://litfl.com/wp-content/uploads/2018/08/Epsilon-Waves.jpg",
+"cap": "Epsilon Wave",
+"where": "q"
+},
+{
+"src": "https://litfl.com/wp-content/uploads/2018/08/Prolonged-S-wave-upstroke-in-ARVD.jpg",
+"cap": "Prolonged S-wave upstroke and localised QRS widening in V2",
+"where": "q"
+}
+],
+"steps": [
+{
+"pre": " <p>A 26-year old man presents to ED by ambulance after an episode of syncope while playing soccer. On arrival, he is dizzy and slightly pale with a BP of 85/60.</p> <p><strong>ECG 1 on arrival:</strong></p> <figure data-img=\"0\"></figure> <p><strong><strong>ECG 2 is being taken as the patient becomes unconscious on the trolley</strong></strong></p> <figure data-img=\"1\"></figure> <p>Two cycles of CPR and 100 joules of (biphasic) electricity later, he wakes up with a start and pushes the resuscitating team off his chest.</p> <p><strong><strong>ECG 3 Post CPR</strong></strong></p> <figure data-img=\"2\"></figure>  ",
+"q": "Q1. Describe and interpret ECG 1",
+"a": "<p><strong>The first ECG shows:</strong></p> <ul> <li>Regular, broad complex tachycardia at around 180 bpm</li> <li>Inferior axis (just leftward of +90 degrees)</li> <li>LBBB-like morphology to the QRS complexes (dominant S wave in V1)</li> <li>No discernible P waves</li> </ul> <p>This is an example of <strong>Right Ventricular Outflow Tract Tachycardia</strong> (RVOT)</p> <p><strong>Right Ventricular Outflow Tract Tachycardia</strong> (RVOT)</p> <ul> <li>RVOT is a cyclic-AMP-mediated form of VT that is classically triggered by exercise or catecholamine excess.</li> <li>The LBBB morphology and inferior axis are typical of this type of VT.</li> </ul> <p><strong>Two conditions</strong> produce RVOT:</p> <ul> <li><strong>Idiopathic RVOT</strong> is a fairly benign condition, more common in young females, that causes recurrent episodes of VT with a LBBB morphology. Patients have structurally normal hearts and the VT usually responds to treatment with beta-blockers.</li> <li>The other condition associated with RVOT will be discussed below…</li> </ul> <p>Other <strong>differential diagnoses</strong> to consider with ECG 1 are:</p> <ul> <li>SVT with LBBB</li> <li>SVT with WPW</li> </ul> <p>Here are some handy tips for <a data-litfl=\"vt-versus-svt-ecg-library\">differentiating VT from SVT with aberrancy</a>.</p>"
+},
+{
+"pre": "",
+"q": "Q2. Describe ECG 2",
+"a": "<p>The second ECG shows:</p> <ul> <li><strong><a data-litfl=\"ventricular-fibrillation-vf-ecg-library\">Ventricular fibrillation</a> (VF)</strong>.</li> </ul> <p><em>NOTE</em>: VF should (hopefully) never be diagnosed from the 12-lead ECG!</p>"
+},
+{
+"pre": "",
+"q": "Q3. Describe ECG 3",
+"a": "<p><strong>The third ECG shows:</strong></p> <ul> <li>Sinus rhythm at around 75 bpm</li> <li>Right axis deviation</li> <li>Dominant R wave in V1</li> <li>T wave inversion in the anterior (V1-6) and inferior (I, II, aVL) leads</li> <li>Subtle widening of the QRS complexes in V2-3</li> <li>Epsilon waves (a small ‘blip’ after the QRS complex), visible in multiple leads</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q4. What is the diagnosis?",
+"a": "<p><strong>Arrhythmogenic Right Ventricular Cardiomyopathy </strong>(ARVC)</p> <ul> <li>The combination of a RVOT leading to VF arrest with a resting ECG showing <a data-litfl=\"epsilon-wave-ecg-library\">Epsilon waves</a> and signs of right ventricular hypertrophy (T-wave inversion in the right- to mid-precordial leads, dominant R wave in V1, right axis deviation) is diagnostic of ARVC (aka arrhythmogenic right ventricular dysplasia (ARVD))</li> <li>An inherited myocardial disease associated with <strong>paroxysmal ventricular arrhythmias</strong> and <strong>sudden cardiac death</strong>.</li> <li>&gt;Characterized pathologically by fibro-fatty replacement of the right ventricular myocardium.</li> <li>The second most common cause of sudden cardiac death in young people (after HOCM), causing<em> up to</em> <em>20% of sudden cardiac deaths in patients &lt; 35 yrs of age</em>.</li> <li>Typically inherited as an <strong>autosomal dominant</strong> trait, with variable penetrance and expression (there is an autosomal recessive form called Naxos Disease, which is associated with woolly hair and skin changes).</li> <li>More common in men than women (3:1) and in people of Italian or Greek descent.</li> <li>Estimated to affect approximately 1 in 5,000 people overall.</li> </ul> <p><strong>Diagnosis of ARVD / ARVC</strong></p> <p>There is no single diagnostic test for ARVD. The diagnosis is made using a combination of clinical, electrocardiographic and radiological features, as defined by the (horribly complicated) 2010 Task Force Criteria.</p> <p><strong>Clinical Features</strong></p> <ul> <li>ARVD causes symptoms due to <strong>ventricular ectopic beats</strong> or sustained <strong>ventricular tachycardia</strong> (with LBBB morphology) and typically presents with palpitations, syncope or cardiac arrest precipitated by exercise.</li> <li>The first presenting symptom may be <strong>sudden cardiac death</strong>.</li> <li>Over time, surviving patients also develop features of <strong>right ventricular failure</strong>, which may progress to severe biventricular failure and dilated cardiomyopathy.</li> <li>There is usually a <strong>family history</strong> of sudden cardiac death.</li> </ul> <p><strong>ECG Features</strong></p> <p>ARVD is associated with characteristic ECG abnormalities:</p> <ul> <li><a data-litfl=\"epsilon-wave-ecg-library\">Epsilon wave</a> (most specific finding, seen in 30% of patients)</li> <li>T wave inversions in V1-3 (85% of patients)</li> <li>Prolonged S-wave upstroke of 55ms in V1-3 (95% of patients)</li> <li>Localised QRS widening of 110ms in V1-3</li> <li>Paroxysmal episodes of ventricular tachycardia with a LBBB morphology</li> </ul> <figure data-img=\"3\"></figure> <figure data-img=\"4\"></figure> <p>Some authors recommend recording ECG rhythm strips at double speed and double amplitude to enhance the detection of some of these features (click here for a description of how to do this).</p> <p><strong>Imaging</strong></p> <ul> <li><strong>Echocardiography</strong> is the first-line investigation, and may demonstrate a dilated, hypokinetic right ventricle with prominent apical trabeculae and dilatation of the RV outflow tract.</li> <li>The imaging modality of choice in many centres is <strong>cardiovascular MRI</strong>, which can accurately demonstrate structural and functional features of ARVD such as fibrofatty infiltration and thinning of the RV myocardium, RV aneurysms, RV dilatation, regional wall motion abnormalities and global systolic dysfunction.</li> <li>Other imaging modalities such as <strong>CT scanning</strong> and <strong>right ventricular contrast angiography</strong>may be used to make the diagnosis where MRI is unavailable, but have the disadvantages of high radiation burden and/or invasive technique.</li> <li><strong>Histological diagnosis</strong>, either via endomyocardial biopsy or at autopsy, provides a definitive diagnosis but is impractical, and for those patients diagnosed at post-mortem… far too late!</li> </ul> <p><strong>Risk Assessment</strong></p> <p>Patients with ARVD are considered to be at high risk of sudden death if they have any of the following:</p> <ul> <li>A history of syncope due to cardiac arrest</li> <li>Recurrent arrhythmias not suppressed by anti-arrhythmic drug therapy</li> <li>A family history of cardiac arrest in first degree relatives</li> </ul> <p><strong>Treatment Options</strong></p> <ul> <li>In patients with no high risk features, initial treatment is with anti-arrhythmic drugs such as beta-blockers or amiodarone to suppress cathecholamine-triggered ventricular arrhythmias. Currently, the most effective drug for this is <strong>sotalol</strong>.</li> <li>Patients with any high risk features require <em>urgent insertion of an implantable cardioverter-defibrillator (ICD)</em>.</li> <li>In patients with persistent symptomatic arrhythmias, radiofrequency ablation of conduction pathways may be attempted.</li> <li>Heart failure is treated in the usual way, with diuretics, ACE inhibitors and anticoagulants. In severe cases, cardiac transplantation may be required.</li> </ul> <p><strong>Acknowledgement</strong></p> <p>ECG 3 was originally posted on the website heartpearls.com by Dr Jayachandran Thejus MD. Thanks for sharing such a great ECG with us!</p> <p><strong>CLINICAL CASES</strong></p> <p>ECG EXIGENCY</p> more exigencies… <h4>Ed Burns</h4><p>Emergency Physician in Prehospital and Retrieval Medicine in Sydney, Australia. He has a passion for ECG interpretation and medical education | <a data-litfl=\"ecg-library\">ECG Library</a> |</p> <h4>Leave a Reply Cancel reply</h4> <p>This site uses Akismet to reduce spam. Learn how your comment data is processed.</p>"
+}
+],
+"label": "ARVC — RVOT-type VT degenerating to VF; resting ECG with epsilon waves and anterior TWI",
+"tags": [
+"arvc",
+"x_rvot",
+"vf"
+],
+"lvl": 3
+},
+{
+"id": "xtroubling-tachycardia",
+"src": "litfl-x",
+"url": "https://litfl.com/troubling-tachycardia/",
+"title": "ECG Exigency 010: Troubling Tachycardia",
+"vignette": "Another crazy night in the ED… One of the nurses hands you this ECG. “Can you take a look at this guy? He doesn’t look so well…”",
+"images": [
+{
+"src": "https://litfl.com/wp-content/uploads/2018/09/ECG-Exigency-010.jpg",
+"cap": "ECG Exigency 010",
+"where": "q"
+},
+{
+"src": "https://litfl.com/wp-content/uploads/2018/09/ECG-Digoxin-toxicity-bigeminy.jpg",
+"cap": "ventricular bigeminy",
+"where": "q"
+},
+{
+"src": "https://litfl.com/wp-content/uploads/2018/09/ECG-Digoxin-toxicity-PAT.jpg",
+"cap": "Atrial tachycardia with high-grade AV block and VEB",
+"where": "q"
+},
+{
+"src": "https://litfl.com/wp-content/uploads/2018/09/ECG-Digoxin-toxicity-regularised-AF.jpg",
+"cap": "ECG Digoxin toxicity regularised AF",
+"where": "q"
+},
+{
+"src": "https://litfl.com/wp-content/uploads/2018/03/cpvt.jpg",
+"cap": "CPVT Catecholaminergic Polymorphic Ventricular Tachycardia",
+"where": "q"
+}
+],
+"steps": [
+{
+"pre": " <p>Another crazy night in the ED… One of the nurses hands you this ECG. “Can you take a look at this guy? He doesn’t look so well…”</p> <figure data-img=\"0\"></figure>  ",
+"q": "Q1. What is the name of this rhythm?",
+"a": "<p>This is an example of <strong>bidirectional ventricular tachycardia</strong> with</p> <ul> <li>Regular broad complex tachycardia</li> <li>The frontal-plane axis swings 180 degrees from left to right with each alternate beat</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q2. What are the two main causes of this dysrhythmia?",
+"a": "<ul> <li><strong>Severe <a data-litfl=\"digoxin-toxicity-ecg-library\">digoxin toxicity</a></strong></li> <li>Familial Catecholaminergic Polymorphic Ventricular Tachycardia (CPVT)</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q3. What are the clinical and ECG features of Digoxin toxicity?",
+"a": "<h4>Digoxin toxicity</h4> <p><strong>Clinical features</strong></p> <ul> <li>GIT: Nausea, vomiting, anorexia, diarrhoea</li> <li>Visual: Blurred vision, yellow/green discolouration, haloes</li> <li>CVS: Palpitations, syncope, dyspnoea</li> <li>CNS: Confusion, dizziness, delirium, fatigue</li> </ul> <p><strong>Electrocardiographic Features</strong></p> <ul> <li>Digoxin can cause a multitude of dysrhythmias, due to <strong>increased automaticity</strong> (increased intracellular calcium) and <strong>decreased AV conduction </strong>(increased vagal effects at the AV node)</li> <li>The classic dysrhythmia associated with digoxin toxicity is the combination of a <strong>supraventricular tachycardia</strong> (due to increased automaticity) with a <strong>slow ventricular response</strong> (due to decreased AV conduction), e.g. ‘<em>atrial tachycardia with block’.</em></li> </ul> <p>Other arrhythmias associated with digoxin toxicity are:</p> <ul> <li>Frequent VEBs (the most common abnormality), including ventricular bigeminy and trigeminy</li> <li>Sinus bradycardia or slow AF</li> <li>Any type of AV block (1st degree, 2nd degree &amp; 3rd degree)</li> <li><em>Regularised AF</em> = AF with complete heart block and a junctional or ventricular escape rhythm</li> <li>Ventricular tachycardia, including polymorphic and bidirectional VT</li> </ul> <p><strong>Examples of digoxin toxicity:</strong></p> <figure data-img=\"1\"></figure> <figure data-img=\"2\"></figure> <figure data-img=\"3\"></figure>"
+},
+{
+"pre": "",
+"q": "Q4. What are the clinical and ECG features of CPVT?",
+"a": "<p><strong>Clinical features</strong></p> <ul> <li>An inherited arrhythmogenic disease characterised by episodic palpitations, syncope or cardiac arrest precipitated by exercise or acute emotion (i.e. catecholamine-triggered ventricular dysrhythmias)</li> <li>Onset during childhood (mean age: 7-9 years old)</li> <li>Family history of sudden cardiac death</li> <li>Ventricular arrhythmias reproducible on exercise stress testing</li> </ul> <p><strong>Electrocardiographic Features</strong></p> <ul> <li>Bidirectional VT</li> <li>Polymorphic VT</li> <li>Ventricular fibrillation</li> </ul> <p>CPVT Example</p> <figure data-img=\"4\"></figure> <ul> <li>Exercise stress test in a patient with CPVT.</li> <li>Progressively worsening ventricular arrhythmias are observed during exercise.</li> <li>Typical bidirectional VT develops after 1 minute of exercise with a sinus heart rate of approximately 120 beats per minute.</li> <li>Arrhythmias rapidly recede during recovery.</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q5. How are these conditions treated?",
+"a": "<p><strong>Digoxin</strong></p> <ul> <li>The antidote for acute or chronic digoxin toxicity is <strong>digoxin-specific immune Fab</strong> (<strong>‘Digibind’</strong>)</li> <li>Initial empiric dosing of Digibind is 5 ampoules for acute overdose, 2 ampoules for chronic toxicity and up to 20 ampoules for cardiac arrest</li> <li>AV block may respond to <strong>atropine</strong> 0.6 mg IV bolus, repeated to a maxium of 1.8 mg (20 mcg/kg in children)</li> <li>Dysrhythmias may be treated with IV <strong>lignocaine</strong> 1mg/kg (max 100mg) over 2 minutes</li> <li>Hyperkalaemia is treated in the usual way with insulin and dextrose, sodium bicarbonate… however, <strong>IV calcium is (traditionally) contraindicated!</strong></li> <li>DC cardioversion is unlikely to be successful in digoxin poisoning. Patients in cardiac arrest may require continuous CPR until Digibind can be sourced and administered.</li> </ul> <p><strong>Catecholaminergic Polymorphic Ventricular Tachycardia</strong></p> <ul> <li><strong>Beta blockers</strong> (e.g. propranolol) are used for suppression of catecholamine-triggered ventricular tachydysrhythmias.</li> <li><strong>Electrical cardioversion / defibrillation</strong> may be required for haemodynamically unstable VT/VF, although patients often spontaneously revert to sinus rhythm.</li> <li><strong>Implantable cardioverter-defibrillator</strong> (ICD) insertion is considered for primary or secondary prevention of cardiac arrest.</li> </ul> <p><strong>CLINICAL CASES</strong></p> <p>ECG EXIGENCY</p> more exigencies… <h4>Ed Burns</h4><p>Emergency Physician in Prehospital and Retrieval Medicine in Sydney, Australia. He has a passion for ECG interpretation and medical education | <a data-litfl=\"ecg-library\">ECG Library</a> |</p> <h4>Leave a Reply Cancel reply</h4> <p>This site uses Akismet to reduce spam. Learn how your comment data is processed.</p>"
+}
+],
+"label": "Bidirectional VT — digoxin toxicity or CPVT",
+"tags": [
+"bidir_vt",
+"digoxin"
+],
+"lvl": 3
+},
+{
+"id": "xvt-or-not-vt",
+"src": "litfl-x",
+"url": "https://litfl.com/vt-or-not-vt/",
+"title": "ECG Exigency 013: VT or not VT",
+"vignette": "One fine day, (or was it a midsummer night) , in a hospital not far from here, a strange looking patient is brought into the ED. His name is William, but he says “ Call me Bill! “. Strangely his last name is Shakespeare. You giggle. What a funny name, you think. So familiar… Before you can wonder any longer whether this Midsummer Night’s Dream , a Friday night in ED, is about to become a Tempest ,",
+"images": [
+{
+"src": "https://litfl.com/wp-content/uploads/2018/03/ECG-VT-or-not-VT.jpg",
+"cap": "ECG VT or not VT",
+"where": "q"
+},
+{
+"src": "https://litfl.com/wp-content/uploads/2018/09/Brugada-criteria-VT-diagnosis.png",
+"cap": "Brugada criteria VT diagnosis",
+"where": "q"
+},
+{
+"src": "https://litfl.com/wp-content/uploads/2018/09/verekie-riteria-VT-diagnosis.png",
+"cap": "Verekie criteria VT diagnosis",
+"where": "q"
+}
+],
+"steps": [
+{
+"pre": " <p>One fine day, (or was it a <em>midsummer night)</em>, in a hospital not far from here, a strange looking patient is brought into the ED. His name is William, but he says “<em>Call me Bill!</em>“. Strangely his last name is Shakespeare. You giggle. What a funny name, you think. So familiar… </p> <p>Before you can wonder any longer whether this <em>Midsummer Night’s Dream</em>, a Friday night in ED, is about to become a <em>Tempest</em>, the nurse pokes his ECG in front of you.</p> <figure data-img=\"0\"></figure> <p>You feel pretty smart because you have just read up about <a data-litfl=\"super-axis-man-sam\">Super Axis Man (SAM)</a>. So you say (insert posh voice here): “<em>Is this an ECG I see before me? The axis towards my hand? Come, let me touch thee. I feel thee not, yet I see thee still</em>.”</p> <p>You get strange looks from the nurse, so you confidently tell him, “The axis is abnormal — at 130 degrees. <em>Now get thee to a nunnery</em>!” </p> <p>The nurse, still bewildered about your comments on touching an ECG, and wondering about the <em>method in your madness</em>, says “No! I don’t think the axis is the problem. Look — this ECG is completely abnormal.” </p> <p>Bah you think — <em>the nurse doth protest too much</em>. But you humor him. “Ah,” you say. “You are correct! The patient has a wide complex tachycardia (WCT). But is it VT?” </p> <p>Barely conscious, the patient, gasping, looks at you and says… </p> <p>“<em>VT or not VT? That is the question…”</em></p> ",
+"q": "What is the definition of wide complex tachycadia?",
+"a": "<p>Wide complex tachycardia has these features:</p> <ul> <li>The QRS-complex needs to be wide. Wide is &gt;120ms (or &gt;3 small squares).</li> <li>The patient needs to be tachycardic, &gt;100/min.</li> </ul> <p>The <a data-litfl=\"vt-versus-svt-ecg-library\">differential diagnosis in WCT</a> includes ventricular tachycardia (VT), supraventricular tachycardia (SVT) with aberrancy and pacemaker rhythms.</p>"
+},
+{
+"pre": "",
+"q": "What clinical features help differentiate VT from SVT?",
+"a": "<p>Although there are no features that reliably distinguish SVT from VT, there are features that make one more or less likely.</p> <p><strong>History</strong></p> <ul> <li>If the patient has no prior history of tachycardia, or they have a history of structural cardiac disease, a known pacemaker or ICD this makes VT more likely. A history of AVNRT or other previous SVT makes SVT more likely.</li> </ul> <p><strong>Examination</strong></p> <ul> <li>The patient who is unstable, has cardiac failure, a midline sternotomy scar, a pacemaker or ICD, cannon a-waves or heart sound fluctuations (esp S1) make VT more likely.</li> </ul> <p><strong>ECG findings</strong></p> <ul> <li>VT is more common generally (80%, but up to 95% in IHD). VT is more likely with extreme right axis, minor rate variation and chest lead concordance. SVT is more likely with a rate that is exactly 150/min and a narrower QRS-complex width (120-140ms).</li> </ul> <p>Bill looks at you, and whispers longingly: </p> <p>“<em>O Brugada, Brugada, wherefore art thou Brugada</em>?”</p>"
+},
+{
+"pre": "",
+"q": "Which algorithms can help differentiate SVT/aberrant conduction from VT?",
+"a": "<p>There are many different algorithms that may help to distinguish SVT from VT. My favourite ones are the simple four-step ones, either the Vereckei criteria or Brugada criteria. Vereckei criteria were developed as an attempt to simplify the Brugada criteria (specifically step 4) but to retain the test accuracy.</p> <details><summary><strong>The Brugada Criteria</strong></summary> <p>The self reported test characteristics were:</p> <ul> <li>sensitivity: 98.7%</li> <li>specificity: 96.5%</li> <li>test accuracy: 90%.</li> </ul> <p>However other authors have reported lower values with independent application of the criteria.</p> <figure data-img=\"1\"></figure> <p></p>"
+},
+{
+"pre": "",
+"q": "The Vereckei Criteria",
+"a": "<p>The self reported test characteristics were:</p> <ul> <li>sensitivity: 95.7%</li> <li>specificity: 73.4%</li> <li>test accuracy: 90%.</li> </ul> <p>These are remarkably similar to the above values for the Brugada Criteria.</p> <p>Interestingly, in the same paper Vereckei evaluated the same 453 ECGs used to develop his criteria, using Brugada criteria — with a test accuracy of 85%. Furthermore, 18 WCTs were <strong>incorrectly diagnosed</strong> by both criteria.</p> <figure data-img=\"2\"></figure> <p><strong>Things I like about these criteria…</strong></p> <ul> <li>They involve a simple four step process.</li> <li>Most steps in both the Brugada and Vereckei are simple to remember, and easy to rapidly apply.</li> </ul> <p><strong>Things I don’t like about these criteria…</strong></p> <ul> <li>Step 4 in the Brugada criteria and step 3 in the Vereckei criteria are complicated.</li> <li>VT is a medical emergency. Both criteria get it wrong about 10% of the time…</li> <li>10% is too high for my liking.</li> </ul> <p><strong>So, is all this Vereckei and Brugada business <em>Much Ado About Nothing</em>? Are they <em>Measure For Measure</em> the same thing?</strong></p> <ul> <li>A more pragmatic way of looking at the algorithm is that yes, both may help you equally in making the diagnosis in a stable patient. But in the unstable patient, the distinction between SVT and VT is academic, because you have a 10% chance of getting it wrong. I think that is too high.</li> <li>If someone has a WCT and they are haemodynamically compromised, they need urgent action — a DC shock would be my preference, or a very quick acting antiarrhythmic.</li> </ul> <p>Or, as Bill was saying to me by this stage —</p> <p>“<em>A shock, a shock, my kingdom for a shock</em>“</p> <p></p> </details> <p></p> <p><strong>CLINICAL CASES</strong></p> <p>ECG EXIGENCY</p> more exigencies… <h4>Gerard Fennessy</h4><p>Specialist Intensive Care Physician working at the Austin Hospital, Melbourne. Interests: Shoulder Dislocations, Pain Management, End-of-life care, Organ Donation and ECGs | Linkedin |</p> <h4>One comment</h4> <ol> <li> <h4>Ferlavmar</h4> <a data-litfl=\"vt-or-not-vt\">September 9, 2024 / 08:37</a> Reply <p>But, is this VT or not?</p>"
+}
+],
+"label": "Wide-complex tachycardia: VT vs SVT with aberrancy — clinical features, Brugada and Vereckei algorithms",
+"tags": [
+"vt",
+"pac_aberrant"
+],
+"lvl": 3
+},
+{
+"id": "xwinter-is-coming",
+"src": "litfl-x",
+"url": "https://litfl.com/winter-is-coming/",
+"title": "ECG Exigency 016: Winter is Coming",
+"vignette": "A 54-year old man presents by private vehicle to the Emergency Department with chest discomfort he described as “ heartburn .” The pain is substernal and non-radiating. He is also mildly diaphoretic. There is no history of diabetes, hypertension, high cholesterol, or coronary artery disease. On arrival he is resting comfortably, with the following vitals: heart rate 56, blood pressure 125/82, resp",
+"images": [
+{
+"src": "https://litfl.com/wp-content/uploads/2018/09/ECG-Exigency-016-Winter-is-Coming.jpg",
+"cap": "ECG Exigency 016 Winter is Coming",
+"where": "q"
+}
+],
+"steps": [
+{
+"pre": " <p>A 54-year old man presents by private vehicle to the Emergency Department with chest discomfort he described as “<em>heartburn</em>.” The pain is substernal and non-radiating. He is also mildly diaphoretic. </p> <p>There is no history of diabetes, hypertension, high cholesterol, or coronary artery disease. On arrival he is resting comfortably, with the following vitals: heart rate 56, blood pressure 125/82, respirations 18 per minute and unlaboured, oxygen saturation 100% on room air. His ECG is shown below: </p> <figure data-img=\"0\"></figure> ",
+"q": "Q1. Describe the ECG.",
+"a": "<ul> <li><a data-litfl=\"p-wave-ecg-library\">Ectopic atrial rhythm</a>: inverted P waves in II, III, aVF</li> <li>Rate 75 bpm</li> <li>Normal axis: +30 degrees, QRS complexes upright in leads I + II</li> <li>Normal intervals</li> <li>1mm ST-segment elevation in aVR</li> <li>Upsloping ST-segment depression in V2-V6</li> <li>Tall, prominent, symmetric T waves throughout the precordial leads</li> </ul>"
+},
+{
+"pre": "",
+"q": "Q2. What is the significance of these ECG findings?",
+"a": "<p>These ST and T waves abnormalities are known as <a data-litfl=\"de-winter-t-wave-ecg-library\">de Winter T-waves</a></p> <p><strong>This ECG finding:</strong></p> <ul> <li>Is specific for left anterior descending artery (LAD) occlusion.</li> <li>Represents ~2% of LAD occlusions.</li> <li>May persist until the culprit artery is opened (making it a STEMI equivalent) or may evolve into an anterior STEMI.</li> </ul> <p></p>"
+},
+{
+"pre": "",
+"q": "Q3. How would you manage this patient?",
+"a": "<p>This patient needs to be managed as a STEMI with analgesia, nitrates, oxygen, aspirin, heparin and (most importantly) emergent PCI or thrombolysis!</p>"
+},
+{
+"pre": "",
+"q": "Q4. Can you guess what happened next?",
+"a": "<p>The patient was admitted for emergent PCI.</p> <ul> <li>Angiography revealed a 100% mid-LAD occlusion, which was successfully stented.</li> <li>His troponin peaked at 197 ng/mL.</li> <li>The patient was eventually discharged with a normal ejection fraction.</li> </ul> <p><strong>Take Home Points</strong></p> <ul> <li>The <a data-litfl=\"de-winter-t-wave-ecg-library\">de Winter ECG pattern</a> is a recently-described <strong>STEMI equivalent</strong> that emergency physicians and paramedics must be aware of.</li> <li>These patients typically have <strong>critical stenosis of the LAD</strong> requiring emergent PCI or thrombolysis.</li> <li>Lack of familiarity with these ECG findings may lead to reluctance to activate the cath lab and unacceptable delays in reperfusion.</li> <li>Remember that in many cases the de Winter pattern persisted until <em>after</em> the target artery was opened. Don’t wait for serial ECGs to evolve into a more easily recognisable STEMI pattern (which may never happen): activate the cath lab now!</li> </ul> <p><strong>CLINICAL CASES</strong></p> <p>ECG EXIGENCY</p> more exigencies… <h4>Ed Burns</h4><p>Emergency Physician in Prehospital and Retrieval Medicine in Sydney, Australia. He has a passion for ECG interpretation and medical education | <a data-litfl=\"ecg-library\">ECG Library</a> |</p> <h4>One comment</h4> <ol> <li> <h4>tom fiero</h4> <a data-litfl=\"winter-is-coming\">October 1, 2018 / 21:54</a> Reply <p>excellent, Ed.<br> may i suggest a few more points?<br> 1. reciprocal changes inferiorly, with ST set depression, and flipped T’s<br> 2. hyper acute T’s in V1-4 (you mentioned) alone would be worrisome for acute OMI (occlusive MI).<br> 3. mattu has said the an upright T in V1, esp if its higher than the T in V6 (unless its all old), is worrisome.<br> 4. very poor R-wave progression V1-3.</p> <p>thank you for this excellent example of de Winters.<br> tom</p>"
+}
+],
+"label": "De Winter T waves — proximal LAD occlusion (STEMI equivalent)",
+"tags": [
+"dewinter"
+],
+"lvl": 3
+}
+]
