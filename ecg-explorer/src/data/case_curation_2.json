@@ -1,0 +1,19 @@
+{
+ "c055": {"label": "Tricyclic antidepressant toxicity — broad QRS, terminal R′ in aVR, sinus tachycardia", "tags": ["tca_tox"]},
+ "c056": {"label": "Advanced TCA toxicity (same patient, later) — grossly broad QRS and long QT", "tags": ["tca_tox"]},
+ "c057": {"label": "Paced rhythm with positive Sgarbossa — superimposed inferior STEMI", "tags": ["sgarbossa_stemi", "paced", "stemi"]},
+ "c058": {"label": "Old anterolateral MI — LV aneurysm pattern (persistent STE + deep Q)", "tags": ["x_lvaneurysm"]},
+ "c059": {"label": "Post-VF ROSC — ventricular bigeminy, QT > 600 ms, R-on-T (torsades risk)", "tags": ["torsades", "x_lqts", "pvc"]},
+ "c060": {"label": "Short QT syndrome — QT ~240 ms with peaked T waves", "tags": ["x_sqts"]},
+ "c061": {"label": "Wellens syndrome (type B, deep symmetric TWI)", "tags": ["wellens"]},
+ "c062": {"label": "de Winter T waves — acute LAD occlusion", "tags": ["dewinter", "x_omi"]},
+ "c063": {"label": "Severe myxoedema — extremely low QRS voltage", "tags": ["x_lowvolt"]},
+ "c064": {"label": "Inferior STEMI with concave STE — reciprocity in I/aVL proves it is not pericarditis", "tags": ["stemi", "pericarditis"]},
+ "c065": {"label": "Inferior STEMI with RV infarction (same patient, repeat ECG)", "tags": ["x_rvmi", "stemi"]},
+ "c066": {"label": "Inferior STEMI with posterior extension", "tags": ["post_stemi", "stemi"]},
+ "c067": {"label": "Posterior infarction confirmed on V7–9", "tags": ["post_stemi"]},
+ "c068": {"label": "Cardiogenic shock — STE aVR + diffuse STD with anteroseptal STEMI", "tags": ["left_main_avr", "stemi"]},
+ "c069": {"label": "Severe TBI — diffuse pseudo-infarction ST elevation from raised ICP", "tags": ["cerebral_t"]},
+ "c070": {"label": "Acute PE — RV strain, RAD, RBBB, S1Q3T3", "tags": ["pe_s1q3t3", "rbbb"]},
+ "c071": {"label": "QRS alternans in AVNRT (normal voltage — not effusion)", "tags": ["avnrt", "tamponade"]}
+}

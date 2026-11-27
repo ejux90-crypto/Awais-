@@ -1,0 +1,20 @@
+{
+ "c121-2": {"label": "South African flag sign — high lateral OMI (D1 occlusion)", "tags": ["x_highlat", "x_omi", "stemi"]},
+ "c123": {"label": "Right precordial TWI with TWI in III and V1 — PE until proven otherwise (vs Wellens)", "tags": ["pe_s1q3t3", "wellens"]},
+ "c124": {"label": "Hypertrophic cardiomyopathy in a young adult with syncope (deep narrow Q waves)", "tags": ["hocm"]},
+ "c126": {"label": "Hypothermia — Osborn waves, QT prolongation", "tags": ["hypothermia"]},
+ "c128": {"label": "Subtle → evolved inferior OMI with RV involvement", "tags": ["x_omi", "x_rvmi", "stemi", "avb1"]},
+ "c129": {"label": "Apical HCM (Yamaguchi) — LVH with giant lateral T-wave inversion", "tags": ["hocm", "lvh"]},
+ "c130": {"label": "Secundum ASD — crochetage sign, RVH pattern, PACs", "tags": ["rvh", "x_atrial"]},
+ "c131": {"label": "Long-RP narrow tachycardia (atrial tachycardia) with LAFB and rate-related ST depression", "tags": ["focal_at", "lafb", "atypical_avnrt"]},
+ "c132": {"label": "Deep right precordial TWI with preserved R waves — Wellens type B", "tags": ["wellens", "pe_s1q3t3"]},
+ "c133": {"label": "RBBB with diffuse subendocardial ischaemia (STD + STE aVR)", "tags": ["left_main_avr", "rbbb", "x_nste"]},
+ "c134": {"label": "North-west axis with normal chest leads — limb lead reversal, not ischaemia", "tags": ["lead_reversal"]},
+ "c135": {"label": "Mixed overdose — AV block, sodium-channel blockade (QRS 160) and QT risk", "tags": ["tca_tox", "x_lqts", "avb1"]},
+ "c136": {"label": "Pre-excited AF — irregular broad tachycardia up to 300 bpm", "tags": ["preexcited_afib"]},
+ "c137": {"label": "Artefact mimicking polymorphic VT — QRS complexes march through at 60 bpm", "tags": ["x_artefact", "torsades"]},
+ "c138": {"label": "Frequent atrial ectopy with non-conducted PACs (pulse deficit)", "tags": ["pac_aberrant"]},
+ "c139": {"label": "Monomorphic VT with old anterior MI — capture and fusion beats prove it", "tags": ["vt"]},
+ "c140": {"label": "WPW: pre-excitation in sinus rhythm and orthodromic AVRT", "tags": ["wpw_sinus", "ortho_avrt"]},
+ "c141": {"label": "Pacemaker undersensing — spikes unrelated to native beats", "tags": ["pacer_undersense"]}
+}
