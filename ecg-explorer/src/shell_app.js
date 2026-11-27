@@ -13,15 +13,15 @@
     };
     const svgIcon = (k) => `<svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[k]}</svg>`;
     const NAV = [
-      { id: 'today', label: 'Today', modes: ['today'] },
-      { id: 'learn', label: 'Learn', modes: ['learn'] },
+      { id: 'today', label: 'Today', modes: ['today', 'session'] },
+      { id: 'learn', label: 'Learn', modes: ['learn', 'review', 'cards'], subs: [['learn', 'Pathway'], ['review', 'Quick review'], ['cards', 'Flashcards']] },
       { id: 'practice', label: 'Practice', modes: ['cases', 'quiz'], subs: [['cases', 'Real ECGs'], ['quiz', 'Simulated quiz']] },
       { id: 'library', label: 'Library', modes: ['notes', 'compare', 'tools'], subs: [['notes', 'LITFL notes'], ['compare', 'Algorithms'], ['tools', 'Bedside tools']] },
       { id: 'studio', label: 'Studio', modes: ['studio'] }
     ];
     const NAV_OF = {};
     NAV.forEach(n => n.modes.forEach(m => { NAV_OF[m] = n; }));
-    const lastSub = { practice: 'cases', library: 'notes' };
+    const lastSub = { learn: 'learn', practice: 'cases', library: 'notes' };
 
     function renderNav() {
       const nav = document.getElementById('appNav');
@@ -33,7 +33,7 @@
       if (cur && cur.subs) {
         sub.hidden = false;
         sub.innerHTML = cur.subs.map(([m, l]) => `<button class="sub-btn ${appMode === m ? 'active' : ''}" type="button" data-sub="${m}">${l}</button>`).join('');
-        sub.querySelectorAll('[data-sub]').forEach(b => b.onclick = () => { if (b.dataset.sub === 'cases') rxCurrent = null; switchMode(b.dataset.sub); window.scrollTo(0, 0); });
+        sub.querySelectorAll('[data-sub]').forEach(b => b.onclick = () => { if (b.dataset.sub === 'cases') rxCurrent = null; if (b.dataset.sub === 'review') reviewCur = null; if (b.dataset.sub === 'cards') deck = null; switchMode(b.dataset.sub); window.scrollTo(0, 0); });
       } else { sub.hidden = true; sub.innerHTML = ''; }
       const gear = document.getElementById('settingsBtn');
       if (gear) gear.classList.toggle('active', appMode === 'settings');
@@ -42,6 +42,7 @@
       const n = NAV.find(x => x.id === id);
       if (!n) return;
       if (id === 'practice' && appMode === 'cases') rxCurrent = null;
+      if (id === 'learn' && appMode === 'review') reviewCur = null;
       switchMode(n.subs ? lastSub[id] : n.modes[0]);
       window.scrollTo(0, 0);
     }
@@ -53,6 +54,10 @@
       const n = NAV_OF[m];
       if (m === 'cases' && rxCurrent) return '#/case/' + rxCurrent;
       if (m === 'studio' && typeof currentId !== 'undefined') return '#/studio/' + currentId;
+      if (m === 'review') return reviewCur ? '#/review/' + reviewCur : '#/learn/review';
+      if (m === 'learn') return '#/learn';
+      if (m === 'cards') return '#/learn/cards';
+      if (m === 'session') return '#/session';
       return n && n.subs ? `#/${n.id}/${m}` : '#/' + m;
     }
     function setRoute(r, replace) {
@@ -66,6 +71,10 @@
       try {
         if (modalOpen() && p[0] !== 'notes' && p[0] !== 'read') { document.getElementById('lessonModal').classList.remove('open'); }
         if (p[0] === 'case' && RCASE_BY_ID[p[1]]) { openCase(p[1]); }
+        else if (p[0] === 'review' && LITFL_NOTES[p[1]]) { openReview(p[1]); }
+        else if (p[0] === 'learn' && p[1] === 'review') { reviewCur = null; switchMode('review'); }
+        else if (p[0] === 'learn' && p[1] === 'cards') { deck = null; switchMode('cards'); }
+        else if (p[0] === 'session') { if (sess) runSession(); else switchMode('today'); }
         else if (p[0] === 'notes' && LITFL_NOTES[p[1]]) { if (!document.getElementById('view-' + appMode)) switchMode('notes'); openNotes(p[1]); }
         else if (p[0] === 'read' && TOPIC_BY_ID[p[1]]) { openReader(p[1]); }
         else if (p[0] === 'studio') { if (p[1] && DATA_BY_ID[p[1]]) selectRhythm(p[1]); switchMode('studio'); }
@@ -84,6 +93,9 @@
       const n = NAV_OF[mode];
       if (n && n.subs) lastSub[n.id] = mode;
       if (mode === 'today') renderToday();
+      if (mode === 'review') renderReview();
+      if (mode === 'cards') renderCards();
+      if (mode === 'session' && !sess && !document.getElementById('sessionRoot').innerHTML) { setTimeout(() => switchMode('today'), 0); }
       if (mode === 'settings') renderSettings();
       renderNav();
       setRoute(modeRoute(mode));
@@ -190,14 +202,17 @@
       const card = (t, body, btn, act, cls) => `<div class="panel today-card ${cls || ''}"><h3>${t}</h3><div class="muted">${body}</div>${btn ? `<button class="btn ${cls === 'prim' ? 'btn-primary' : ''}" type="button" data-today="${act}">${btn}</button>` : ''}</div>`;
       host.innerHTML = `
         <div class="today-head"><h2>${first ? 'Welcome' : 'Today'}</h2><p class="muted">${first ? 'Start with the Foundations — paper, leads, axis and a systematic read — then move into rhythms and real ECGs.' : `${started} / ${TOPICS.length} topics started · ${attempted} / ${RCASES.length} real ECGs attempted`}</p></div>
+        <div class="panel today-card prim sess-cta"><h3>Daily session</h3><div class="muted">~15 minutes: ${Math.min(8, cardsDue().length) || 'new'} flashcard${cardsDue().length === 1 ? '' : 's'} due + real ECGs to read, mixed and weighted to your weak spots.</div><button class="btn btn-primary" type="button" data-today="session">${sess ? 'Resume session (' + (sess.i + 1) + ' / ' + sess.items.length + ') →' : 'Start daily session →'}</button></div>
         <div class="today-grid">
           ${card(first ? 'Start learning' : 'Continue learning', `Next on your pathway: <strong>${esc(cont.name)}</strong>`, 'Open lesson →', 'continue', 'prim')}
           ${card('Real ECG cases', casesDue.length ? `<strong>${casesDue.length}</strong> case${casesDue.length > 1 ? 's' : ''} due for review` : (nextCase ? `Next unseen: <strong>${esc(nextCase.title)}</strong>` : 'All cases attempted'), casesDue.length ? 'Review due cases' : 'Read a real ECG', casesDue.length ? 'casesdue' : 'nextcase')}
           ${card('Simulated quiz', quizDue ? `<strong>${quizDue}</strong> rhythm${quizDue > 1 ? 's' : ''} due (spaced review)` : 'Read, diagnose and manage live strips', quizDue ? 'Review ' + quizDue + ' due' : 'Start quiz', 'quiz')}
           ${recallDue.length ? card('Recall cards', 'Not yet nailed: ' + recallDue.map(t => `<button class="cat-chip" type="button" data-topic="${t.id}">${esc(t.name)}</button>`).join(' '), '', '') : ''}
           ${lastCase ? card('Last case', `${esc(lastCase.title)} — ${esc(lastCase.label || '')}`, 'Open again', 'lastcase') : ''}
+          ${card('Quick review (LITFL)', `${REVIEW_ORDER.filter(x => reviewDone(x.slug)).length} / ${REVIEW_ORDER.length} topics reviewed — P wave, QRS, T wave, blocks, LVH…`, 'Review topics', 'review')}
           ${card('10-case blind exam', 'Real ECGs, answers hidden, graded at the end', 'Start exam', 'exam')}
         </div>
+        ${weaknessHtml()}
         <div class="panel today-card"><h3>Find anything</h3>
           <input id="todaySearch" class="nt-search" type="search" placeholder="Search topics, LITFL notes and cases (e.g. Brugada, aVR, hyperkalaemia)">
           <div id="todayResults"></div></div>
@@ -209,11 +224,14 @@
         quiz: () => { document.getElementById('quizOrder').value = 'smart'; switchMode('quiz'); },
         lastcase: () => openCase(lastCase.id),
         exam: () => { rxCurrent = null; switchMode('cases'); document.getElementById('rxExam').click(); },
-        settings: () => switchMode('settings')
+        settings: () => switchMode('settings'),
+        session: () => (sess ? runSession() : startSession()),
+        review: () => { const nx = REVIEW_ORDER.find(x => !reviewDone(x.slug)); if (nx) openReview(nx.slug); else { reviewCur = null; switchMode('review'); } }
       };
       host.querySelectorAll('[data-today]').forEach(b => b.onclick = () => act[b.dataset.today]());
       host.querySelectorAll('[data-topic]').forEach(b => b.onclick = () => openTopic(b.dataset.topic));
       bindGlobalSearch(document.getElementById('todaySearch'), document.getElementById('todayResults'));
+      bindWeakness(host);
     }
 
     // ---- One search across topics, LITFL notes and cases ----

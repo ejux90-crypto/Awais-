@@ -1,9 +1,9 @@
-// ECG Master Studio service worker (generated into sw.js by build.py; 331016dbb1 is replaced).
+// ECG Master Studio service worker (generated into sw.js by build.py; bf3303c8fe is replaced).
 // - App shell (index.html, manifest, icons): network-first, so a new version is picked up when online.
 // - ECG images (ecgs/...): cache-first; cached the first time they are viewed, or all at once from
 //   the in-app "Save for offline" button (which fetches offline.json and caches every listed file).
 // - Anything else (e.g. litfl.com images not bundled): straight to the network.
-const VERSION = '331016dbb1';
+const VERSION = 'bf3303c8fe';
 const SHELL = 'ecg-shell-' + VERSION;
 const IMAGES = 'ecg-images-v1';  // kept across app updates: image file names are content-stable
 const SHELL_FILES = ['./', './index.html', './manifest.webmanifest', './offline.json',

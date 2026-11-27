@@ -321,7 +321,7 @@ def main():
             cases.append({'id': f'p{eid}', 'src': 'ptbxl', 'url': 'https://physionet.org/content/ptb-xl/1.0.3/',
                           'title': f'PTB-XL ECG {eid}', 'vignette': f'{who}. Routine 12-lead ECG. Describe and interpret.',
                           'images': [{'src': f'ecgs/ptbxl/{eid}.webp', 'cap': '', 'where': 'q'}],
-                          'answer': answer, 'label': full_label, 'gain': g, 'tags': tags, 'cat': cid, 'lvl': 1 if cid in ('norm', 'sbrad', 'stach') else 3 if cid == 'mixed' else 2})
+                          'answer': answer, 'label': full_label, 'gain': g, 'scp': sc, 'axis': r['heart_axis'] or '', 'tags': tags, 'cat': cid, 'lvl': 1 if cid in ('norm', 'sbrad', 'stach') else 3 if cid == 'mixed' else 2})
         print(f'{cid}: {got}/{n}', flush=True)
     (ROOT / 'src' / 'data' / 'ptbxl_cases.json').write_text(json.dumps(cases, ensure_ascii=False, indent=0), encoding='utf-8')
     total = sum(f.stat().st_size for f in out_dir.glob('*.webp'))

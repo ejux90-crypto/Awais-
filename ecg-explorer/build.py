@@ -161,6 +161,19 @@ LEARN_SECTION = """    <!-- v9 sub-tabs (Practice / Library) -->
       <div id="settingsRoot"></div>
     </section>
 
+    <!-- v11 FLASHCARDS + DAILY SESSION -->
+    <section id="view-cards" class="view-section">
+      <div id="cardsRoot"></div>
+    </section>
+    <section id="view-session" class="view-section">
+      <div id="sessionRoot"></div>
+    </section>
+
+    <!-- v10 QUICK REVIEW (LITFL) -->
+    <section id="view-review" class="view-section">
+      <div id="reviewRoot"></div>
+    </section>
+
     <!-- v6 LEARN (PATHWAY) VIEW -->
     <section id="view-learn" class="view-section">
       <div id="learnRoot"></div>
@@ -240,7 +253,9 @@ def real_ecg_data():
     return ["    const RCASES = " + dump(cases) + ";",
             "    const RX_EXAMPLES = " + dump(examples) + ";",
             "    const RX_IMG = " + dump(img_map) + ";",
-            "    const LITFL_NOTES = " + dump(notes) + ";"]
+            "    const LITFL_NOTES = " + dump(notes) + ";",
+            "    const REVIEW_GROUPS = " + (DATA / "review_groups.json").read_text(encoding="utf-8") + ";",
+            "    const LITFL_CARDS = " + ((DATA / "litfl_cards.json").read_text(encoding="utf-8") if (DATA / "litfl_cards.json").exists() else "[]") + ";"]
 
 
 DATA_STATS = ""
@@ -330,7 +345,7 @@ def build():
                  "learn_rhythms_5.js", "learn_foundations.js", "learn_extend.js"]:
         js.append((SRC / name).read_text(encoding="utf-8"))
     js.extend(real_ecg_data())
-    for name in ["learn_app.js", "cases_app.js", "notes_app.js", "offline_app.js", "shell_app.js"]:
+    for name in ["learn_app.js", "cases_app.js", "notes_app.js", "review_app.js", "drill_app.js", "offline_app.js", "shell_app.js"]:
         js.append((SRC / name).read_text(encoding="utf-8"))
     html = patch(html, "    // Init + Restore saved preferences", "\n".join(js) + "\n    // Init + Restore saved preferences", "inject js")
     html = patch(html, "    selectRhythm('avnrt');\n    requestAnimationFrame(mainLoop);",
