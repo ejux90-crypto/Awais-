@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Download LITFL ECG images politely and store them as compact WebP files.
 
-usage: python3 fetch_images.py <urls.txt> <raw-cache-dir> <out-dir> <map.json>
+usage: python3 fetch_images.py <urls.txt> <raw-cache-dir> <out-dir> <map.json> [delay-seconds=6]
   - sequential, 6 s apart, cached; stops after 3 consecutive refusals (re-runs only fetch what is missing)
   - resized to <= 1400 px wide, WebP q72 (fine grid and waveform detail survive)
   - map.json: {original_url: "file.webp"}
@@ -24,6 +24,7 @@ def main():
     raw.mkdir(parents=True, exist_ok=True)
     out.mkdir(parents=True, exist_ok=True)
     mapping = json.loads(mp.read_text()) if mp.exists() else {}
+    delay = float(sys.argv[5]) if len(sys.argv) > 5 else 6.0
     fails = []
     streak = 0
     for i, u in enumerate(urls):
@@ -36,7 +37,7 @@ def main():
         if not r.exists() or r.stat().st_size == 0:
             code = subprocess.run(['curl', '-sS', '-m', '40', '-A', UA, '-o', str(r), '-w', '%{http_code}', u],
                                   capture_output=True, text=True).stdout.strip()
-            time.sleep(6)
+            time.sleep(delay)
             if code != '200':
                 fails.append((u, code))
                 r.unlink(missing_ok=True)
