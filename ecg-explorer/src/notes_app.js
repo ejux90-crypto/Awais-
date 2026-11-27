@@ -23,9 +23,15 @@
     }
     function bindNotes(host) {
       bindFigs(host);
+      // LITFL's older addresses for pages the app has under their current address
+      const ALIAS = { 'hypomagnesaemia': 'hypomagnesaemia-ecg-library', 'arrhythmogenic-right-ventricular-dysplasia-arvd': 'arrhythmogenic-right-ventricular-cardiomyopathy-arvc', 'dressler-beat': 'fusion-beat-dressler-beat-ecg-library' };
       host.querySelectorAll('a[data-litfl]').forEach(a => {
-        const s = a.dataset.litfl;
-        if (LITFL_NOTES[s]) { a.href = '#'; a.onclick = (e) => { e.preventDefault(); openNotes(s, true); }; }
+        const s = ALIAS[a.dataset.litfl] || a.dataset.litfl;
+        const go = (fn) => { a.href = '#'; a.classList.add('nt-inapp'); a.onclick = (e) => { e.preventDefault(); fn(); }; };
+        const caseId = /^ecg-case-/.test(s) ? 'c' + s.slice(9) : (RCASE_BY_ID['x' + s] ? 'x' + s : null);
+        if (LITFL_NOTES[s]) go(() => openNotes(s, true));
+        else if (caseId && RCASE_BY_ID[caseId]) go(() => { document.getElementById('lessonModal').classList.remove('open'); rxCurrent = null; openCase(caseId); });   // LITFL case or puzzle already in the app
+        else if (s === 'ecg-library') go(() => { document.getElementById('lessonModal').classList.remove('open'); switchMode('notes'); window.scrollTo(0, 0); });
         else { a.href = 'https://litfl.com/' + s + '/'; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.classList.add('nt-ext'); }
       });
       host.querySelectorAll('[data-notes]').forEach(b => b.onclick = () => openNotes(b.dataset.notes));

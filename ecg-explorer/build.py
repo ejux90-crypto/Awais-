@@ -210,6 +210,21 @@ LESSON_MODAL = """    <!-- v6 Reading-lesson modal -->
     <footer class="shortcut-bar">"""
 
 
+def tidy_html(h):
+    """Remove leftovers of LITFL's web page widgets from case / puzzle / notes HTML (display only; data files untouched).
+    - 'Reveal answer' as plain text (LITFL's inner toggle; the whole answer is already behind the app's reveal).
+      Kept when it is a real <summary> toggle.
+    - empty paragraphs
+    - 'Click here' whose link was removed: reworded to name the source."""
+    import re as _re
+    h = _re.sub(r'(?<!<summary>)\s*\bReveal answer\b\s*(?!</summary>)', ' ', h)
+    h = _re.sub(r'<p>(?:\s|&nbsp;|<br>)*</p>', '', h)
+    h = _re.sub(r'\.\s*Click here for (a description of the case[^.<]*)', r', which has \1', h)
+    h = _re.sub(r'\(click here for (a description of how to do this)\)', r'(the original LITFL page links to \1)', h, flags=_re.I)
+    h = _re.sub(r'\b[Cc]lick here\b', 'see the original LITFL page', h)
+    return _re.sub(r'[ \t]{2,}', ' ', h)
+
+
 def real_ecg_data():
     """LITFL Top-100 cases (+ hand-curated labels/tags) and topic example ECGs."""
     cases = json.loads((DATA / "rcases.json").read_text(encoding="utf-8"))
@@ -248,6 +263,13 @@ def real_ecg_data():
                   f"{len(used)}/{len(all_srcs)} images bundled (rest load from LITFL when online); "
                   f"{len(puzzles)} ECG Exigency puzzles; {len(ptb)} PTB-XL cases; {len(notes)} LITFL note pages "
                   f"({len(note_srcs & set(img_map))}/{len(note_srcs)} note images bundled)")
+    for c in cases:
+        c["answer"] = tidy_html(c["answer"])
+    for c in puzzles:
+        for st in c["steps"]:
+            st["pre"], st["a"] = tidy_html(st["pre"]), tidy_html(st["a"])
+    for n in notes.values():
+        n["html"] = tidy_html(n["html"])
     cases = cases + puzzles + ptb
     dump = lambda o: json.dumps(o, ensure_ascii=False, separators=(",", ":"))
     return ["    const RCASES = " + dump(cases) + ";",
